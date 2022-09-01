@@ -86,5 +86,5 @@ $ cp *.pem .././../tidy-parrot-ysck.pem
 
 ### 3. Execute Ansible playbook
 ```bash
-$ ansible-playbook -i inventory/private-layer1.ini cluster.yaml
+$ ansible-playbook -i inventory/inventory.ini cluster.yaml
 ```
