@@ -1,0 +1,15 @@
+---
+
+- name: Install klaytn packages
+  include_tasks: install_package.yml
+
+- name: Copy required files
+  include_tasks: copy_files.yml
+
+- name: Start klaytn daemon
+  become: yes
+  systemd:
+    name: "{{ klaytn_daemon_name }}" 
+    state: restarted
+    enabled: yes
+    

@@ -1,0 +1,21 @@
+---
+- name: Create Network Topology
+  klay_topology:
+    num_cn: "{{ klaytn_num_cn }}"
+    num_pn: "{{ klaytn_num_pn }}"
+    num_en: "{{ klaytn_num_en }}"
+    use_default: True
+    custom_topology: "{{ klaytn_custom_topology }}"
+  register: topology_result
+
+- name: Get KNIs data for static-nodes.json
+  klay_static_nodes:
+    homi_output_dir: "{{ homi_output_dir }}"
+    topology: "{{ topology_result.topology }}"
+  register: static_nodes_result
+
+- name: Generate static-nodes.json
+  copy:
+    content: "{{ item.value['knis'] }}"
+    dest: "{{ homi_output_dir }}/{{ item.value['node_type'] }}/scripts/static-nodes{{ item.value['node_num'] }}.json"
+  with_dict: "{{ static_nodes_result['static_nodes'] }}"

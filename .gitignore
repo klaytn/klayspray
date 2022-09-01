@@ -1,0 +1,7 @@
+cache
+*.swp
+*.pyc
+terraform.tfstate*
+.terraform*
+*.pem
+.DS_Store

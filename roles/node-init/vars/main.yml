@@ -1,0 +1,2 @@
+klaytn_conf: "{{ klaytn_conf_default | combine(klaytn_conf_override) }}"
+klaytn_daemon_name: "k{{ klaytn_node_type }}d"

@@ -1,0 +1,35 @@
+---
+- name: "Set fact"
+  set_fact:
+    node_index: "{{ groups[klaytn_node_type].index(inventory_hostname) + 1 }}"
+
+- name: "Initialization - Copy static-nodes file"
+  become: yes
+  copy:
+    src: "{{ homi_output_dir }}/{{ klaytn_node_type }}/scripts/static-nodes{{ node_index }}.json"
+    dest: "{{ klaytn_conf.DATA_DIR }}/static-nodes.json"
+
+- name: "Initialization - Copy nodekey file"
+  become: yes
+  copy:
+    src: "{{ homi_output_dir }}/{{ klaytn_node_type }}/keys/nodekey{{ node_index }}"
+    dest: "{{ klaytn_conf.DATA_DIR }}/nodekey"
+
+- name: "Initialization - Check genesis initialized"
+  become: yes
+  stat:
+    path: "{{ klaytn_conf.DATA_DIR}}/klay"
+  register: check_klay_data_dir
+
+- name: "Initialization - Copy Genesis File"
+  become: yes
+  copy:
+    src: "{{ homi_output_dir }}/cn/scripts/genesis.json"
+    dest: "/etc/{{ klaytn_daemon_name }}/genesis.json"
+  when: check_klay_data_dir.stat.exists == False
+
+- name: "Initialization - Genensis"
+  become: yes
+  shell:
+    cmd: "k{{ klaytn_node_type }} init --datadir {{ klaytn_conf.DATA_DIR }} /etc/{{ klaytn_daemon_name }}/genesis.json"
+  when: check_klay_data_dir.stat.exists == False

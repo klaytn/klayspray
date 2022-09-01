@@ -1,0 +1,2 @@
+homi_bin: "{{ bin_dir }}/homi"
+homi_default_options: ""

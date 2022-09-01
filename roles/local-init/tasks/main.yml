@@ -1,0 +1,32 @@
+---
+- name: Create binary directory
+  file:
+    path: "{{ bin_dir }}"
+    state: directory
+    mode: "0755"
+  tags:
+  - localhost
+
+- name: Start to download a package
+  include_tasks: download_package.yml
+  loop:
+  - kgen
+  - homi
+  loop_control:
+    loop_var: package_name
+  tags:
+  - localhost
+
+- name: Generate genesis.json & nodekey
+  include_tasks: genesis.yml
+  with_items:
+  - { type: "cn", num: "{{ klaytn_num_cn }}" }
+  - { type: "pn", num: "{{ klaytn_num_pn }}" }
+  - { type: "en", num: "{{ klaytn_num_en }}" }
+  loop_control:
+    loop_var: node
+  tags:
+  - localhost
+
+- name: Generate static-nodes.json
+  include_tasks: static_nodes.yml
