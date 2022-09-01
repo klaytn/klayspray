@@ -1,18 +1,22 @@
 # klayspray
 Deploy a Klaytn network!
 
-# Supported Cloud Providers
+## Table of Contents
+
+- [Supported Cloud Providers](#supported-cloud-providers)
+- [Requirements](#requirements)
+- [Get Started : Deploy Private Layer1 Network](#get-started--deploy-private-layer1-network)
+
+## Supported Cloud Providers
 * AWS
 
-# Requirements
+## Requirements
 * terraform
 * ansible
 * gtar
 * aws
 
-# Get Started
-
-## Deploy Private Layer1 Network
+## Get Started : Deploy Private Layer1 Network
 
 ### 1. Deploy AWS resources
 > :warning: Before running the following commands, please get AWS credentials.
