@@ -18,14 +18,26 @@ Deploy a Klaytn network!
 
 ## Get Started : Deploy Private Layer1 Network
 
+### QuickStart
+You can easily deploy a private layer1 network with the following command lines. Please see the below to see the deatil.
+```bash
+$ git clone https://github.com/klaytn/klayspray.git
+$ cd klayspray
+$ export TF_OPTIONS="-chdir=terraform/aws/private-layer1"
+$ terraform $TF_OPTIONS init
+$ terraform $TF_OPTIONS apply -auto-approve
+$ ansible-playbook -i private-layer1_inventory.ini private-layer1.yaml
+```
+
 ### 1. Deploy AWS resources
 > :warning: Before running the following commands, please get AWS credentials.
 
 ```bash
 $ git clone https://github.com/klaytn/klayspray.git
-$ cd klayspray/terraform/aws/private-layer1
-$ terraform init
-$ terraform apply -auto-approve
+$ cd klayspray
+$ export TF_OPTIONS="-chdir=terraform/aws/private-layer1"
+$ terraform $TF_OPTIONS init
+$ terraform $TF_OPTIONS apply -auto-approve
 ```
 
 terraform output will be shown like the below.
@@ -65,26 +77,12 @@ public_subnet_ids = [
 
 ### 2. Copy required files
 > :warning: Suppose that you are located at klayspray/terraform/aws/private-layer1
-You can check two files
-1. PEM file to use via SSH
-2. inventory.ini file storing Klaytn node connection information
+You can check two files in the root path of klayspray.
+1. private-ssh-key.pem: a file to use via SSH
+2. private-layer1_inventory.ini: a file storing Klaytn node connection information
 
-#### Check whether files exist or not
-```bash
-$ ls *.ini
-inventory.ini
-
-$ ls *.pem
-tidy-parrot-ysck.pem # auto-generated name
-```
-
-#### Copy files to the destination
-```bash
-$ cp *.ini ../../../inventory/inventory.ini
-$ cp *.pem .././../tidy-parrot-ysck.pem
-```
 
 ### 3. Execute Ansible playbook
 ```bash
-$ ansible-playbook -i inventory/inventory.ini cluster.yaml
+$ ansible-playbook -i private-layer1_inventory.ini private-layer1.yaml
 ```

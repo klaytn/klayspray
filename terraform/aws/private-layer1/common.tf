@@ -18,7 +18,7 @@ resource "local_sensitive_file" "this" {
   count = var.create_aws_key_pair ? 1 : 0
 
   content         = tls_private_key.ssh[0].private_key_openssh
-  filename        = format("%s/%s.pem", path.module, aws_key_pair.this[0].key_name)
+  filename        = format("%s/../../../private-ssh-key.pem", path.module)
   file_permission = "0400"
 }
 

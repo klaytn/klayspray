@@ -22,14 +22,3 @@
     index_var: idx
   tags:
   - localhost
-
-- name: "Modify {{ node.type }} validator file"
-  replace:
-    path: "{{ homi_output_dir }}/{{ node.type }}/keys/validator{{ idx + 1 }}"
-    regexp: "([0-9]+\\.[0-9]+\\.[0-9]+\\.[0-9]+\\:\\d{1,5}\\?)"
-    replace: "{{ hostvars[item]['ansible_host'] }}:32323?"
-  loop: "{{ groups[node.type] }}"
-  loop_control:
-    index_var: idx
-  tags:
-  - localhost

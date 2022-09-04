@@ -1,2 +1,4 @@
 homi_bin: "{{ bin_dir }}/homi"
 homi_default_options: ""
+
+force_create_genesis: False

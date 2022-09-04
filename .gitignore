@@ -5,3 +5,4 @@ terraform.tfstate*
 .terraform*
 *.pem
 .DS_Store
+roles/klaytn_node/*
