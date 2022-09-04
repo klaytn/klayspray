@@ -12,13 +12,23 @@
   when:
   - check_nodekey_file.stat.exists == False
 
-- name: "Modify {{ node.type }} validator file"
-  replace:
-    path: "{{ homi_output_dir }}/{{ node.type }}/keys/validator{{ idx + 1 }}"
-    regexp: "([0-9]+\\.[0-9]+\\.[0-9]+\\.[0-9]+\\:\\d{1,5}\\?)"
-    replace: "{{ hostvars[item]['ansible_host'] }}:32323?"
+- name: Convert and get validator data
+  klay_validator:
+    homi_output_dir: "{{ homi_output_dir }}"
+    node_type: "{{ node.type }}"
+    node_index: "{{ node_index | int }}"
+    port: 32323
+    public_ip: "{{ hostvars[item]['ansible_host'] }}"
+    private_ip: "{{ hostvars[item]['ansible_private_host'] }}"
+  register: validator_result
   loop: "{{ groups[node.type] }}"
   loop_control:
-    index_var: idx
-  tags:
-  - localhost
+    index_var: node_index
+
+- name: Generate validator file
+  copy:
+    content: "{{ item.validator }}"
+    dest: "{{ homi_output_dir }}/{{ node.type }}/keys/validator{{ node_index | int + 1 }}"
+  loop: "{{ validator_result.results }}"
+  loop_control:
+    index_var: node_index

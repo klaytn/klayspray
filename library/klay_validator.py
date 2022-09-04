@@ -5,8 +5,8 @@ __metaclass__ = type
 
 DOCUMENTATION = r'''
 ---
-module: klay_static_nodes
-short_description: This module generates static-nodes knis following to network topology
+module: klay_validator
+short_description: This module generates validator files
 version_added: "1.0.0"
 '''
 
@@ -17,27 +17,23 @@ from urllib.parse import urlparse, parse_qsl, urlencode, urlunparse
 from ansible.module_utils.basic import AnsibleModule
 
 
-def node_name(node_type, node_index):
-    return '{}-{}'.format(node_type, (node_index + 1))
-
-
-def split_node_name(node_name):
-    node_type, node_num = node_name.split('-')
-    return node_type, int(node_num)
-
-
 class ModuleRunner(object):
 
     def __init__(self, module):
         self.module = module
         self.result = dict(
             changed=False,
-            static_nodes={},
+            validator={},
         )
 
         self.homi_output_dir = module.params['homi_output_dir']
-        self.topology = module.params['topology']
+        self.node_type = module.params['node_type']
+        self.node_index = module.params['node_index']
+        self.port = module.params['port']
+        self.public_ip = module.params['public_ip']
+        self.private_ip = module.params['private_ip']
 
+        self.node_num = self.node_index + 1
         self.validate_params()
 
 
@@ -59,24 +55,33 @@ class ModuleRunner(object):
         path = '{}/{}/keys/validator{}'.format(self.homi_output_dir, node_type, node_num)
         data = json.loads(self.read_file(path))
 
+
         return data
+
+
+    def get_node_info(self, node_info, ip, port):
+        parts = urlparse(node_info)
+
+        qs = dict(parse_qsl(parts.query))
+        qs['ntype'] = self.node_type
+
+        netloc = parts.netloc
+        netloc = '{}@{}:{}'.format(netloc.split('@')[0], ip, port)
+
+        parts = parts._replace(netloc=netloc, query=urlencode(qs))
+
+        return urlunparse(parts)
 
 
     def run(self):
         result = self.result
 
-        for k1, v1 in self.topology.items():
-            node_type1, node_num1 = split_node_name(k1)
+        data = self.read_validator(self.node_type, self.node_num)
 
-            result['static_nodes'][k1] = {
-                'node_type': node_type1,
-                'node_num': node_num1,
-                'knis': []
-            }
-            for v2 in v1:
-                node_type2, node_num2 = split_node_name(v2)
-                validator = self.read_validator(node_type2, node_num2)
-                result['static_nodes'][k1]['knis'].append(validator['NodeInfo'])
+        data['NodeInfo'] = self.get_node_info(data['NodeInfo'], self.public_ip, self.port)
+        data['PrivateNodeInfo'] = self.get_node_info(data['NodeInfo'], self.private_ip, self.port)
+
+        result['validator'] = data
 
         return result
 
@@ -85,7 +90,11 @@ def main():
     module = AnsibleModule(
         argument_spec=dict(
             homi_output_dir=dict(type='str', required=True),
-            topology=dict(type='dict', required=True),
+            node_type=dict(type='str', required=True),
+            node_index=dict(type='int', required=True),
+            port=dict(type='int', default=32323),
+            public_ip=dict(type='str', required=True),
+            private_ip=dict(type='str', required=True),
         ),
         supports_check_mode=False
     )

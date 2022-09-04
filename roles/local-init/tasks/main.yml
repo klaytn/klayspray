@@ -17,7 +17,7 @@
   tags:
   - localhost
 
-- name: Generate genesis.json & nodekey
+- name: Generate genesis.json & nodekey & validator
   include_tasks: genesis.yml
   with_items:
   - { type: "cn", num: "{{ klaytn_num_cn }}" }
