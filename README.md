@@ -75,8 +75,7 @@ public_subnet_ids = [
 ]
 ```
 
-### 2. Copy required files
-> :warning: Suppose that you are located at klayspray/terraform/aws/private-layer1
+### 2. Check the generated files
 You can check two files in the root path of klayspray.
 1. private-ssh-key.pem: a file to use via SSH
 2. private-layer1_inventory.ini: a file storing Klaytn node connection information
