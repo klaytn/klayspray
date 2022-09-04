@@ -12,16 +12,8 @@ module "cn" {
 
   root_block_device = {
     volume_type = "gp2"
-    volume_size = 8
+    volume_size = local.cn_options.ebs_volume_size
   }
-
-  ebs_block_devices = [
-    {
-      type        = "gp2"
-      size        = local.cn_options.ebs_volume_size
-      device_name = "/dev/sdb"
-    }
-  ]
 
   tags = local.default_tags
 }
@@ -40,16 +32,8 @@ module "pn" {
 
   root_block_device = {
     volume_type = "gp2"
-    volume_size = 8
+    volume_size = local.cn_options.ebs_volume_size
   }
-
-  ebs_block_devices = [
-    {
-      type        = "gp2"
-      size        = local.pn_options.ebs_volume_size
-      device_name = "/dev/sdb"
-    }
-  ]
 
   tags = local.default_tags
 }
@@ -68,16 +52,8 @@ module "en" {
 
   root_block_device = {
     volume_type = "gp2"
-    volume_size = 8
+    volume_size = local.cn_options.ebs_volume_size
   }
-
-  ebs_block_devices = [
-    {
-      type        = "gp2"
-      size        = local.en_options.ebs_volume_size
-      device_name = "/dev/sdb"
-    }
-  ]
 
   tags = local.default_tags
 }
