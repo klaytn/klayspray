@@ -6,6 +6,7 @@ locals {
       cn                           = try(module.cn, {})
       pn                           = try(module.pn, {})
       en                           = try(module.en, {})
+      monitor                      = try(module.monitor, {})
     }
   )
 }

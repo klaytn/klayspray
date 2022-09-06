@@ -24,3 +24,7 @@ output "pn" {
 output "en" {
   value = module.en
 }
+
+output "monitor" {
+  value = module.monitor
+}
