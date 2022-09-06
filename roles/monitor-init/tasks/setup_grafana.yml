@@ -1,0 +1,33 @@
+---
+- name: "Make configuration directory"
+  become: yes
+  file:
+    path: "{{ grafana_provisioning_dir }}/{{ item }}"
+    state: "directory"
+  loop:
+  - datasources
+  - dashboards
+
+- name: "Copy static dashboard files"
+  become: yes
+  copy:
+    src: "templates/{{ item }}"
+    dest: "{{ grafana_provisioning_dir }}"
+  loop:
+  - datasources
+  - dashboards
+
+- name: "Run grafana docker"
+  become: yes
+  docker_container:
+    name: grafana
+    image: grafana/grafana
+    volumes:
+    - "{{ grafana_provisioning_dir }}:/etc/grafana/provisioning"
+    network_mode: host
+    restart_policy: always
+    state: started
+    detach: yes
+
+- debug:
+    msg: "Grafana is listening on :{{ grafana_port }}"

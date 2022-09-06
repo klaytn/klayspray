@@ -1,0 +1,4 @@
+---
+- include_tasks: setup_docker.yml
+- include_tasks: setup_grafana.yml
+- include_tasks: setup_prometheus.yml

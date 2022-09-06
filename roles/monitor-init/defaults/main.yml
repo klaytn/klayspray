@@ -1,0 +1,6 @@
+---
+prometheus_port: "9090"
+prometheus_conf_dir: /etc/prometheus/
+grafana_port: "3000"
+grafana_provisioning_dir: /etc/grafana/conf/provisioning
+klaytn_exporter_port: "61001"

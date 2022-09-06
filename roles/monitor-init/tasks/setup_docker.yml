@@ -1,0 +1,29 @@
+---
+- name: "Install docker"
+  become: yes
+  shell: "yum update -y && amazon-linux-extras install docker -y"
+  when:
+    ansible_distribution == 'Amazon'
+
+- name: "Install docker"
+  become: yes
+  shell: "curl -fsSL https://get.docker.com -o get-docker.sh && sh get-docker.sh"
+  when:
+    ansible_distribution != 'Amazon'
+
+- name: "Start docker daemon"
+  become: yes
+  systemd:
+    name: docker
+    state: started
+    enabled: yes
+
+- name: Install pip
+  shell: "curl -fsSL https://bootstrap.pypa.io/pip/2.7/get-pip.py -o get-pip.py && python get-pip.py"
+  become: yes
+
+- name: Install docker python package
+  become: yes
+  pip:
+    name: docker
+    extra_args: "--ignore-installed"

@@ -1,0 +1,34 @@
+---
+- name: "Make configuration directory"
+  become: yes
+  file:
+    path: "{{ prometheus_conf_dir }}"
+    state: "directory"
+
+- name: "Template Prometheus configuration"
+  become: yes
+  template:
+    src: "prometheus.yml.j2"
+    dest: "{{ prometheus_conf_dir }}/prometheus.yml"
+    force: yes
+  vars:
+    nodes: |-
+      {% for host in groups['nodes'] -%}
+        {{ hostvars[host]['ansible_private_host'] }}{%- if not loop.last -%},{%- endif -%}
+      {%- endfor -%}
+
+- name: "Run prometheus docker"
+  become: yes
+  docker_container:
+    name: prometheus
+    image: prom/prometheus
+    volumes:
+    - "{{ prometheus_conf_dir }}/prometheus.yml:/etc/prometheus/prometheus.yml"
+    network_mode: host
+    restart_policy: always
+    state: started
+    detach: yes
+
+- debug:
+    msg: "Prometheus is listening on :{{ prometheus_port }}"
+

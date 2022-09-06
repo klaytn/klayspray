@@ -1,0 +1,2366 @@
+{
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": "-- Grafana --",
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "type": "dashboard"
+      }
+    ]
+  },
+  "editable": true,
+  "gnetId": null,
+  "graphTooltip": 0,
+  "links": [],
+  "panels": [
+    {
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 0
+      },
+      "id": 7,
+      "panels": [],
+      "title": "State Trie DB Size by Level",
+      "type": "row"
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "klaytn",
+      "fill": 1,
+      "gridPos": {
+        "h": 8,
+        "w": 5,
+        "x": 0,
+        "y": 1
+      },
+      "id": 2,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "links": [],
+      "nullPointMode": "null",
+      "percentage": false,
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "expr": "klaytn_klay_db_chaindata_statetrie_0level0_size",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "{{instance}} - L0",
+          "refId": "A"
+        },
+        {
+          "expr": "klaytn_klay_db_chaindata_statetrie_0level1_size",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "{{instance}} - L1",
+          "refId": "B"
+        },
+        {
+          "expr": "klaytn_klay_db_chaindata_statetrie_0level2_size",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "{{instance}} - L2",
+          "refId": "C"
+        },
+        {
+          "expr": "klaytn_klay_db_chaindata_statetrie_0level3_size",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "{{instance}} - L3",
+          "refId": "D"
+        },
+        {
+          "expr": "klaytn_klay_db_chaindata_statetrie_0level4_size",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "{{instance}} - L4",
+          "refId": "E"
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "State Trie Partition 0 DB Size by Level",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "decbytes",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "klaytn",
+      "fill": 1,
+      "gridPos": {
+        "h": 8,
+        "w": 5,
+        "x": 5,
+        "y": 1
+      },
+      "id": 3,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "links": [],
+      "nullPointMode": "null",
+      "percentage": false,
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "expr": "klaytn_klay_db_chaindata_statetrie_1level0_size",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "{{instance}} - L0",
+          "refId": "A"
+        },
+        {
+          "expr": "klaytn_klay_db_chaindata_statetrie_1level1_size",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "{{instance}} - L1",
+          "refId": "B"
+        },
+        {
+          "expr": "klaytn_klay_db_chaindata_statetrie_1level2_size",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "{{instance}} - L2",
+          "refId": "C"
+        },
+        {
+          "expr": "klaytn_klay_db_chaindata_statetrie_1level3_size",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "{{instance}} - L3",
+          "refId": "D"
+        },
+        {
+          "expr": "klaytn_klay_db_chaindata_statetrie_1level4_size",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "{{instance}} - L4",
+          "refId": "E"
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "State Trie Partition 1 DB Size by Level",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "decbytes",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "klaytn",
+      "fill": 1,
+      "gridPos": {
+        "h": 8,
+        "w": 5,
+        "x": 10,
+        "y": 1
+      },
+      "id": 4,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "links": [],
+      "nullPointMode": "null",
+      "percentage": false,
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "expr": "klaytn_klay_db_chaindata_statetrie_2level0_size",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "{{instance}} - L0",
+          "refId": "A"
+        },
+        {
+          "expr": "klaytn_klay_db_chaindata_statetrie_2level1_size",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "{{instance}} - L1",
+          "refId": "B"
+        },
+        {
+          "expr": "klaytn_klay_db_chaindata_statetrie_2level2_size",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "{{instance}} - L2",
+          "refId": "C"
+        },
+        {
+          "expr": "klaytn_klay_db_chaindata_statetrie_2level3_size",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "{{instance}} - L3",
+          "refId": "D"
+        },
+        {
+          "expr": "klaytn_klay_db_chaindata_statetrie_2level4_size",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "{{instance}} - L4",
+          "refId": "E"
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "State Trie Partition 2 DB Size by Level",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "decbytes",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "klaytn",
+      "fill": 1,
+      "gridPos": {
+        "h": 8,
+        "w": 5,
+        "x": 15,
+        "y": 1
+      },
+      "id": 5,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "links": [],
+      "nullPointMode": "null",
+      "percentage": false,
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "expr": "klaytn_klay_db_chaindata_statetrie_3level0_size",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "{{instance}} - L0",
+          "refId": "A"
+        },
+        {
+          "expr": "klaytn_klay_db_chaindata_statetrie_3level1_size",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "{{instance}} - L1",
+          "refId": "B"
+        },
+        {
+          "expr": "klaytn_klay_db_chaindata_statetrie_3level2_size",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "{{instance}} - L2",
+          "refId": "C"
+        },
+        {
+          "expr": "klaytn_klay_db_chaindata_statetrie_3level3_size",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "{{instance}} - L3",
+          "refId": "D"
+        },
+        {
+          "expr": "klaytn_klay_db_chaindata_statetrie_3level4_size",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "{{instance}} - L4",
+          "refId": "E"
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "State Trie Partition 3 DB Size by Level",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "decbytes",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 9
+      },
+      "id": 15,
+      "panels": [],
+      "title": "State Trie DB Read by Level",
+      "type": "row"
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "klaytn",
+      "fill": 1,
+      "gridPos": {
+        "h": 8,
+        "w": 5,
+        "x": 0,
+        "y": 10
+      },
+      "id": 16,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "links": [],
+      "nullPointMode": "null",
+      "percentage": false,
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "expr": "klaytn_klay_db_chaindata_statetrie_0level0_read",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "{{instance}} - L0",
+          "refId": "A"
+        },
+        {
+          "expr": "klaytn_klay_db_chaindata_statetrie_0level1_read",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "{{instance}} - L1",
+          "refId": "B"
+        },
+        {
+          "expr": "klaytn_klay_db_chaindata_statetrie_0level2_read",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "{{instance}} - L2",
+          "refId": "C"
+        },
+        {
+          "expr": "klaytn_klay_db_chaindata_statetrie_0level3_read",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "{{instance}} - L3",
+          "refId": "D"
+        },
+        {
+          "expr": "klaytn_klay_db_chaindata_statetrie_0level4_read",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "{{instance}} - L4",
+          "refId": "E"
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "State Trie Partition 0 DB Read by Level",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "decbytes",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "klaytn",
+      "fill": 1,
+      "gridPos": {
+        "h": 8,
+        "w": 5,
+        "x": 5,
+        "y": 10
+      },
+      "id": 17,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "links": [],
+      "nullPointMode": "null",
+      "percentage": false,
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "expr": "klaytn_klay_db_chaindata_statetrie_1level0_read",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "{{instance}} - L0",
+          "refId": "A"
+        },
+        {
+          "expr": "klaytn_klay_db_chaindata_statetrie_1level1_read",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "{{instance}} - L1",
+          "refId": "B"
+        },
+        {
+          "expr": "klaytn_klay_db_chaindata_statetrie_1level2_read",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "{{instance}} - L2",
+          "refId": "C"
+        },
+        {
+          "expr": "klaytn_klay_db_chaindata_statetrie_1level3_read",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "{{instance}} - L3",
+          "refId": "D"
+        },
+        {
+          "expr": "klaytn_klay_db_chaindata_statetrie_1level4_read",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "{{instance}} - L4",
+          "refId": "E"
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "State Trie Partition 1 DB Read by Level",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "decbytes",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "klaytn",
+      "fill": 1,
+      "gridPos": {
+        "h": 8,
+        "w": 5,
+        "x": 10,
+        "y": 10
+      },
+      "id": 18,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "links": [],
+      "nullPointMode": "null",
+      "percentage": false,
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "expr": "klaytn_klay_db_chaindata_statetrie_2level0_read",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "{{instance}} - L0",
+          "refId": "A"
+        },
+        {
+          "expr": "klaytn_klay_db_chaindata_statetrie_2level1_read",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "{{instance}} - L1",
+          "refId": "B"
+        },
+        {
+          "expr": "klaytn_klay_db_chaindata_statetrie_2level2_read",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "{{instance}} - L2",
+          "refId": "C"
+        },
+        {
+          "expr": "klaytn_klay_db_chaindata_statetrie_2level3_read",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "{{instance}} - L3",
+          "refId": "D"
+        },
+        {
+          "expr": "klaytn_klay_db_chaindata_statetrie_2level4_read",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "{{instance}} - L4",
+          "refId": "E"
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "State Trie Partition 2 DB Read by Level",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "decbytes",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "klaytn",
+      "fill": 1,
+      "gridPos": {
+        "h": 8,
+        "w": 5,
+        "x": 15,
+        "y": 10
+      },
+      "id": 19,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "links": [],
+      "nullPointMode": "null",
+      "percentage": false,
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "expr": "klaytn_klay_db_chaindata_statetrie_3level0_read",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "{{instance}} - L0",
+          "refId": "A"
+        },
+        {
+          "expr": "klaytn_klay_db_chaindata_statetrie_3level1_read",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "{{instance}} - L1",
+          "refId": "B"
+        },
+        {
+          "expr": "klaytn_klay_db_chaindata_statetrie_3level2_read",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "{{instance}} - L2",
+          "refId": "C"
+        },
+        {
+          "expr": "klaytn_klay_db_chaindata_statetrie_3level3_read",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "{{instance}} - L3",
+          "refId": "D"
+        },
+        {
+          "expr": "klaytn_klay_db_chaindata_statetrie_3level4_read",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "{{instance}} - L4",
+          "refId": "E"
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "State Trie Partition 3 DB Read by Level",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "decbytes",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 18
+      },
+      "id": 9,
+      "panels": [],
+      "title": "State Trie DB Write by Level",
+      "type": "row"
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "klaytn",
+      "fill": 1,
+      "gridPos": {
+        "h": 8,
+        "w": 5,
+        "x": 0,
+        "y": 19
+      },
+      "id": 10,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "links": [],
+      "nullPointMode": "null",
+      "percentage": false,
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "expr": "klaytn_klay_db_chaindata_statetrie_0level0_write",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "{{instance}} - L0",
+          "refId": "A"
+        },
+        {
+          "expr": "klaytn_klay_db_chaindata_statetrie_0level1_write",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "{{instance}} - L1",
+          "refId": "B"
+        },
+        {
+          "expr": "klaytn_klay_db_chaindata_statetrie_0level2_write",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "{{instance}} - L2",
+          "refId": "C"
+        },
+        {
+          "expr": "klaytn_klay_db_chaindata_statetrie_0level3_write",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "{{instance}} - L3",
+          "refId": "D"
+        },
+        {
+          "expr": "klaytn_klay_db_chaindata_statetrie_0level4_write",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "{{instance}} - L4",
+          "refId": "E"
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "State Trie Partition 0 DB Write by Level",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "decbytes",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "klaytn",
+      "fill": 1,
+      "gridPos": {
+        "h": 8,
+        "w": 5,
+        "x": 5,
+        "y": 19
+      },
+      "id": 11,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "links": [],
+      "nullPointMode": "null",
+      "percentage": false,
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "expr": "klaytn_klay_db_chaindata_statetrie_1level0_write",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "{{instance}} - L0",
+          "refId": "A"
+        },
+        {
+          "expr": "klaytn_klay_db_chaindata_statetrie_1level1_write",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "{{instance}} - L1",
+          "refId": "B"
+        },
+        {
+          "expr": "klaytn_klay_db_chaindata_statetrie_1level2_write",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "{{instance}} - L2",
+          "refId": "C"
+        },
+        {
+          "expr": "klaytn_klay_db_chaindata_statetrie_1level3_write",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "{{instance}} - L3",
+          "refId": "D"
+        },
+        {
+          "expr": "klaytn_klay_db_chaindata_statetrie_1level4_write",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "{{instance}} - L4",
+          "refId": "E"
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "State Trie Partition 1 DB Write by Level",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "decbytes",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "klaytn",
+      "fill": 1,
+      "gridPos": {
+        "h": 8,
+        "w": 5,
+        "x": 10,
+        "y": 19
+      },
+      "id": 12,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "links": [],
+      "nullPointMode": "null",
+      "percentage": false,
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "expr": "klaytn_klay_db_chaindata_statetrie_2level0_write",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "{{instance}} - L0",
+          "refId": "A"
+        },
+        {
+          "expr": "klaytn_klay_db_chaindata_statetrie_2level1_write",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "{{instance}} - L1",
+          "refId": "B"
+        },
+        {
+          "expr": "klaytn_klay_db_chaindata_statetrie_2level2_write",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "{{instance}} - L2",
+          "refId": "C"
+        },
+        {
+          "expr": "klaytn_klay_db_chaindata_statetrie_2level3_write",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "{{instance}} - L3",
+          "refId": "D"
+        },
+        {
+          "expr": "klaytn_klay_db_chaindata_statetrie_2level4_write",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "{{instance}} - L4",
+          "refId": "E"
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "State Trie Partition 2 DB Write by Level",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "decbytes",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "klaytn",
+      "fill": 1,
+      "gridPos": {
+        "h": 8,
+        "w": 5,
+        "x": 15,
+        "y": 19
+      },
+      "id": 13,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "links": [],
+      "nullPointMode": "null",
+      "percentage": false,
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "expr": "klaytn_klay_db_chaindata_statetrie_3level0_write",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "{{instance}} - L0",
+          "refId": "A"
+        },
+        {
+          "expr": "klaytn_klay_db_chaindata_statetrie_3level1_write",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "{{instance}} - L1",
+          "refId": "B"
+        },
+        {
+          "expr": "klaytn_klay_db_chaindata_statetrie_3level2_write",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "{{instance}} - L2",
+          "refId": "C"
+        },
+        {
+          "expr": "klaytn_klay_db_chaindata_statetrie_3level3_write",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "{{instance}} - L3",
+          "refId": "D"
+        },
+        {
+          "expr": "klaytn_klay_db_chaindata_statetrie_3level4_write",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "{{instance}} - L4",
+          "refId": "E"
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "State Trie Partition 3 DB Write by Level",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "decbytes",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 27
+      },
+      "id": 27,
+      "panels": [],
+      "title": "State Trie DB Compaction Time by Level",
+      "type": "row"
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "klaytn",
+      "fill": 1,
+      "gridPos": {
+        "h": 8,
+        "w": 5,
+        "x": 0,
+        "y": 28
+      },
+      "id": 28,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "links": [],
+      "nullPointMode": "null",
+      "percentage": false,
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "expr": "rate(klaytn_klay_db_chaindata_statetrie_0level0_duration[5m])",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "{{instance}} - L0",
+          "refId": "A"
+        },
+        {
+          "expr": "rate(klaytn_klay_db_chaindata_statetrie_0level1_duration[5m])",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "{{instance}} - L1",
+          "refId": "B"
+        },
+        {
+          "expr": "rate(klaytn_klay_db_chaindata_statetrie_0level2_duration[5m])",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "{{instance}} - L2",
+          "refId": "C"
+        },
+        {
+          "expr": "rate(klaytn_klay_db_chaindata_statetrie_0level3_duration[5m])",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "{{instance}} - L3",
+          "refId": "D"
+        },
+        {
+          "expr": "rate(klaytn_klay_db_chaindata_statetrie_0level4_duration[5m])",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "{{instance}} - L4",
+          "refId": "E"
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "State Trie Partition 0 DB Compaction Time by Level",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "ns",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "klaytn",
+      "fill": 1,
+      "gridPos": {
+        "h": 8,
+        "w": 5,
+        "x": 5,
+        "y": 28
+      },
+      "id": 29,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "links": [],
+      "nullPointMode": "null",
+      "percentage": false,
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "expr": "rate(klaytn_klay_db_chaindata_statetrie_1level0_duration[5m])",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "{{instance}} - L0",
+          "refId": "A"
+        },
+        {
+          "expr": "rate(klaytn_klay_db_chaindata_statetrie_1level1_duration[5m])",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "{{instance}} - L1",
+          "refId": "B"
+        },
+        {
+          "expr": "rate(klaytn_klay_db_chaindata_statetrie_1level2_duration[5m])",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "{{instance}} - L2",
+          "refId": "C"
+        },
+        {
+          "expr": "rate(klaytn_klay_db_chaindata_statetrie_1level3_duration[5m])",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "{{instance}} - L3",
+          "refId": "D"
+        },
+        {
+          "expr": "rate(klaytn_klay_db_chaindata_statetrie_1level4_duration[5m])",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "{{instance}} - L4",
+          "refId": "E"
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "State Trie Partition 1 DB Compaction Time by Level",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "ns",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "klaytn",
+      "fill": 1,
+      "gridPos": {
+        "h": 8,
+        "w": 5,
+        "x": 10,
+        "y": 28
+      },
+      "id": 30,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "links": [],
+      "nullPointMode": "null",
+      "percentage": false,
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "expr": "rate(klaytn_klay_db_chaindata_statetrie_2level0_duration[5m])",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "{{instance}} - L0",
+          "refId": "A"
+        },
+        {
+          "expr": "rate(klaytn_klay_db_chaindata_statetrie_2level1_duration[5m])",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "{{instance}} - L1",
+          "refId": "B"
+        },
+        {
+          "expr": "rate(klaytn_klay_db_chaindata_statetrie_2level2_duration[5m])",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "{{instance}} - L2",
+          "refId": "C"
+        },
+        {
+          "expr": "rate(klaytn_klay_db_chaindata_statetrie_2level3_duration[5m])",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "{{instance}} - L3",
+          "refId": "D"
+        },
+        {
+          "expr": "rate(klaytn_klay_db_chaindata_statetrie_2level4_duration[5m])",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "{{instance}} - L4",
+          "refId": "E"
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "State Trie Partition 2 DB Compaction Time by Level",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "ns",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "klaytn",
+      "fill": 1,
+      "gridPos": {
+        "h": 8,
+        "w": 5,
+        "x": 15,
+        "y": 28
+      },
+      "id": 31,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "links": [],
+      "nullPointMode": "null",
+      "percentage": false,
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "expr": "rate(klaytn_klay_db_chaindata_statetrie_3level0_duration[5m])",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "{{instance}} - L0",
+          "refId": "A"
+        },
+        {
+          "expr": "rate(klaytn_klay_db_chaindata_statetrie_3level1_duration[5m])",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "{{instance}} - L1",
+          "refId": "B"
+        },
+        {
+          "expr": "rate(klaytn_klay_db_chaindata_statetrie_3level2_duration[5m])",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "{{instance}} - L2",
+          "refId": "C"
+        },
+        {
+          "expr": "rate(klaytn_klay_db_chaindata_statetrie_3level3_duration[5m])",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "{{instance}} - L3",
+          "refId": "D"
+        },
+        {
+          "expr": "rate(klaytn_klay_db_chaindata_statetrie_3level4_duration[5m])",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "{{instance}} - L4",
+          "refId": "E"
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "State Trie Partition 3 DB Compaction Time by Level",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "ns",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 36
+      },
+      "id": 21,
+      "panels": [],
+      "title": "Body DB Stats",
+      "type": "row"
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "klaytn",
+      "fill": 1,
+      "gridPos": {
+        "h": 8,
+        "w": 5,
+        "x": 0,
+        "y": 37
+      },
+      "id": 22,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "links": [],
+      "nullPointMode": "null",
+      "percentage": false,
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "expr": "klaytn_klay_db_chaindata_body_level0_size",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "{{instance}} - L0",
+          "refId": "A"
+        },
+        {
+          "expr": "klaytn_klay_db_chaindata_body_level1_size",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "{{instance}} - L1",
+          "refId": "B"
+        },
+        {
+          "expr": "klaytn_klay_db_chaindata_body_level2_size",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "{{instance}} - L2",
+          "refId": "C"
+        },
+        {
+          "expr": "klaytn_klay_db_chaindata_body_level3_size",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "{{instance}} - L3",
+          "refId": "D"
+        },
+        {
+          "expr": "klaytn_klay_db_chaindata_body_level4_size",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "{{instance}} - L4",
+          "refId": "E"
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Body DB Size by Level",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "decbytes",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "klaytn",
+      "fill": 1,
+      "gridPos": {
+        "h": 8,
+        "w": 5,
+        "x": 5,
+        "y": 37
+      },
+      "id": 23,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "links": [],
+      "nullPointMode": "null",
+      "percentage": false,
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "expr": "klaytn_klay_db_chaindata_body_level0_read",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "{{instance}} - L0",
+          "refId": "A"
+        },
+        {
+          "expr": "klaytn_klay_db_chaindata_body_level1_read",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "{{instance}} - L1",
+          "refId": "B"
+        },
+        {
+          "expr": "klaytn_klay_db_chaindata_body_level2_read",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "{{instance}} - L2",
+          "refId": "C"
+        },
+        {
+          "expr": "klaytn_klay_db_chaindata_body_level3_read",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "{{instance}} - L3",
+          "refId": "D"
+        },
+        {
+          "expr": "klaytn_klay_db_chaindata_body_level4_read",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "{{instance}} - L4",
+          "refId": "E"
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Body DB Read by Level",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "decbytes",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "klaytn",
+      "fill": 1,
+      "gridPos": {
+        "h": 8,
+        "w": 5,
+        "x": 10,
+        "y": 37
+      },
+      "id": 24,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "links": [],
+      "nullPointMode": "null",
+      "percentage": false,
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "expr": "klaytn_klay_db_chaindata_body_level0_write",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "{{instance}} - L0",
+          "refId": "A"
+        },
+        {
+          "expr": "klaytn_klay_db_chaindata_body_level1_write",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "{{instance}} - L1",
+          "refId": "B"
+        },
+        {
+          "expr": "klaytn_klay_db_chaindata_body_level2_write",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "{{instance}} - L2",
+          "refId": "C"
+        },
+        {
+          "expr": "klaytn_klay_db_chaindata_body_level3_write",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "{{instance}} - L3",
+          "refId": "D"
+        },
+        {
+          "expr": "klaytn_klay_db_chaindata_body_level4_write",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "{{instance}} - L4",
+          "refId": "E"
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Body DB Write by Level",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "decbytes",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "klaytn",
+      "fill": 1,
+      "gridPos": {
+        "h": 8,
+        "w": 5,
+        "x": 15,
+        "y": 37
+      },
+      "id": 25,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "links": [],
+      "nullPointMode": "null",
+      "percentage": false,
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "expr": "rate(klaytn_klay_db_chaindata_body_level0_duration[5m])",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "{{instance}} - L0",
+          "refId": "A"
+        },
+        {
+          "expr": "rate(klaytn_klay_db_chaindata_body_level1_duration[5m])",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "{{instance}} - L1",
+          "refId": "B"
+        },
+        {
+          "expr": "rate(klaytn_klay_db_chaindata_body_level2_duration[5m])",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "{{instance}} - L2",
+          "refId": "C"
+        },
+        {
+          "expr": "rate(klaytn_klay_db_chaindata_body_level3_duration[5m])",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "{{instance}} - L3",
+          "refId": "D"
+        },
+        {
+          "expr": "rate(klaytn_klay_db_chaindata_body_level4_duration[5m])",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "{{instance}} - L4",
+          "refId": "E"
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Body DB Compaction Time by Level",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "ns",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    }
+  ],
+  "refresh": false,
+  "schemaVersion": 16,
+  "style": "dark",
+  "tags": [],
+  "templating": {
+    "list": []
+  },
+  "time": {
+    "from": "now-30m",
+    "to": "now"
+  },
+  "timepicker": {
+    "refresh_intervals": [
+      "5s",
+      "10s",
+      "30s",
+      "1m",
+      "5m",
+      "15m",
+      "30m",
+      "1h",
+      "2h",
+      "1d"
+    ],
+    "time_options": [
+      "5m",
+      "15m",
+      "1h",
+      "6h",
+      "12h",
+      "24h",
+      "2d",
+      "7d",
+      "30d"
+    ]
+  },
+  "timezone": "",
+  "title": "LevelDB Overview",
+  "uid": "HiaVduyMk",
+  "version": 1
+}
