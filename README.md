@@ -85,3 +85,13 @@ You can check two files in the root path of klayspray.
 ```bash
 $ ansible-playbook -i private-layer1_inventory.ini private-layer1.yaml
 ```
+
+### 3. Execute Ansible playbook
+```bash
+$ ansible-playbook -i private-layer1_inventory.ini private-layer1.yaml
+```
+
+### 4. Check working using Grafana
+Open http://<monitor-public-ip>:3000 in the webbrowser.
+
+![Image](docs/img/grafana.png?raw=true)
