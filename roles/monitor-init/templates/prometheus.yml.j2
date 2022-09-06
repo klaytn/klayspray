@@ -7,5 +7,5 @@ scrape_configs:
   static_configs:
   - targets:
 {% for node in nodes.split(',')  %}
-    - "{{ node }}:{{ klaytn_exporter_port}}"
+    - "{{ node }}:{{ klaytn_exporter_port }}"
 {% endfor %}
