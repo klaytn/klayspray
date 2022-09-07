@@ -40,3 +40,10 @@
   roles:
   - { role: klayspray-defaults }
   - { role: node-init }
+
+- hosts: monitor
+  gather_facts: True
+  roles:
+  - { role: klayspray-defaults }
+  - { role: setup-docker }
+  - { role: monitor-init }

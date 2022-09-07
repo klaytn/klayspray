@@ -1,5 +1,5 @@
 ---
 - name: Print default values
   debug:
-    msg: "ansible_architecture={{ ansible_architecture }} ansible_default_ipv4={{ ansible_default_ipv4['address'] }} ansible_os_family={{ ansible_os_family }} ansible_system={{ ansible_system }}"
+    msg: "ansible_architecture={{ ansible_architecture }} ansible_default_ipv4={{ ansible_default_ipv4['address'] }} ansible_os_family={{ ansible_os_family }} ansible_system={{ ansible_system }} ansible_distribution={{ ansible_distribution }}"
 

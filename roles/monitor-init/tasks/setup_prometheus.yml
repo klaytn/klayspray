@@ -1,0 +1,64 @@
+---
+- name: "Make configuration directory"
+  become: yes
+  file:
+    path: "{{ prometheus_conf_dir }}"
+    state: "directory"
+  tags:
+  - prometheus
+
+- name: "Template Prometheus configuration"
+  become: yes
+  template:
+    src: "templates/prometheus/prometheus.yml.j2"
+    dest: "{{ prometheus_conf_dir }}/prometheus.yml"
+    force: yes
+  tags:
+  - prometheus
+
+- name: "Template Prometheus file_sd configuration"
+  become: yes
+  template:
+    src: "templates/prometheus/klaytn-nodes.yml.j2"
+    dest: "{{ prometheus_conf_dir }}/klaytn-nodes.yml"
+    force: yes
+  vars:
+    nodes: |-
+      [
+      {% for host in groups['nodes'] -%}
+        {% set group_names = hostvars[host]['group_names'] %}
+        {% if 'cn' in group_names %}
+          {% set type = 'cn' %}
+        {% elif 'pn' in group_names %}
+          {% set type = 'pn' %}
+        {% elif 'en' in group_names %}
+          {% set type = 'en' %}
+        {% endif %}
+        {
+          "name": "{{ host }}",
+          "private_ip": "{{ hostvars[host]['ansible_private_host'] }}" ,
+          "type": "{{ type }}"
+        },
+      {% endfor %}
+      ]
+  tags:
+  - prometheus
+
+- name: "Run prometheus docker"
+  become: yes
+  docker_container:
+    name: prometheus
+    image: prom/prometheus
+    volumes:
+    - "{{ prometheus_conf_dir }}:/etc/prometheus"
+    network_mode: host
+    restart_policy: always
+    state: started
+    detach: yes
+  tags:
+  - prometheus
+
+- debug:
+    msg: "Prometheus is listening on :{{ prometheus_port }}"
+  tags:
+  - prometheus

@@ -50,3 +50,9 @@ variable "en_options" {
   description = "The options to deploy PN nodes"
   default     = {}
 }
+
+variable "monitor_options" {
+  type        = any
+  description = "The options to deploy monitor node"
+  default     = {}
+}

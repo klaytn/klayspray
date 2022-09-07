@@ -18,3 +18,8 @@ en_options = {
   instance_type   = "t3.small"
   ebs_volume_size = 20
 }
+
+monitor_options = {
+  instance_type   = "t3.small"
+  ebs_volume_size = 20
+}

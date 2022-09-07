@@ -34,14 +34,16 @@ resource "aws_security_group" "l1_common" {
       { protocol = "udp", from_port = 32323, to_port = 32323, cidr_blocks = ["0.0.0.0/0"] },
       { protocol = "tcp", from_port = 32323, to_port = 32324, self = true },
       { protocol = "udp", from_port = 32323, to_port = 32323, self = true },
+      { protocol = "tcp", from_port = 61001, to_port = 61001, security_groups = [aws_security_group.monitor.id] },
     ]
 
     content {
-      from_port   = ingress.value.from_port
-      to_port     = ingress.value.to_port
-      protocol    = ingress.value.protocol
-      cidr_blocks = try(ingress.value.cidr_blocks, null)
-      self        = try(ingress.value.self, null)
+      from_port       = ingress.value.from_port
+      to_port         = ingress.value.to_port
+      protocol        = ingress.value.protocol
+      cidr_blocks     = try(ingress.value.cidr_blocks, null)
+      security_groups = try(ingress.value.security_groups, null)
+      self            = try(ingress.value.self, null)
     }
   }
 
