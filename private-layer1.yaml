@@ -45,4 +45,5 @@
   gather_facts: True
   roles:
   - { role: klayspray-defaults }
+  - { role: setup-docker }
   - { role: monitor-init }

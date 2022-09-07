@@ -1,55 +1,39 @@
 {
-  "__inputs": [
-    {
-      "name": "DS_KLAYTN",
-      "label": "klaytn",
-      "description": "",
-      "type": "datasource",
-      "pluginId": "prometheus",
-      "pluginName": "Prometheus"
-    }
-  ],
-  "__requires": [
-    {
-      "type": "grafana",
-      "id": "grafana",
-      "name": "Grafana",
-      "version": "5.2.2"
-    },
-    {
-      "type": "panel",
-      "id": "graph",
-      "name": "Graph",
-      "version": "5.0.0"
-    },
-    {
-      "type": "datasource",
-      "id": "prometheus",
-      "name": "Prometheus",
-      "version": "5.0.0"
-    }
-  ],
   "annotations": {
     "list": [
       {
         "builtIn": 1,
-        "datasource": "-- Grafana --",
+        "datasource": {
+          "type": "datasource",
+          "uid": "grafana"
+        },
         "enable": true,
         "hide": true,
         "iconColor": "rgba(0, 211, 255, 1)",
         "name": "Annotations & Alerts",
+        "target": {
+          "limit": 100,
+          "matchAny": false,
+          "tags": [],
+          "type": "dashboard"
+        },
         "type": "dashboard"
       }
     ]
   },
   "editable": true,
-  "gnetId": null,
+  "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "id": null,
+  "id": 2,
   "links": [],
+  "liveNow": false,
   "panels": [
     {
       "collapsed": false,
+      "datasource": {
+        "type": "prometheus",
+        "uid": "P45E5FA95A2F3C91C"
+      },
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -58,6 +42,15 @@
       },
       "id": 18,
       "panels": [],
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "P45E5FA95A2F3C91C"
+          },
+          "refId": "A"
+        }
+      ],
       "title": "Overview",
       "type": "row"
     },
@@ -66,15 +59,20 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "klaytn",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "P45E5FA95A2F3C91C"
+      },
       "description": "",
       "fill": 1,
+      "fillGradient": 0,
       "gridPos": {
         "h": 8,
         "w": 6,
         "x": 0,
         "y": 1
       },
+      "hiddenSeries": false,
       "id": 15,
       "legend": {
         "avg": false,
@@ -89,7 +87,11 @@
       "linewidth": 1,
       "links": [],
       "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
       "percentage": false,
+      "pluginVersion": "9.1.2",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -99,16 +101,19 @@
       "steppedLine": false,
       "targets": [
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "P45E5FA95A2F3C91C"
+          },
           "expr": "klaytn_blockchain_head_blocknumber",
           "format": "time_series",
           "intervalFactor": 1,
-          "legendFormat": "{{instance}}",
+          "legendFormat": "{{name}}",
           "refId": "A"
         }
       ],
       "thresholds": [],
-      "timeFrom": null,
-      "timeShift": null,
+      "timeRegions": [],
       "title": "Head Block Num",
       "tooltip": {
         "shared": true,
@@ -117,33 +122,24 @@
       },
       "type": "graph",
       "xaxis": {
-        "buckets": null,
         "mode": "time",
-        "name": null,
         "show": true,
         "values": []
       },
       "yaxes": [
         {
           "format": "short",
-          "label": null,
           "logBase": 1,
-          "max": null,
-          "min": null,
           "show": true
         },
         {
           "format": "short",
-          "label": null,
           "logBase": 1,
-          "max": null,
-          "min": null,
           "show": true
         }
       ],
       "yaxis": {
-        "align": false,
-        "alignLevel": null
+        "align": false
       }
     },
     {
@@ -151,15 +147,20 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "klaytn",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "P45E5FA95A2F3C91C"
+      },
       "description": "",
       "fill": 1,
+      "fillGradient": 0,
       "gridPos": {
         "h": 8,
         "w": 6,
         "x": 6,
         "y": 1
       },
+      "hiddenSeries": false,
       "id": 2,
       "legend": {
         "avg": false,
@@ -174,7 +175,11 @@
       "linewidth": 1,
       "links": [],
       "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
       "percentage": false,
+      "pluginVersion": "9.1.2",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -184,16 +189,19 @@
       "steppedLine": false,
       "targets": [
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "P45E5FA95A2F3C91C"
+          },
           "expr": "klaytn_tx_pool_pending_gauge",
           "format": "time_series",
           "intervalFactor": 1,
-          "legendFormat": "{{instance}}",
+          "legendFormat": "{{name}}",
           "refId": "A"
         }
       ],
       "thresholds": [],
-      "timeFrom": null,
-      "timeShift": null,
+      "timeRegions": [],
       "title": "TxPool - pending",
       "tooltip": {
         "shared": true,
@@ -202,33 +210,24 @@
       },
       "type": "graph",
       "xaxis": {
-        "buckets": null,
         "mode": "time",
-        "name": null,
         "show": true,
         "values": []
       },
       "yaxes": [
         {
           "format": "short",
-          "label": null,
           "logBase": 1,
-          "max": null,
-          "min": null,
           "show": true
         },
         {
           "format": "short",
-          "label": null,
           "logBase": 1,
-          "max": null,
-          "min": null,
           "show": true
         }
       ],
       "yaxis": {
-        "align": false,
-        "alignLevel": null
+        "align": false
       }
     },
     {
@@ -236,15 +235,20 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "klaytn",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "P45E5FA95A2F3C91C"
+      },
       "description": "",
       "fill": 1,
+      "fillGradient": 0,
       "gridPos": {
         "h": 8,
         "w": 6,
         "x": 12,
         "y": 1
       },
+      "hiddenSeries": false,
       "id": 13,
       "legend": {
         "avg": false,
@@ -259,7 +263,11 @@
       "linewidth": 1,
       "links": [],
       "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
       "percentage": false,
+      "pluginVersion": "9.1.2",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -269,16 +277,19 @@
       "steppedLine": false,
       "targets": [
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "P45E5FA95A2F3C91C"
+          },
           "expr": "klaytn_tx_pool_queue_gauge",
           "format": "time_series",
           "intervalFactor": 1,
-          "legendFormat": "{{instance}}",
+          "legendFormat": "{{name}}",
           "refId": "A"
         }
       ],
       "thresholds": [],
-      "timeFrom": null,
-      "timeShift": null,
+      "timeRegions": [],
       "title": "TxPool - queue",
       "tooltip": {
         "shared": true,
@@ -287,33 +298,24 @@
       },
       "type": "graph",
       "xaxis": {
-        "buckets": null,
         "mode": "time",
-        "name": null,
         "show": true,
         "values": []
       },
       "yaxes": [
         {
           "format": "short",
-          "label": null,
           "logBase": 1,
-          "max": null,
-          "min": null,
           "show": true
         },
         {
           "format": "short",
-          "label": null,
           "logBase": 1,
-          "max": null,
-          "min": null,
           "show": true
         }
       ],
       "yaxis": {
-        "align": false,
-        "alignLevel": null
+        "align": false
       }
     },
     {
@@ -321,15 +323,20 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "klaytn",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "P45E5FA95A2F3C91C"
+      },
       "description": "",
       "fill": 1,
+      "fillGradient": 0,
       "gridPos": {
         "h": 8,
         "w": 6,
         "x": 18,
         "y": 1
       },
+      "hiddenSeries": false,
       "id": 19,
       "legend": {
         "avg": false,
@@ -344,7 +351,11 @@
       "linewidth": 1,
       "links": [],
       "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
       "percentage": false,
+      "pluginVersion": "9.1.2",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -354,16 +365,19 @@
       "steppedLine": false,
       "targets": [
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "P45E5FA95A2F3C91C"
+          },
           "expr": "klaytn_p2p_PeerCountGauge",
           "format": "time_series",
           "intervalFactor": 1,
-          "legendFormat": "{{instance}}",
+          "legendFormat": "{{name}}",
           "refId": "A"
         }
       ],
       "thresholds": [],
-      "timeFrom": null,
-      "timeShift": null,
+      "timeRegions": [],
       "title": "Live Peer Con",
       "tooltip": {
         "shared": true,
@@ -372,37 +386,32 @@
       },
       "type": "graph",
       "xaxis": {
-        "buckets": null,
         "mode": "time",
-        "name": null,
         "show": true,
         "values": []
       },
       "yaxes": [
         {
           "format": "short",
-          "label": null,
           "logBase": 1,
-          "max": null,
-          "min": null,
           "show": true
         },
         {
           "format": "short",
-          "label": null,
           "logBase": 1,
-          "max": null,
-          "min": null,
           "show": true
         }
       ],
       "yaxis": {
-        "align": false,
-        "alignLevel": null
+        "align": false
       }
     },
     {
       "collapsed": false,
+      "datasource": {
+        "type": "prometheus",
+        "uid": "P45E5FA95A2F3C91C"
+      },
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -411,6 +420,15 @@
       },
       "id": 21,
       "panels": [],
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "P45E5FA95A2F3C91C"
+          },
+          "refId": "A"
+        }
+      ],
       "title": "Mining Statistics",
       "type": "row"
     },
@@ -419,15 +437,20 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "klaytn",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "P45E5FA95A2F3C91C"
+      },
       "description": "",
       "fill": 1,
+      "fillGradient": 0,
       "gridPos": {
         "h": 8,
         "w": 6,
         "x": 0,
         "y": 10
       },
+      "hiddenSeries": false,
       "id": 22,
       "legend": {
         "avg": false,
@@ -442,7 +465,11 @@
       "linewidth": 1,
       "links": [],
       "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
       "percentage": false,
+      "pluginVersion": "9.1.2",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -452,16 +479,19 @@
       "steppedLine": false,
       "targets": [
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "P45E5FA95A2F3C91C"
+          },
           "expr": "klaytn_blockchain_block_tx_gauge",
           "format": "time_series",
           "intervalFactor": 1,
-          "legendFormat": "{{instance}}",
+          "legendFormat": "{{name}}",
           "refId": "A"
         }
       ],
       "thresholds": [],
-      "timeFrom": null,
-      "timeShift": null,
+      "timeRegions": [],
       "title": "Txs in a canonical block",
       "tooltip": {
         "shared": true,
@@ -470,33 +500,24 @@
       },
       "type": "graph",
       "xaxis": {
-        "buckets": null,
         "mode": "time",
-        "name": null,
         "show": true,
         "values": []
       },
       "yaxes": [
         {
           "format": "short",
-          "label": null,
           "logBase": 1,
-          "max": null,
-          "min": null,
           "show": true
         },
         {
           "format": "short",
-          "label": null,
           "logBase": 1,
-          "max": null,
-          "min": null,
           "show": true
         }
       ],
       "yaxis": {
-        "align": false,
-        "alignLevel": null
+        "align": false
       }
     },
     {
@@ -504,15 +525,20 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "klaytn",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "P45E5FA95A2F3C91C"
+      },
       "description": "Number of transactions in a mined block.",
       "fill": 1,
+      "fillGradient": 0,
       "gridPos": {
         "h": 8,
         "w": 6,
         "x": 6,
         "y": 10
       },
+      "hiddenSeries": false,
       "id": 14,
       "legend": {
         "avg": false,
@@ -527,7 +553,11 @@
       "linewidth": 1,
       "links": [],
       "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
       "percentage": false,
+      "pluginVersion": "9.1.2",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -537,16 +567,19 @@
       "steppedLine": false,
       "targets": [
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "P45E5FA95A2F3C91C"
+          },
           "expr": "klaytn_miner_tcount",
           "format": "time_series",
           "intervalFactor": 1,
-          "legendFormat": "{{instance}}",
+          "legendFormat": "{{name}}",
           "refId": "A"
         }
       ],
       "thresholds": [],
-      "timeFrom": null,
-      "timeShift": null,
+      "timeRegions": [],
       "title": "Txs in a mined block",
       "tooltip": {
         "shared": true,
@@ -555,33 +588,24 @@
       },
       "type": "graph",
       "xaxis": {
-        "buckets": null,
         "mode": "time",
-        "name": null,
         "show": true,
         "values": []
       },
       "yaxes": [
         {
           "format": "short",
-          "label": null,
           "logBase": 1,
-          "max": null,
-          "min": null,
           "show": true
         },
         {
           "format": "short",
-          "label": null,
           "logBase": 1,
-          "max": null,
-          "min": null,
           "show": true
         }
       ],
       "yaxis": {
-        "align": false,
-        "alignLevel": null
+        "align": false
       }
     },
     {
@@ -589,15 +613,20 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "klaytn",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "P45E5FA95A2F3C91C"
+      },
       "description": "Number of transactions checked during mining process. Does not indicate the transactions included in a mined block.",
       "fill": 1,
+      "fillGradient": 0,
       "gridPos": {
         "h": 8,
         "w": 6,
         "x": 12,
         "y": 10
       },
+      "hiddenSeries": false,
       "id": 12,
       "legend": {
         "avg": false,
@@ -612,7 +641,11 @@
       "linewidth": 1,
       "links": [],
       "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
       "percentage": false,
+      "pluginVersion": "9.1.2",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -622,16 +655,19 @@
       "steppedLine": false,
       "targets": [
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "P45E5FA95A2F3C91C"
+          },
           "expr": "klaytn_miner_checkedtxs",
           "format": "time_series",
           "intervalFactor": 1,
-          "legendFormat": "{{instance}}",
+          "legendFormat": "{{name}}",
           "refId": "A"
         }
       ],
       "thresholds": [],
-      "timeFrom": null,
-      "timeShift": null,
+      "timeRegions": [],
       "title": "Checked Txs during mining",
       "tooltip": {
         "shared": true,
@@ -640,33 +676,24 @@
       },
       "type": "graph",
       "xaxis": {
-        "buckets": null,
         "mode": "time",
-        "name": null,
         "show": true,
         "values": []
       },
       "yaxes": [
         {
           "format": "short",
-          "label": null,
           "logBase": 1,
-          "max": null,
-          "min": null,
           "show": true
         },
         {
           "format": "short",
-          "label": null,
           "logBase": 1,
-          "max": null,
-          "min": null,
           "show": true
         }
       ],
       "yaxis": {
-        "align": false,
-        "alignLevel": null
+        "align": false
       }
     },
     {
@@ -674,15 +701,20 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "klaytn",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "P45E5FA95A2F3C91C"
+      },
       "description": "",
       "fill": 1,
+      "fillGradient": 0,
       "gridPos": {
         "h": 8,
         "w": 6,
         "x": 18,
         "y": 10
       },
+      "hiddenSeries": false,
       "id": 16,
       "legend": {
         "avg": false,
@@ -697,7 +729,11 @@
       "linewidth": 1,
       "links": [],
       "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
       "percentage": false,
+      "pluginVersion": "9.1.2",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -707,16 +743,19 @@
       "steppedLine": false,
       "targets": [
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "P45E5FA95A2F3C91C"
+          },
           "expr": "klaytn_miner_usedalltxs",
           "format": "time_series",
           "intervalFactor": 1,
-          "legendFormat": "{{instance}}",
+          "legendFormat": "{{name}}",
           "refId": "A"
         }
       ],
       "thresholds": [],
-      "timeFrom": null,
-      "timeShift": null,
+      "timeRegions": [],
       "title": "UsedAllTxs during mining",
       "tooltip": {
         "shared": true,
@@ -725,33 +764,24 @@
       },
       "type": "graph",
       "xaxis": {
-        "buckets": null,
         "mode": "time",
-        "name": null,
         "show": true,
         "values": []
       },
       "yaxes": [
         {
           "format": "short",
-          "label": null,
           "logBase": 1,
-          "max": null,
-          "min": null,
           "show": true
         },
         {
           "format": "short",
-          "label": null,
           "logBase": 1,
-          "max": null,
-          "min": null,
           "show": true
         }
       ],
       "yaxis": {
-        "align": false,
-        "alignLevel": null
+        "align": false
       }
     },
     {
@@ -759,15 +789,20 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "klaytn",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "P45E5FA95A2F3C91C"
+      },
       "description": "",
       "fill": 1,
+      "fillGradient": 0,
       "gridPos": {
         "h": 8,
         "w": 6,
         "x": 0,
         "y": 18
       },
+      "hiddenSeries": false,
       "id": 3,
       "legend": {
         "avg": false,
@@ -782,7 +817,11 @@
       "linewidth": 1,
       "links": [],
       "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
       "percentage": false,
+      "pluginVersion": "9.1.2",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -792,16 +831,19 @@
       "steppedLine": false,
       "targets": [
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "P45E5FA95A2F3C91C"
+          },
           "expr": "klaytn_miner_block_mining_time",
           "format": "time_series",
           "intervalFactor": 1,
-          "legendFormat": "{{instance}}",
+          "legendFormat": "{{name}}",
           "refId": "A"
         }
       ],
       "thresholds": [],
-      "timeFrom": null,
-      "timeShift": null,
+      "timeRegions": [],
       "title": "Block Mining Time",
       "tooltip": {
         "shared": true,
@@ -810,33 +852,24 @@
       },
       "type": "graph",
       "xaxis": {
-        "buckets": null,
         "mode": "time",
-        "name": null,
         "show": true,
         "values": []
       },
       "yaxes": [
         {
           "format": "ns",
-          "label": null,
           "logBase": 1,
-          "max": null,
-          "min": null,
           "show": true
         },
         {
           "format": "short",
-          "label": null,
           "logBase": 1,
-          "max": null,
-          "min": null,
           "show": true
         }
       ],
       "yaxis": {
-        "align": false,
-        "alignLevel": null
+        "align": false
       }
     },
     {
@@ -844,15 +877,20 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "klaytn",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "P45E5FA95A2F3C91C"
+      },
       "description": "",
       "fill": 1,
+      "fillGradient": 0,
       "gridPos": {
         "h": 8,
         "w": 6,
         "x": 6,
         "y": 18
       },
+      "hiddenSeries": false,
       "id": 23,
       "legend": {
         "avg": false,
@@ -867,7 +905,11 @@
       "linewidth": 1,
       "links": [],
       "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
       "percentage": false,
+      "pluginVersion": "9.1.2",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -877,16 +919,19 @@
       "steppedLine": false,
       "targets": [
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "P45E5FA95A2F3C91C"
+          },
           "expr": "klaytn_miner_block_execute_time",
           "format": "time_series",
           "intervalFactor": 1,
-          "legendFormat": "{{instance}}",
+          "legendFormat": "{{name}}",
           "refId": "A"
         }
       ],
       "thresholds": [],
-      "timeFrom": null,
-      "timeShift": null,
+      "timeRegions": [],
       "title": "Block Mining Time - Tx Execution",
       "tooltip": {
         "shared": true,
@@ -895,33 +940,25 @@
       },
       "type": "graph",
       "xaxis": {
-        "buckets": null,
         "mode": "time",
-        "name": null,
         "show": true,
         "values": []
       },
       "yaxes": [
         {
           "format": "ns",
-          "label": null,
           "logBase": 1,
-          "max": null,
           "min": "0",
           "show": true
         },
         {
           "format": "short",
-          "label": null,
           "logBase": 1,
-          "max": null,
-          "min": null,
           "show": true
         }
       ],
       "yaxis": {
-        "align": false,
-        "alignLevel": null
+        "align": false
       }
     },
     {
@@ -929,15 +966,20 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "klaytn",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "P45E5FA95A2F3C91C"
+      },
       "description": "",
       "fill": 1,
+      "fillGradient": 0,
       "gridPos": {
         "h": 8,
         "w": 6,
         "x": 12,
         "y": 18
       },
+      "hiddenSeries": false,
       "id": 24,
       "legend": {
         "avg": false,
@@ -952,7 +994,11 @@
       "linewidth": 1,
       "links": [],
       "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
       "percentage": false,
+      "pluginVersion": "9.1.2",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -962,16 +1008,19 @@
       "steppedLine": false,
       "targets": [
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "P45E5FA95A2F3C91C"
+          },
           "expr": "klaytn_miner_block_finalize_time",
           "format": "time_series",
           "intervalFactor": 1,
-          "legendFormat": "{{instance}}",
+          "legendFormat": "{{name}}",
           "refId": "A"
         }
       ],
       "thresholds": [],
-      "timeFrom": null,
-      "timeShift": null,
+      "timeRegions": [],
       "title": "Block Mining Time - Finalize",
       "tooltip": {
         "shared": true,
@@ -980,37 +1029,32 @@
       },
       "type": "graph",
       "xaxis": {
-        "buckets": null,
         "mode": "time",
-        "name": null,
         "show": true,
         "values": []
       },
       "yaxes": [
         {
           "format": "ns",
-          "label": null,
           "logBase": 1,
-          "max": null,
-          "min": null,
           "show": true
         },
         {
           "format": "short",
-          "label": null,
           "logBase": 1,
-          "max": null,
-          "min": null,
           "show": true
         }
       ],
       "yaxis": {
-        "align": false,
-        "alignLevel": null
+        "align": false
       }
     },
     {
       "collapsed": false,
+      "datasource": {
+        "type": "prometheus",
+        "uid": "P45E5FA95A2F3C91C"
+      },
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -1019,6 +1063,15 @@
       },
       "id": 5,
       "panels": [],
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "P45E5FA95A2F3C91C"
+          },
+          "refId": "A"
+        }
+      ],
       "title": "Discarded Transactions Statistics",
       "type": "row"
     },
@@ -1027,15 +1080,20 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "klaytn",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "P45E5FA95A2F3C91C"
+      },
       "description": "",
       "fill": 1,
+      "fillGradient": 0,
       "gridPos": {
         "h": 8,
         "w": 6,
         "x": 0,
         "y": 27
       },
+      "hiddenSeries": false,
       "id": 9,
       "legend": {
         "avg": false,
@@ -1050,7 +1108,11 @@
       "linewidth": 1,
       "links": [],
       "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
       "percentage": false,
+      "pluginVersion": "9.1.2",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -1060,16 +1122,19 @@
       "steppedLine": false,
       "targets": [
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "P45E5FA95A2F3C91C"
+          },
           "expr": "klaytn_miner_checkedtxs-klaytn_miner_tcount",
           "format": "time_series",
           "intervalFactor": 1,
-          "legendFormat": "{{instance}}",
+          "legendFormat": "{{name}}",
           "refId": "A"
         }
       ],
       "thresholds": [],
-      "timeFrom": null,
-      "timeShift": null,
+      "timeRegions": [],
       "title": "Discarded txs during mining",
       "tooltip": {
         "shared": true,
@@ -1078,33 +1143,24 @@
       },
       "type": "graph",
       "xaxis": {
-        "buckets": null,
         "mode": "time",
-        "name": null,
         "show": true,
         "values": []
       },
       "yaxes": [
         {
           "format": "short",
-          "label": null,
           "logBase": 1,
-          "max": null,
-          "min": null,
           "show": true
         },
         {
           "format": "short",
-          "label": null,
           "logBase": 1,
-          "max": null,
-          "min": null,
           "show": true
         }
       ],
       "yaxis": {
-        "align": false,
-        "alignLevel": null
+        "align": false
       }
     },
     {
@@ -1112,15 +1168,20 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "klaytn",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "P45E5FA95A2F3C91C"
+      },
       "description": "",
       "fill": 1,
+      "fillGradient": 0,
       "gridPos": {
         "h": 8,
         "w": 6,
         "x": 6,
         "y": 27
       },
+      "hiddenSeries": false,
       "id": 7,
       "legend": {
         "avg": false,
@@ -1135,7 +1196,11 @@
       "linewidth": 1,
       "links": [],
       "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
       "percentage": false,
+      "pluginVersion": "9.1.2",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -1145,16 +1210,19 @@
       "steppedLine": false,
       "targets": [
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "P45E5FA95A2F3C91C"
+          },
           "expr": "klaytn_miner_nonce_low_txs",
           "format": "time_series",
           "intervalFactor": 1,
-          "legendFormat": "{{instance}}",
+          "legendFormat": "{{name}}",
           "refId": "A"
         }
       ],
       "thresholds": [],
-      "timeFrom": null,
-      "timeShift": null,
+      "timeRegions": [],
       "title": "nonce too low txs",
       "tooltip": {
         "shared": true,
@@ -1163,33 +1231,24 @@
       },
       "type": "graph",
       "xaxis": {
-        "buckets": null,
         "mode": "time",
-        "name": null,
         "show": true,
         "values": []
       },
       "yaxes": [
         {
           "format": "short",
-          "label": null,
           "logBase": 1,
-          "max": null,
-          "min": null,
           "show": true
         },
         {
           "format": "short",
-          "label": null,
           "logBase": 1,
-          "max": null,
-          "min": null,
           "show": true
         }
       ],
       "yaxis": {
-        "align": false,
-        "alignLevel": null
+        "align": false
       }
     },
     {
@@ -1197,15 +1256,20 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "klaytn",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "P45E5FA95A2F3C91C"
+      },
       "description": "",
       "fill": 1,
+      "fillGradient": 0,
       "gridPos": {
         "h": 8,
         "w": 6,
         "x": 12,
         "y": 27
       },
+      "hiddenSeries": false,
       "id": 8,
       "legend": {
         "avg": false,
@@ -1220,7 +1284,11 @@
       "linewidth": 1,
       "links": [],
       "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
       "percentage": false,
+      "pluginVersion": "9.1.2",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -1230,16 +1298,19 @@
       "steppedLine": false,
       "targets": [
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "P45E5FA95A2F3C91C"
+          },
           "expr": "klaytn_miner_limitreached_gas_txs",
           "format": "time_series",
           "intervalFactor": 1,
-          "legendFormat": "{{instance}}",
+          "legendFormat": "{{name}}",
           "refId": "A"
         }
       ],
       "thresholds": [],
-      "timeFrom": null,
-      "timeShift": null,
+      "timeRegions": [],
       "title": "gas limit reached txs",
       "tooltip": {
         "shared": true,
@@ -1248,33 +1319,24 @@
       },
       "type": "graph",
       "xaxis": {
-        "buckets": null,
         "mode": "time",
-        "name": null,
         "show": true,
         "values": []
       },
       "yaxes": [
         {
           "format": "short",
-          "label": null,
           "logBase": 1,
-          "max": null,
-          "min": null,
           "show": true
         },
         {
           "format": "short",
-          "label": null,
           "logBase": 1,
-          "max": null,
-          "min": null,
           "show": true
         }
       ],
       "yaxis": {
-        "align": false,
-        "alignLevel": null
+        "align": false
       }
     },
     {
@@ -1282,15 +1344,20 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "klaytn",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "P45E5FA95A2F3C91C"
+      },
       "description": "",
       "fill": 1,
+      "fillGradient": 0,
       "gridPos": {
         "h": 8,
         "w": 6,
         "x": 18,
         "y": 27
       },
+      "hiddenSeries": false,
       "id": 11,
       "legend": {
         "avg": false,
@@ -1305,7 +1372,11 @@
       "linewidth": 1,
       "links": [],
       "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
       "percentage": false,
+      "pluginVersion": "9.1.2",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -1315,16 +1386,19 @@
       "steppedLine": false,
       "targets": [
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "P45E5FA95A2F3C91C"
+          },
           "expr": "klaytn_miner_timelimitreached",
           "format": "time_series",
           "intervalFactor": 1,
-          "legendFormat": "{{instance}}",
+          "legendFormat": "{{name}}",
           "refId": "A"
         }
       ],
       "thresholds": [],
-      "timeFrom": null,
-      "timeShift": null,
+      "timeRegions": [],
       "title": "time limit reached txs",
       "tooltip": {
         "shared": true,
@@ -1333,33 +1407,24 @@
       },
       "type": "graph",
       "xaxis": {
-        "buckets": null,
         "mode": "time",
-        "name": null,
         "show": true,
         "values": []
       },
       "yaxes": [
         {
           "format": "short",
-          "label": null,
           "logBase": 1,
-          "max": null,
-          "min": null,
           "show": true
         },
         {
           "format": "short",
-          "label": null,
           "logBase": 1,
-          "max": null,
-          "min": null,
           "show": true
         }
       ],
       "yaxis": {
-        "align": false,
-        "alignLevel": null
+        "align": false
       }
     },
     {
@@ -1367,7 +1432,10 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "klaytn",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "P45E5FA95A2F3C91C"
+      },
       "description": "",
       "fill": 1,
       "gridPos": {
@@ -1400,16 +1468,18 @@
       "steppedLine": false,
       "targets": [
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "P45E5FA95A2F3C91C"
+          },
           "expr": "klaytn_miner_nonce_high_txs",
           "format": "time_series",
           "intervalFactor": 1,
-          "legendFormat": "{{instance}}",
+          "legendFormat": "{{name}}",
           "refId": "A"
         }
       ],
       "thresholds": [],
-      "timeFrom": null,
-      "timeShift": null,
       "title": "nonce too high txs",
       "tooltip": {
         "shared": true,
@@ -1418,33 +1488,24 @@
       },
       "type": "graph",
       "xaxis": {
-        "buckets": null,
         "mode": "time",
-        "name": null,
         "show": true,
         "values": []
       },
       "yaxes": [
         {
           "format": "short",
-          "label": null,
           "logBase": 1,
-          "max": null,
-          "min": null,
           "show": true
         },
         {
           "format": "short",
-          "label": null,
           "logBase": 1,
-          "max": null,
-          "min": null,
           "show": true
         }
       ],
       "yaxis": {
-        "align": false,
-        "alignLevel": null
+        "align": false
       }
     },
     {
@@ -1452,7 +1513,10 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "klaytn",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "P45E5FA95A2F3C91C"
+      },
       "description": "",
       "fill": 1,
       "gridPos": {
@@ -1485,16 +1549,18 @@
       "steppedLine": false,
       "targets": [
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "P45E5FA95A2F3C91C"
+          },
           "expr": "klaytn_miner_strangeerror_txs",
           "format": "time_series",
           "intervalFactor": 1,
-          "legendFormat": "{{instance}}",
+          "legendFormat": "{{name}}",
           "refId": "A"
         }
       ],
       "thresholds": [],
-      "timeFrom": null,
-      "timeShift": null,
       "title": "strange error txs",
       "tooltip": {
         "shared": true,
@@ -1503,38 +1569,29 @@
       },
       "type": "graph",
       "xaxis": {
-        "buckets": null,
         "mode": "time",
-        "name": null,
         "show": true,
         "values": []
       },
       "yaxes": [
         {
           "format": "short",
-          "label": null,
           "logBase": 1,
-          "max": null,
-          "min": null,
           "show": true
         },
         {
           "format": "short",
-          "label": null,
           "logBase": 1,
-          "max": null,
-          "min": null,
           "show": true
         }
       ],
       "yaxis": {
-        "align": false,
-        "alignLevel": null
+        "align": false
       }
     }
   ],
   "refresh": "5s",
-  "schemaVersion": 16,
+  "schemaVersion": 37,
   "style": "dark",
   "tags": [],
   "templating": {
@@ -1572,5 +1629,6 @@
   "timezone": "",
   "title": "Klaytn Miner Overview",
   "uid": "mWM0iN7Wz",
-  "version": 1
+  "version": 2,
+  "weekStart": ""
 }

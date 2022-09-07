@@ -1,0 +1,7 @@
+{% for node in nodes %}
+- targets:
+  - "{{ node['private_ip'] }}:{{ klaytn_exporter_port }}"
+  labels:
+    name: "{{ node['name'] }}"
+    type: "{{ node['type'] }}"
+{% endfor %}

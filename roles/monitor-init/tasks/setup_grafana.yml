@@ -2,20 +2,21 @@
 - name: "Make configuration directory"
   become: yes
   file:
-    path: "{{ grafana_provisioning_dir }}/{{ item }}"
+    path: "{{ grafana_provisioning_dir }}"
     state: "directory"
-  loop:
-  - datasources
-  - dashboards
+  tags:
+  - grafana
 
 - name: "Copy static dashboard files"
   become: yes
   copy:
-    src: "templates/{{ item }}"
+    src: "files/grafana/{{ item }}"
     dest: "{{ grafana_provisioning_dir }}"
   loop:
   - datasources
   - dashboards
+  tags:
+  - grafana
 
 - name: "Run grafana docker"
   become: yes
@@ -28,6 +29,10 @@
     restart_policy: always
     state: started
     detach: yes
+  tags:
+  - grafana
 
 - debug:
     msg: "Grafana is listening on :{{ grafana_port }}"
+  tags:
+  - grafana
