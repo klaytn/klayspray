@@ -30,11 +30,19 @@
     keep_newer: yes
   register: extract_result
   when:
+  - ansible_system == "Linux"
+  - check_package_file.stat.exists == False
+
+- name: "{{ package_name }}: Unarchive Package"
+  shell: "tar -xvf {{ download_result.dest }} -C {{ cache_dir }}"
+  register: extract_result
+  when:
+  - ansible_system == "Darwin"
   - check_package_file.stat.exists == False
 
 - name: "{{ package_name }}: Copy binary"
   copy:
-    src: "{{ cache_dir }}/{{ extract_result.files[-1] }}"
+    src: "{{ cache_dir }}/{{ extract_result.files[-1] if ansible_system != 'Darwin' else (extract_result.stderr_lines[-1] | regex_replace('^x ')) }}"
     dest: "{{ bin_dir }}/{{ package_name }}"
     mode: '0755'
   when:
@@ -45,7 +53,7 @@
     path: "{{ item }}"
     state: absent
   loop:
-  - "{{ cache_dir }}/{{ extract_result.files[0] }}"
+  - "{{ cache_dir }}/{{ extract_result.files[0] if ansible_system != 'Darwin' else (extract_result.stderr_lines[0] | regex_replace('^x ')) }}"
   - "{{ download_result.dest }}"
   when:
   - check_package_file.stat.exists == False
