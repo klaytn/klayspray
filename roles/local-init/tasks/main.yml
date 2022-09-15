@@ -7,6 +7,11 @@
   tags:
   - localhost
 
+- name: Start to download dependencies
+  include_tasks: download_dependency.yml
+  tags:
+  - localhost
+
 - name: Start to download a package
   include_tasks: download_package.yml
   loop:

@@ -1,0 +1,7 @@
+---
+- name: "Install gnu-tar in MacOS"
+  ansible.builtin.package:
+    name: gnu-tar
+    state: present
+  when:
+  - ansible_system == "Darwin"

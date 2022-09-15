@@ -22,13 +22,6 @@
   - ansible_system == "Darwin"
   - check_package_file.stat.exists == False
 
-- name: "{{ package_name }}: Install gnu-tar in MacOS"
-  ansible.builtin.package:
-    name: gnu-tar
-    state: present
-  when:
-  - ansible_system == "Darwin"
-
 - name: "{{ package_name }}: Unarchive Package"
   unarchive:
     src: "{{ download_result.dest }}"
