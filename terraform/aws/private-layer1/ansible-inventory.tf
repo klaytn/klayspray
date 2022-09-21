@@ -3,10 +3,10 @@ locals {
     "${path.module}/templates/inventory.tftpl",
     {
       ansible_ssh_private_key_file = try(module.keypair.ssh_private_key_path, "<change-me>")
-      cn                           = try(module.cn, {})
-      pn                           = try(module.pn, {})
-      en                           = try(module.en, {})
-      monitor                      = try(module.monitor, {})
+      cn                           = try(module.layer1.cn, [])
+      pn                           = try(module.layer1.pn, [])
+      en                           = try(module.layer1.en, [])
+      monitor                      = try(module.layer1.monitor, {})
     }
   )
 }
