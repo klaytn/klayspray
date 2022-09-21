@@ -1,7 +1,7 @@
 locals {
   name = var.name != null ? var.name : format("%s-%s", random_pet.this.id, random_string.this.id)
 
-  key_name = var.create_aws_key_pair ? aws_key_pair.this[0].key_name : data.aws_key_pair.this[0].key_name
+  key_name = module.keypair.key_name
 
   cn_options = {
     count           = lookup(var.cn_options, "count", 4)
