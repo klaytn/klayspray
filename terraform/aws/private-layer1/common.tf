@@ -1,25 +1,11 @@
-resource "tls_private_key" "ssh" {
-  count = var.create_aws_key_pair ? 1 : 0
+module "keypair" {
+  source = "../modules/keypair"
 
-  algorithm = "RSA"
-  rsa_bits  = 2048
-}
+  name                 = var.key_name == null ? local.name : var.key_name
+  create_aws_key_pair  = var.create_aws_key_pair
+  ssh_private_key_path = format("%s/../../../private-ssh-key.pem", path.module)
 
-resource "aws_key_pair" "this" {
-  count = var.create_aws_key_pair ? 1 : 0
-
-  key_name   = var.key_name == null ? local.name : var.key_name
-  public_key = tls_private_key.ssh[0].public_key_openssh
-
-  tags = local.default_tags
-}
-
-resource "local_sensitive_file" "this" {
-  count = var.create_aws_key_pair ? 1 : 0
-
-  content         = tls_private_key.ssh[0].private_key_openssh
-  filename        = format("%s/../../../private-ssh-key.pem", path.module)
-  file_permission = "0400"
+  tags = var.tags
 }
 
 resource "aws_security_group" "l1_common" {
