@@ -1,59 +1,20 @@
-module "cn" {
-  count = local.cn_options.count
+module "layer1" {
+  source = "../modules/private-layer1"
 
-  source = "../modules/klaytn-node"
+  name = local.name
 
-  name               = format("%s-cn-%d", local.name, count.index + 1)
-  ami_id             = data.aws_ami.this.id
-  instance_type      = local.cn_options.instance_type
-  key_name           = local.key_name
-  security_group_ids = [aws_security_group.l1_common.id]
-  subnet_id          = module.vpc.public_subnets[count.index % length(module.vpc.public_subnets)]
+  aws_region = var.aws_region
+  vpc_id     = module.vpc.vpc_id
+  subnet_ids = module.vpc.public_subnets
 
-  root_block_device = {
-    volume_type = "gp2"
-    volume_size = local.cn_options.ebs_volume_size
-  }
+  ami_id         = data.aws_ami.this.id
+  key_name       = local.key_name
+  ssh_client_ips = var.ssh_client_ips
 
-  tags = local.default_tags
-}
+  cn_options      = var.cn_options
+  pn_options      = var.cn_options
+  en_options      = var.en_options
+  monitor_options = var.monitor_options
 
-module "pn" {
-  count = local.pn_options.count
-
-  source = "../modules/klaytn-node"
-
-  name               = format("%s-pn-%d", local.name, count.index + 1)
-  ami_id             = data.aws_ami.this.id
-  instance_type      = local.pn_options.instance_type
-  key_name           = local.key_name
-  security_group_ids = [aws_security_group.l1_common.id]
-  subnet_id          = module.vpc.public_subnets[count.index % length(module.vpc.public_subnets)]
-
-  root_block_device = {
-    volume_type = "gp2"
-    volume_size = local.cn_options.ebs_volume_size
-  }
-
-  tags = local.default_tags
-}
-
-module "en" {
-  count = local.en_options.count
-
-  source = "../modules/klaytn-node"
-
-  name               = format("%s-en-%d", local.name, count.index + 1)
-  ami_id             = data.aws_ami.this.id
-  instance_type      = local.en_options.instance_type
-  key_name           = local.key_name
-  security_group_ids = [aws_security_group.l1_common.id]
-  subnet_id          = module.vpc.public_subnets[count.index % length(module.vpc.public_subnets)]
-
-  root_block_device = {
-    volume_type = "gp2"
-    volume_size = local.cn_options.ebs_volume_size
-  }
-
-  tags = local.default_tags
+  tags = var.tags
 }

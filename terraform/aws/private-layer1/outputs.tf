@@ -14,17 +14,17 @@ output "private_subnet_ids" {
 }
 
 output "cn" {
-  value = module.cn
+  value = module.layer1.cn
 }
 
 output "pn" {
-  value = module.pn
+  value = module.layer1.pn
 }
 
 output "en" {
-  value = module.en
+  value = module.layer1.en
 }
 
 output "monitor" {
-  value = module.monitor
+  value = module.layer1.monitor
 }
