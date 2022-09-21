@@ -42,37 +42,38 @@ $ terraform $TF_OPTIONS apply -auto-approve
 
 terraform output will be shown like the below.
 ```hcl
-cn = [
-  {
+layer1 = {
+  cn = [
+    {
+      "instance_id" = "<instance-id>"
+      "private_ip" = "<private-ip>"
+      "public_ip" = "<public-ip>"
+    },
+    ...
+  ]
+  en = [
+    {
+      "instance_id" = "<instance-id>"
+      "private_ip" = "<private-ip>"
+      "public_ip" = "<public-ip>"
+    },
+  ]
+  pn = [
+    {
+      "instance_id" = "<instance-id>"
+      "private_ip" = "<private-ip>"
+      "public_ip" = "<public-ip>"
+    },
+    ...
+  ]
+  monitor = {
     "instance_id" = "<instance-id>"
     "private_ip" = "<private-ip>"
     "public_ip" = "<public-ip>"
-  },
-  ...
-]
-en = [
-  {
-    "instance_id" = "<instance-id>"
-    "private_ip" = "<private-ip>"
-    "public_ip" = "<public-ip>"
-  },
-]
-pn = [
-  {
-    "instance_id" = "<instance-id>"
-    "private_ip" = "<private-ip>"
-    "public_ip" = "<public-ip>"
-  },
-  ...
-]
-private_subnet_ids = [
-  "<subnet-id-1>",
-  "<subnet-id-2>",
-]
-public_subnet_ids = [
-  "<subnet-id-1>",
-  "<subnet-id-2>",
-]
+  }
+  layer1_sg_id  = "<security-group-id>"
+  monitor_sg_id = "<security-group-id>"
+}
 ```
 
 ### 2. Check the generated files
