@@ -22,6 +22,12 @@ variable "zone_list" {
   default     = []
 }
 
+variable "boot_image_id" {
+  type        = string
+  description = "OS boot image ID"
+  default     = "centos-7"
+}
+
 variable "cn_options" {
   type        = any
   description = "The options to deploy CN nodes"

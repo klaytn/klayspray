@@ -11,7 +11,7 @@ module "cn" {
   use_public_ip = true
 
   boot_disk = {
-    image_id       = "centos-7"
+    image_id       = var.boot_image_id
     boot_disk_size = local.cn_options.boot_disk_size
   }
 
@@ -42,7 +42,7 @@ module "pn" {
   use_public_ip = true
 
   boot_disk = {
-    image_id       = "centos-7"
+    image_id       = var.boot_image_id
     boot_disk_size = local.pn_options.boot_disk_size
   }
 
@@ -73,7 +73,7 @@ module "en" {
   use_public_ip = true
 
   boot_disk = {
-    image_id       = "centos-7"
+    image_id       = var.boot_image_id
     boot_disk_size = local.en_options.boot_disk_size
   }
 
@@ -102,7 +102,7 @@ module "monitor" {
   use_public_ip = true
 
   boot_disk = {
-    image_id       = "centos-7"
+    image_id       = var.boot_image_id
     boot_disk_size = local.monitor_options.boot_disk_size
   }
 
