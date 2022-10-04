@@ -18,7 +18,7 @@ locals {
       target_tags = ["cn", "pn", "en"]
       allow = {
         protocol = "tcp"
-        ports    = ["32323-32324"]
+        ports    = ["8551", "32323-32324"]
       }
     },
     {
