@@ -16,7 +16,7 @@ Deploy a Klaytn network!
 * ansible
 * gtar
 * aws
-* gcp
+* gcloud
 
 ## Get Started : Deploy Private Layer1 Network
 
