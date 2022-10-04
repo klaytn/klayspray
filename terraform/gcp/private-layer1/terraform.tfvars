@@ -20,7 +20,7 @@ pn_options = {
 }
 
 en_options = {
-  count          = 4
+  count          = 1
   machine_type   = "e2-medium"
   boot_disk_size = 30
   # compute_disk_size = 100
