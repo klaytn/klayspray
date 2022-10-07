@@ -13,7 +13,7 @@ klaytn_conf_default:
   TXPOOL_NONEXEC_SLOTS_ACCOUNT: 16384
   TXPOOL_LIFE_TIME: 5m
   RPC_ENABLE: 0
-  RPC_API: klay,admin
+  RPC_API: klay,admin,personal
   RPC_PORT: 8551
   RPC_ADDR: 0.0.0.0
   RPC_CORSDOMAIN: "*"
