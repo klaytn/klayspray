@@ -39,6 +39,7 @@
     klaytn_node_type: en
     klaytn_conf_override:
       RPC_ENABLE: 1
+      RPC_API: klay,admin,personal
   roles:
   - { role: klayspray-defaults }
   - { role: node-init }
