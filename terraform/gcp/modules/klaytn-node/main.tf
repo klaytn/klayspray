@@ -1,0 +1,53 @@
+resource "google_compute_instance" "this" {
+  name         = var.name
+  machine_type = var.machine_type
+  zone         = var.zone
+
+  boot_disk {
+    initialize_params {
+      image = lookup(var.boot_disk, "image_id", "centos-7")
+      size  = lookup(var.boot_disk, "boot_disk_size", 20)
+    }
+  }
+
+  dynamic "attached_disk" {
+    for_each = var.compute_disk != null ? [1] : []
+
+    content {
+      source = google_compute_disk.this[0].self_link
+    }
+  }
+
+  network_interface {
+    subnetwork = var.subnetwork
+
+    dynamic "access_config" {
+      for_each = var.use_public_ip == true ? [1] : []
+
+      content {
+        nat_ip = google_compute_address.this[0].address
+      }
+    }
+  }
+
+  tags = var.tags
+  metadata = merge(
+    var.metadata,
+  )
+}
+
+resource "google_compute_disk" "this" {
+  count = var.compute_disk != null ? 1 : 0
+
+  name = lookup(var.compute_disk, "name", null)
+  type = lookup(var.compute_disk, "type", null)
+  zone = lookup(var.compute_disk, "zone", null)
+  size = lookup(var.compute_disk, "size", null)
+}
+
+resource "google_compute_address" "this" {
+  count = var.use_public_ip ? 1 : 0
+
+  name = format("%s-ip", var.name)
+}
+
