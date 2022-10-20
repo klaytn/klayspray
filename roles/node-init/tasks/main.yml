@@ -1,5 +1,4 @@
 ---
-
 - name: Install klaytn packages
   include_tasks: install_package.yml
 

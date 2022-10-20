@@ -1,34 +1,41 @@
 ---
 - name: "Check nodekey exists"
   stat:
-    path: "{{ homi_output_dir }}/{{ node.type }}/keys"
+    path: "{{ homi_output_dir }}/{{ ctx.type }}/keys"
   register: check_nodekey_file
+  when:
+  - ctx.num > 0
 
-- name: "Generate {{ node.type }} data & genesis.json by Homi"
+- name: "Generate {{ ctx.type }} data & genesis.json by Homi"
   shell: |
-    {{ homi_bin }} setup local {{ homi_default_options }} --cn-num {{ node.num }} --chainID {{ klaytn_network_id }} --network-id {{ klaytn_network_id }} -o {{ homi_output_dir }}/{{ node.type }}
+    {{ homi_bin }} setup local {{ homi_default_options }} --cn-num {{ ctx.num }} --chainID {{ ctx.chain_id }} --network-id {{ ctx.network_id }} -o {{ homi_output_dir }}/{{ ctx.type }}
   tags:
   - localhost
   when:
+  - ctx.num > 0
   - check_nodekey_file.stat.exists == False
 
 - name: Convert and get validator data
   klay_validator:
     homi_output_dir: "{{ homi_output_dir }}"
-    node_type: "{{ node.type }}"
+    node_type: "{{ ctx.type }}"
     node_index: "{{ node_index | int }}"
-    port: 32323
+    port: "{{ klaytn_port }}"
     public_ip: "{{ hostvars[item]['ansible_host'] }}"
     private_ip: "{{ hostvars[item]['ansible_private_host'] }}"
   register: validator_result
-  loop: "{{ groups[node.type] }}"
+  loop: "{{ groups[ctx.type] }}"
   loop_control:
     index_var: node_index
+  when:
+  - ctx.num > 0
 
 - name: Generate validator file
   copy:
     content: "{{ item.validator }}"
-    dest: "{{ homi_output_dir }}/{{ node.type }}/keys/validator{{ node_index | int + 1 }}"
+    dest: "{{ homi_output_dir }}/{{ ctx.type }}/keys/validator{{ node_index | int + 1 }}"
   loop: "{{ validator_result.results }}"
   loop_control:
     index_var: node_index
+  when:
+  - ctx.num > 0

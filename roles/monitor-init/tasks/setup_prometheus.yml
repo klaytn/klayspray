@@ -33,6 +33,12 @@
           {% set type = 'pn' %}
         {% elif 'en' in group_names %}
           {% set type = 'en' %}
+        {% elif 'scn' in group_names %}
+          {% set type = 'scn' %}
+        {% elif 'spn' in group_names %}
+          {% set type = 'spn' %}
+        {% elif 'sen' in group_names %}
+          {% set type = 'sen' %}
         {% endif %}
         {
           "name": "{{ host }}",

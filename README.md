@@ -26,7 +26,7 @@ $ cd klayspray
 $ export TF_OPTIONS="-chdir=terraform/aws/private-layer1"
 $ terraform $TF_OPTIONS init
 $ terraform $TF_OPTIONS apply -auto-approve
-$ ansible-playbook -i private-layer1_inventory.ini private-layer1.yaml
+$ ansible-playbook -i inventory/private-layer1/inventory.ini private-layer1.yaml
 ```
 
 ### 1. Deploy AWS resources
@@ -79,12 +79,12 @@ layer1 = {
 ### 2. Check the generated files
 You can check two files in the root path of klayspray.
 1. private-ssh-key.pem: a file to use via SSH
-2. private-layer1_inventory.ini: a file storing Klaytn node connection information
+2. inventory/private-layer1/inventory.ini: a file storing Klaytn node connection information
 
 
 ### 3. Execute Ansible playbook
 ```bash
-$ ansible-playbook -i private-layer1_inventory.ini private-layer1.yaml
+$ ansible-playbook -i inventory/private-layer1/inventory.ini private-layer1.yaml
 ```
 
 ### 4. Check working using Grafana

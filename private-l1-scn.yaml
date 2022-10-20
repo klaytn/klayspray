@@ -1,0 +1,73 @@
+---
+- hosts: localhost
+  gather_facts: True
+  vars:
+    klaytn_bridge_enabled: 1
+    klaytn_bridge_node_type: en
+    klaytn_bridge_node_num: 1
+  roles:
+  - { role: klayspray-defaults }
+  - { role: local-init }
+  tags:
+  - localhost
+
+- hosts: cn, !bridge
+  gather_facts: True
+  vars:
+    klaytn_node_type: cn
+  roles:
+  - { role: klayspray-defaults }
+  - { role: node-init }
+
+- hosts: pn, !bridge
+  gather_facts: True
+  vars:
+    klaytn_node_type: pn
+  roles:
+  - { role: klayspray-defaults }
+  - { role: node-init }
+
+- hosts: en, !bridge
+  gather_facts: True
+  vars:
+    klaytn_node_type: en
+  roles:
+  - { role: klayspray-defaults }
+  - { role: node-init }
+
+- hosts: scn, !bridge
+  gather_facts: True
+  vars:
+    klaytn_node_type: scn
+    klaytn_conf_override:
+      NETWORK_ID: "{{ klaytn_service_network_id }}"
+  roles:
+  - { role: klayspray-defaults }
+  - { role: node-init }
+
+- hosts: en, &bridge
+  gather_facts: True
+  vars:
+    klaytn_node_type: en
+    klaytn_bridge_enabled: 1
+  roles:
+  - { role: klayspray-defaults }
+  - { role: node-init }
+
+- hosts: scn, &bridge
+  gather_facts: True
+  vars:
+    klaytn_node_type: scn
+    klaytn_bridge_enabled: 1
+    klaytn_conf_override:
+      NETWORK_ID: "{{ klaytn_service_network_id }}"
+  roles:
+  - { role: klayspray-defaults }
+  - { role: node-init }
+
+- hosts: monitor
+  gather_facts: True
+  roles:
+  - { role: klayspray-defaults }
+  - { role: setup-docker }
+  - { role: monitor-init }

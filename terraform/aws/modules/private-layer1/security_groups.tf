@@ -8,8 +8,7 @@ resource "aws_security_group" "layer1" {
       { protocol = "tcp", from_port = 22, to_port = 22, cidr_blocks = var.ssh_client_ips },
       { protocol = "tcp", from_port = 32323, to_port = 32324, cidr_blocks = ["0.0.0.0/0"] },
       { protocol = "udp", from_port = 32323, to_port = 32323, cidr_blocks = ["0.0.0.0/0"] },
-      { protocol = "tcp", from_port = 32323, to_port = 32324, self = true },
-      { protocol = "udp", from_port = 32323, to_port = 32323, self = true },
+      { protocol = "tcp", from_port = 50505, to_port = 50505, cidr_blocks = ["0.0.0.0/0"] },
       { protocol = "tcp", from_port = 61001, to_port = 61001, security_groups = [aws_security_group.monitor.id] },
     ]
 

@@ -9,6 +9,15 @@
     src: "{{ homi_output_dir }}/{{ klaytn_node_type }}/scripts/static-nodes{{ node_index }}.json"
     dest: "{{ klaytn_conf.DATA_DIR }}/static-nodes.json"
 
+- name: "Initialization - Copy main-gridge.json"
+  become: yes
+  copy:
+    src: "{{ homi_output_dir }}/bridge/main-bridges.json"
+    dest: "{{ klaytn_conf.DATA_DIR }}/main-bridges.json"
+  when:
+  - is_service_chain
+  - klaytn_bridge_enabled
+
 - name: "Initialization - Copy nodekey file"
   become: yes
   copy:
@@ -26,7 +35,18 @@
   copy:
     src: "{{ homi_output_dir }}/cn/scripts/genesis.json"
     dest: "/etc/{{ klaytn_daemon_name }}/genesis.json"
-  when: check_klay_data_dir.stat.exists == False
+  when:
+  - check_klay_data_dir.stat.exists == False
+  - is_service_chain == False
+
+- name: "Initialization - Copy Genesis File"
+  become: yes
+  copy:
+    src: "{{ homi_output_dir }}/scn/scripts/genesis.json"
+    dest: "/etc/{{ klaytn_daemon_name }}/genesis.json"
+  when:
+  - check_klay_data_dir.stat.exists == False
+  - is_service_chain
 
 - name: "Initialization - Genensis"
   become: yes

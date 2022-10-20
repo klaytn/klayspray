@@ -1,0 +1,11 @@
+klaytn_num_cn: 1
+klaytn_num_pn: 1
+klaytn_num_en: 1
+klaytn_num_scn: 1
+
+klaytn_network_id: 9999
+klaytn_chain_id: 9999
+klaytn_service_network_id: 10000
+klaytn_service_chain_id: 10000
+
+klaytn_rewardbase: "0x46879cdc21832d6bd6b49081513fa3d965443075"
