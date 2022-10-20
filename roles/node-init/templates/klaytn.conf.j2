@@ -6,14 +6,16 @@ NETWORK={{ klaytn_conf.NETWORK | default('') }}
 # if you specify NETWORK_ID, a private network is created.
 NETWORK_ID={{ klaytn_conf.NETWORK_ID | default('') }}
 
-PORT={{ klaytn_conf.PORT | default('') }}
+PORT={{ klaytn_conf.PORT | default('32323') }}
 
 SERVER_TYPE="{{ klaytn_conf.SERVER_TYPE | default('fasthttp') }}"
 SYNCMODE="{{ klaytn_conf.SYNCMODE | default('full') }}"
 VERBOSITY={{ klaytn_conf.VERBOSITY | default('3') }}
 MAXCONNECTIONS={{ klaytn_conf.MAXCONNECTIONS | default('100') }}
 
+{% if 'cn' in klaytn_node_type %}
 REWARDBASE="{{ klaytn_conf.REWARDBASE | default('') }}"
+{% endif %}
 
 # txpool options setting
 TXPOOL_EXEC_SLOTS_ALL={{ klaytn_conf.TXPOOL_EXEC_SLOTS_ALL | default('') }}
@@ -58,3 +60,25 @@ ADDITIONAL={{ klaytn_conf.ADDITIONAL | default('') }}
 
 DATA_DIR={{ klaytn_conf.DATA_DIR | default('/var/' + klaytn_daemon_name + '/data') }}
 LOG_DIR={{ klaytn_conf.LOG_DIR | default('/var/' + klaytn_daemon_name + '/log') }}
+
+{% if klaytn_bridge_enabled %}
+# Bridge
+{% if not is_service_chain %}
+SC_MAIN_BRIDGE=1
+SC_MAIN_BRIDGE_PORT={{ klaytn_conf.SC_MAIN_BRIDGE_PORT | default ('50505') }}
+SC_MAIN_BRIDGE_INDEXING={{ klaytn_conf.SC_MAIN_BRIDGE_INDEXING | default ('0') }}
+{% else %}
+SC_SUB_BRIDGE=1
+SC_SUB_BRIDGE_PORT={{ klaytn_conf.SC_SUB_BRIDGE_PORT | default('50506') }} # if main-bridge and sub-bridge on same instance, use different port with main-bridge.(main: 50505, sub:50506)
+SC_PARENT_CHAIN_ID={{ klaytn_chain_id }}
+
+SC_ANCHORING={{ klaytn_conf.SC_ANCHORING | default('0') }}
+SC_ANCHORING_PERIOD={{ klaytn_conf.SC_ANCHORING_PERIOD | default('1') }}
+SC_TX_LIMIT={{ klaytn_conf.SC_TX_LIMIT | default('1000') }}
+SC_PARENT_OPERATOR_GASLIMIT={{ klaytn_conf.SC_PARENT_OPERATOR_GASLIMIT | default('10000000') }}
+SC_CHILD_OPERATOR_GASLIMIT={{ klaytn_conf.SC_CHILD_OPERATOR_GASLIMIT | default('10000000') }}
+
+SC_VTRECOVERY={{ klaytn_conf.SC_VTRECOVERY| default('1') }} # value trasnfer recovery activation
+SC_VTRECOVERY_INTERVAL={{ klaytn_conf.SC_VTRECOVERY_INTERVAL | default('5') }} # recovery interval
+{% endif %}
+{% endif %}

@@ -46,9 +46,6 @@ class ModuleRunner(object):
     def validate_params(self):
         result = self.result
 
-        if self.num_cn > self.num_pn:
-            self.module.fail_json(msg='PN must be more than CN. cn={} pn={}'.format(self.num_cn, self.num_pn), **result)
-
         if not self.use_default and not self.custom_topology:
             self.module.fail_json(msg='custom_topology is mandatory if use_default == False', **result)
 

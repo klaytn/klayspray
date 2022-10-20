@@ -62,3 +62,9 @@ variable "monitor_options" {
   description = "The options to deploy monitor node"
   default     = {}
 }
+
+variable "scn_options" {
+  type        = any
+  description = "The options to deploy SCN nodes"
+  default     = {}
+}

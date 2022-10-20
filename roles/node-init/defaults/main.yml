@@ -1,6 +1,6 @@
 klaytn_node_type:
 klaytn_conf_default:
-  NETWORK: "{{ klaytn_network_name }}"
+  NETWORK:
   NETWORK_ID: "{{ klaytn_network_id }}"
   PORT: 32323
   SERVER_TYPE: fasthttp
@@ -34,7 +34,11 @@ klaytn_conf_default:
   AUTO_RESTART_NODE: 1
   AUTO_RESTART_INTERVAL: 0.1
   ADDITIONAL:
-  REWARDBASE:
+  REWARDBASE: "{{ klaytn_rewardbase }}"
   DATA_DIR: "/var/{{ klaytn_daemon_name }}/data"
   LOG_DIR: "/var/{{ klaytn_daemon_name }}/log"
 klaytn_conf_override:
+
+klaytn_bridge_enabled: 0
+klaytn_bridge_node_type:
+klaytn_bridge_node_num:

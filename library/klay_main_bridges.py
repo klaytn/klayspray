@@ -5,8 +5,8 @@ __metaclass__ = type
 
 DOCUMENTATION = r'''
 ---
-module: klay_static_nodes
-short_description: This module generates static-nodes knis following to network topology
+module: klay_main_bridges
+short_description: This module generates main-bridges.json file
 version_added: "1.0.0"
 '''
 
@@ -17,27 +17,18 @@ from urllib.parse import urlparse, parse_qsl, urlencode, urlunparse
 from ansible.module_utils.basic import AnsibleModule
 
 
-def node_name(node_type, node_index):
-    return '{}-{}'.format(node_type, (node_index + 1))
-
-
-def split_node_name(node_name):
-    node_type, node_num = node_name.split('-')
-    return node_type, int(node_num)
-
-
 class ModuleRunner(object):
 
     def __init__(self, module):
         self.module = module
         self.result = dict(
             changed=False,
-            static_nodes={},
+            nodes={},
         )
 
         self.homi_output_dir = module.params['homi_output_dir']
-        self.is_service_chain = module.params['is_service_chain']
-        self.topology = module.params['topology']
+        self.node_type = module.params['node_type']
+        self.node_num = module.params['node_num']
 
         self.validate_params()
 
@@ -57,9 +48,6 @@ class ModuleRunner(object):
 
 
     def read_validator(self, node_type, node_num):
-        if self.is_service_chain:
-            node_type = 's{}'.format(node_type)
-
         path = '{}/{}/keys/validator{}'.format(self.homi_output_dir, node_type, node_num)
         data = json.loads(self.read_file(path))
 
@@ -69,21 +57,14 @@ class ModuleRunner(object):
     def run(self):
         result = self.result
 
-        for k1, v1 in self.topology.items():
-            node_type1, node_num1 = split_node_name(k1)
+        node_name = '{}{}'.format(self.node_type, self.node_num)
+        validator = self.read_validator(self.node_type, self.node_num)
 
-            if self.is_service_chain:
-                node_type1 = 's{}'.format(node_type1)
-
-            result['static_nodes'][k1] = {
-                'node_type': node_type1,
-                'node_num': node_num1,
-                'knis': []
-            }
-            for v2 in v1:
-                node_type2, node_num2 = split_node_name(v2)
-                validator = self.read_validator(node_type2, node_num2)
-                result['static_nodes'][k1]['knis'].append(validator['NodeInfo'])
+        result['nodes'][node_name] = {
+            'node_type': self.node_type,
+            'node_num': self.node_num,
+            'knis': [validator['BridgeInfo']],
+        }
 
         return result
 
@@ -92,8 +73,8 @@ def main():
     module = AnsibleModule(
         argument_spec=dict(
             homi_output_dir=dict(type='str', required=True),
-            is_service_chain=dict(type='bool', default=False),
-            topology=dict(type='dict', required=True),
+            node_type=dict(type='str', required=True),
+            node_num=dict(type='int', required=True),
         ),
         supports_check_mode=False
     )

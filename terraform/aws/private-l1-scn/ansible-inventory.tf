@@ -6,6 +6,7 @@ locals {
       cn                           = try(module.layer1.cn, [])
       pn                           = try(module.layer1.pn, [])
       en                           = try(module.layer1.en, [])
+      scn                          = try(module.scn, [])
       monitor                      = try(module.layer1.monitor, {})
     }
   )

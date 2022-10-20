@@ -30,7 +30,7 @@ $ cd klayspray
 $ export TF_OPTIONS="-chdir=terraform/aws/private-layer1"
 $ terraform $TF_OPTIONS init
 $ terraform $TF_OPTIONS apply -auto-approve
-$ ansible-playbook -i private-layer1_inventory.ini private-layer1.yaml
+$ ansible-playbook -i inventory/private-layer1/inventory.ini private-layer1.yaml
 ```
 
 ##### GCP - [Click to check the complete guide](terraform/gcp/private-layer1/README.md)
@@ -40,5 +40,5 @@ $ cd klayspray
 $ export TF_OPTIONS="-chdir=terraform/gcp/private-layer1"
 $ terraform $TF_OPTIONS init
 $ terraform $TF_OPTIONS apply -auto-approve
-$ ansible-playbook -i private-layer1_inventory.ini private-layer1.yaml
+$ ansible-playbook -i inventory/private-layer1/inventory.ini private-layer1.yaml
 ```

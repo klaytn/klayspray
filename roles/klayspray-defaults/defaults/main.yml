@@ -7,8 +7,18 @@ klaytn_version: v1.9.1
 klaytn_num_cn: 4
 klaytn_num_pn: 4
 klaytn_num_en: 1
+klaytn_num_scn: 0
+klaytn_num_spn: 0
+klaytn_num_sen: 0
 
 klaytn_network_name:
 klaytn_network_id:
+klaytn_chain_id:
+klaytn_service_network_id:
+klaytn_service_chain_id:
 
 klaytn_custom_topology:
+
+klaytn_bridge_enabled: 0
+
+klaytn_port: 32323

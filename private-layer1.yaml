@@ -1,11 +1,6 @@
 ---
 - hosts: localhost
   gather_facts: True
-  vars:
-    klaytn_network_id: 9999
-    klaytn_num_cn: 4
-    klaytn_num_pn: 4
-    klaytn_num_en: 1
   roles:
   - { role: klayspray-defaults }
   - { role: local-init }
@@ -15,10 +10,7 @@
 - hosts: cn
   gather_facts: True
   vars:
-    klaytn_network_id: 9999
     klaytn_node_type: cn
-    klaytn_conf_override:
-      REWARDBASE: "0x46879cdc21832d6bd6b49081513fa3d965443075"
   roles:
   - { role: klayspray-defaults }
   - { role: node-init }
@@ -26,7 +18,6 @@
 - hosts: pn
   gather_facts: True
   vars:
-    klaytn_network_id: 9999
     klaytn_node_type: pn
   roles:
   - { role: klayspray-defaults }
@@ -35,7 +26,6 @@
 - hosts: en
   gather_facts: True
   vars:
-    klaytn_network_id: 9999
     klaytn_node_type: en
     klaytn_conf_override:
       RPC_ENABLE: 1
