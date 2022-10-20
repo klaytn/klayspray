@@ -27,6 +27,9 @@
   gather_facts: True
   vars:
     klaytn_node_type: en
+    klaytn_conf_override:
+      RPC_ENABLE: 1
+      RPC_API: klay,admin,personal,eth,web3,net
   roles:
   - { role: klayspray-defaults }
   - { role: node-init }
