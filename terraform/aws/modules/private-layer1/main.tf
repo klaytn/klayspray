@@ -59,6 +59,8 @@ module "en" {
 }
 
 module "monitor" {
+  count = local.monitor_options.enable ? 1 : 0
+
   source = "../klaytn-node"
 
   name               = format("%s-monitor", var.name)

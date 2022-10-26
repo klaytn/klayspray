@@ -18,6 +18,7 @@ locals {
   }
 
   monitor_options = {
+    enable         = lookup(var.monitor_options, "enable", true)
     instance_type   = lookup(var.monitor_options, "instance_type", "t3.small")
     ebs_volume_size = lookup(var.monitor_options, "ebs_volume_size", 500)
   }

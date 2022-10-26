@@ -11,7 +11,7 @@ output "en" {
 }
 
 output "monitor" {
-  value = module.monitor
+  value = one(module.monitor)
 }
 
 output "layer1_sg_id" {
