@@ -1,6 +1,6 @@
 # Deploy Private Layer1 Network on GCP
 
-### 1. Deploy AWS resources
+### 1. Deploy GCP resources
 > :warning: Before running the following commands, please get GCP credentials using command below.
 ```bash
 export GOOGLE_APPLICATION_CREDENTIALS="<path-to-credential-json>"
