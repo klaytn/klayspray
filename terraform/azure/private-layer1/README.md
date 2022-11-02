@@ -1,16 +1,16 @@
-# Deploy Private Layer1 Network on GCP
+# Deploy Private Layer1 Network on Azure
 
-### 1. Deploy GCP resources
-> :warning: Before running the following commands, please get GCP credentials using command below.
+### 1. Deploy Azure resources
+> :warning: Before running the following commands, please get Azure credentials using command below.
 ```bash
-export GOOGLE_APPLICATION_CREDENTIALS="<path-to-credential-json>"
+az login
 ```
 
 Execute command belows to deploy resources via Terraform.
 ```bash
 $ git clone https://github.com/klaytn/klayspray.git
 $ cd klayspray
-$ export TF_OPTIONS="-chdir=terraform/gcp/private-layer1"
+$ export TF_OPTIONS="-chdir=terraform/azure/private-layer1"
 $ terraform $TF_OPTIONS init
 $ terraform $TF_OPTIONS apply -auto-approve
 ```
@@ -53,7 +53,7 @@ layer1 = {
 
 ### 2. Check the generated files
 You can check two files in the root path of klayspray.
-1. gcp-private-ssh-key.pem: a file to use via SSH
+1. azure-private-ssh-key.pem: a file to use via SSH
 2. inventory/private-layer1/inventory.ini: a file storing Klaytn node connection information
 
 
