@@ -4,9 +4,9 @@ locals {
   key_name = module.keypair.key_name
 
   scn_options = {
-    count           = lookup(var.cn_options, "count", 1)
-    instance_type   = lookup(var.cn_options, "instance_type", "m5.large")
-    ebs_volume_size = lookup(var.cn_options, "ebs_volume_size", 500)
+    count           = lookup(var.scn_options, "count", 1)
+    instance_type   = lookup(var.scn_options, "instance_type", "m5.large")
+    ebs_volume_size = lookup(var.scn_options, "ebs_volume_size", 500)
   }
 
   default_tags = merge(
