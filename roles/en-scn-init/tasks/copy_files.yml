@@ -1,0 +1,64 @@
+---
+- name: "Download genesis.json for {{ klaytn_conf.NETWORK }}"
+  become: yes
+  get_url:
+    url: "https://packages.klaytn.net/{{ klaytn_conf.NETWORK }}/genesis.json"
+    dest: "/etc/{{ klaytn_daemon_name }}/genesis.json"
+    mode: '0440'
+  when:
+  - not is_service_chain
+
+- name: "Check downloaded chaindata file exists"
+  become: yes
+  stat:
+    path: "{{ klaytn_conf.DATA_DIR }}/chaindata.tar.gz"
+    get_checksum: no
+  register: check_chaindata_compress_file
+
+- name: Download the latest chaindata from packages.klaytn_net
+  become: yes 
+  command: "curl -o chaindata.tar.gz https://s3.ap-northeast-2.amazonaws.com/klaytn-chaindata/{{ klaytn_conf.NETWORK }}/klaytn-{{ klaytn_conf.NETWORK }}-chaindata-{{ klaytn_chaindata_timestamp }}.tar.gz"
+  args:
+    chdir: "{{ klaytn_conf.DATA_DIR }}"
+  async: 7200
+  poll: 0
+  register: download_job
+  when: not check_chaindata_compress_file.stat.exists
+  tags:
+    - chaindata
+
+- name: Check on an async task for downloading chaindata
+  become: yes 
+  async_status:
+    jid: "{{ download_job.ansible_job_id }}"
+  register: job_result
+  until: job_result.finished
+  retries: 20000
+  delay: 5
+  when: not check_chaindata_compress_file.stat.exists
+  tags:
+    - chaindata
+
+- name: Unarchive 
+  become: yes
+  command: tar xf chaindata.tar.gz
+  args:
+    chdir: "{{ klaytn_conf.DATA_DIR }}"
+  async: 3600
+  poll: 0
+  register: unarchive_job
+  when: not check_chaindata_compress_file.stat.exists
+  tags:
+    - chaindata
+
+- name: Check on an async task for unarchiving chaindata
+  become: yes 
+  async_status:
+    jid: "{{ unarchive_job.ansible_job_id }}"
+  register: job_result
+  until: job_result.finished
+  retries: 10000
+  delay: 5
+  when: not check_chaindata_compress_file.stat.exists
+  tags:
+    - chaindata

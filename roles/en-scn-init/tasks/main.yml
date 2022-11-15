@@ -1,0 +1,42 @@
+---
+- name: Install klaytn packages
+  include_tasks: install_package.yml
+
+- name: Copy required files
+  include_tasks: copy_files.yml
+  when: not is_service_chain
+
+- name: Initialize Service chain node
+  include_tasks: init_scn.yml
+  when: 
+    - is_service_chain
+    - groups.scn is defined and groups.scn|length > 0
+
+- name: Start klaytn daemon
+  become: yes
+  systemd:
+    name: "{{ klaytn_daemon_name }}" 
+    state: restarted
+    enabled: yes
+
+- name: Set up for bridge mode
+  become: yes
+  block:
+    - name: Wait for ready to use IPC
+      stat:
+        path: "{{ klaytn_conf.DATA_DIR }}/klay.ipc"
+      async: 10
+      poll: 1
+      register: async_results
+      until: async_results.stat.exists
+
+    - name: Get Main bridge node info
+      command: ken attach --datadir {{ klaytn_conf.DATA_DIR }} --exec mainbridge.nodeInfo.kni
+      register: mainbridge_info
+
+    - name: Set mainbridge kni
+      set_fact:
+        mainbridge_kni: "{{ mainbridge_info.stdout | replace('[::]', ansible_host) }}"
+  when: 
+    - not is_service_chain
+    - klaytn_bridge_enabled
