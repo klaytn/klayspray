@@ -1,0 +1,84 @@
+# Configuration - Klaytn Package service
+
+# cypress, baobab is only available if you don't specify NETWORK_ID.
+NETWORK={{ klaytn_conf.NETWORK | default('') }}
+
+# if you specify NETWORK_ID, a private network is created.
+NETWORK_ID={{ klaytn_conf.NETWORK_ID | default('') }}
+
+PORT={{ klaytn_conf.PORT | default('32323') }}
+
+SERVER_TYPE="{{ klaytn_conf.SERVER_TYPE | default('fasthttp') }}"
+SYNCMODE="{{ klaytn_conf.SYNCMODE | default('full') }}"
+VERBOSITY={{ klaytn_conf.VERBOSITY | default('3') }}
+MAXCONNECTIONS={{ klaytn_conf.MAXCONNECTIONS | default('100') }}
+
+{% if 'cn' in klaytn_node_type %}
+REWARDBASE="{{ klaytn_conf.REWARDBASE | default('') }}"
+{% endif %}
+
+# txpool options setting
+TXPOOL_EXEC_SLOTS_ALL={{ klaytn_conf.TXPOOL_EXEC_SLOTS_ALL | default('') }}
+TXPOOL_NONEXEC_SLOTS_ALL={{ klaytn_conf.TXPOOL_NONEXEC_SLOTS_ALL | default('') }}
+TXPOOL_EXEC_SLOTS_ACCOUNT={{ klaytn_conf.TXPOOL_EXEC_SLOTS_ACCOUNT | default('') }}
+TXPOOL_NONEXEC_SLOTS_ACCOUNT={{ klaytn_conf.TXPOOL_NONEXEC_SLOTS_ACCOUNT | default('') }}
+TXPOOL_LIFE_TIME="{{ klaytn_conf.TXPOOL_LIFE_TIME | default('5m') }}"
+
+# rpc options setting
+RPC_ENABLE={{ klaytn_conf.RPC_ENABLE | default('0') }} # if this is set, the following options will be used
+RPC_API="{{ klaytn_conf.RPC_API | default('klay') }}" # available apis: admin,debug,klay,miner,net,personal,rpc,txpool,web3
+RPC_PORT={{ klaytn_conf.RPC_PORT | default('8551') }}
+RPC_ADDR="{{ klaytn_conf.RPC_ADDR | default('0.0.0.0') }}"
+RPC_CORSDOMAIN="{{ klaytn_conf.RPC_CORSDOMAIN | default('*') }}"
+RPC_VHOSTS="{{ klaytn_conf.RPC_VHOSTS | default('*') }}"
+
+# ws options setting
+WS_ENABLE={{ klaytn_conf.WS_ENABLE | default('0') }} # if this is set, the following options will be used
+WS_API="{{ klaytn_conf.WS_API | default('klay') }}" # available apis: admin,debug,klay,miner,net,personal,rpc,txpool,web3
+WS_ADDR="{{ klaytn_conf.WS_ADDR | default('0.0.0.0') }}"
+WS_PORT={{ klaytn_conf.WS_PORT | default('8552') }}
+WS_ORIGINS="{{ klaytn_conf.WS_ORIGINS | default('*') }}"
+
+# Setting 1 is to enable options, otherwise disabled.
+AUTO_RESTART={{ klaytn_conf.AUTO_RESTART | default('1') }}
+METRICS={{ klaytn_conf.METRICS | default('1') }}
+PROMETHEUS={{ klaytn_conf.PROMETHEUS | default('1') }}
+DB_NO_PARALLEL_WRITE={{ klaytn_conf.DB_NO_PARALLEL_WRITE | default('0') }}
+MULTICHANNEL={{ klaytn_conf.MULTICHANNEL | default('1') }}
+SUBPORT={{ klaytn_conf.SUBPORT | default('') }} # used for multi channel option
+
+# discover options
+NO_DISCOVER={{ klaytn_conf.NO_DISCOVER | default('') }} # setting 1 to disable discovery
+BOOTNODES="{{ klaytn_conf.BOOTNODES | default('') }}"
+
+# auto restart options
+AUTO_RESTART_NODE={{ klaytn_conf.AUTO_RESTART_NODE | default('1') }}
+AUTO_RESTART_INTERVAL={{ klaytn_conf.AUTO_RESTART_INTERVAL | default('0.1') }}
+
+# Raw options e.g) "--txpool.nolocals"
+ADDITIONAL={{ klaytn_conf.ADDITIONAL | default('') }}
+
+DATA_DIR={{ klaytn_conf.DATA_DIR | default('/var/' + klaytn_daemon_name + '/data') }}
+LOG_DIR={{ klaytn_conf.LOG_DIR | default('/var/' + klaytn_daemon_name + '/log') }}
+
+{% if klaytn_bridge_enabled %}
+# Bridge
+{% if not is_service_chain %}
+SC_MAIN_BRIDGE=1
+SC_MAIN_BRIDGE_PORT={{ klaytn_conf.SC_MAIN_BRIDGE_PORT | default ('50505') }}
+SC_MAIN_BRIDGE_INDEXING={{ klaytn_conf.SC_MAIN_BRIDGE_INDEXING | default ('0') }}
+{% else %}
+SC_SUB_BRIDGE=1
+SC_SUB_BRIDGE_PORT={{ klaytn_conf.SC_SUB_BRIDGE_PORT | default('50506') }} # if main-bridge and sub-bridge on same instance, use different port with main-bridge.(main: 50505, sub:50506)
+SC_PARENT_CHAIN_ID={{ klaytn_service_parent_chain_id }}
+
+SC_ANCHORING={{ klaytn_conf.SC_ANCHORING | default('0') }}
+SC_ANCHORING_PERIOD={{ klaytn_conf.SC_ANCHORING_PERIOD | default('10') }}
+SC_TX_LIMIT={{ klaytn_conf.SC_TX_LIMIT | default('1000') }}
+SC_PARENT_OPERATOR_GASLIMIT={{ klaytn_conf.SC_PARENT_OPERATOR_GASLIMIT | default('10000000') }}
+SC_CHILD_OPERATOR_GASLIMIT={{ klaytn_conf.SC_CHILD_OPERATOR_GASLIMIT | default('10000000') }}
+
+SC_VTRECOVERY={{ klaytn_conf.SC_VTRECOVERY| default('1') }} # value trasnfer recovery activation
+SC_VTRECOVERY_INTERVAL={{ klaytn_conf.SC_VTRECOVERY_INTERVAL | default('5') }} # recovery interval
+{% endif %}
+{% endif %}

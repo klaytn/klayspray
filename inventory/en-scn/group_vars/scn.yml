@@ -1,0 +1,11 @@
+klaytn_node_type: scn
+
+## parant chain id of service chain
+# baobab: 1001
+# cypress: 8217
+klaytn_service_parent_chain_id: 1001
+klaytn_service_network_id: 10000
+klaytn_service_chain_id: 10000
+klaytn_conf_override:
+  NETWORK_ID: "{{ klaytn_service_network_id }}"
+  PORT: 22323

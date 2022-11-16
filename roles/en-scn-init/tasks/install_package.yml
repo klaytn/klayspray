@@ -1,0 +1,44 @@
+---
+- name: "Installation - Add yum repository"
+  become: yes
+  yum_repository:
+    name: klaytn
+    description: Klaytn Package Repository
+    baseurl: http://packages.klaytn.net/rhel/7/prod/
+    gpgcheck: no
+
+- name: "Installation - Install Klaytn Package "
+  become: yes
+  yum:
+    name: '{{ klaytn_daemon_name }}-{{ klaytn_version }}-0.el7'
+    state: latest
+  register: is_klaytn_package_installed
+  until: is_klaytn_package_installed is succeeded
+
+- name: "Installation - Install Homi Package "
+  become: yes
+  yum:
+    name: 'homi'
+    state: latest
+  when: is_service_chain
+
+- name: "Configuration - Make configuration directory"
+  become: yes
+  file:
+    path: "/etc/{{ klaytn_daemon_name }}/conf"
+    state: "directory"
+
+- name: "Configuration - Template klaytn configuration"
+  become: yes
+  template:
+    src: "klaytn.conf.j2"
+    dest: "/etc/{{ klaytn_daemon_name }}/conf/{{ klaytn_daemon_name }}.conf"
+
+- name: "Initialization - Create klaytn directory"
+  become: yes
+  file:
+    state: directory
+    path: "{{ item }}"
+  with_items:
+  - "{{ klaytn_conf.DATA_DIR }}"
+  - "{{ klaytn_conf.LOG_DIR }}"

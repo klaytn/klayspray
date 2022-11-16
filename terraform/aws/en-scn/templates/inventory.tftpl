@@ -1,0 +1,20 @@
+[en]
+%{ for k, v in en ~}
+en${k+1} ansible_host=${v.public_ip} ansible_private_host=${v.private_ip} ansible_ssh_user=ec2-user ansible_ssh_private_key_file=${ basename(ansible_ssh_private_key_file) }
+%{ endfor ~}
+
+[scn]
+%{ for k, v in scn ~}
+scn${k+1} ansible_host=${v.public_ip} ansible_private_host=${v.private_ip} ansible_ssh_user=ec2-user ansible_ssh_private_key_file=${ basename(ansible_ssh_private_key_file) }
+%{ endfor ~}
+
+[localhost]
+localhost ansible_host=127.0.0.1 ansible_connection=local
+
+[bridge]
+en1
+scn1
+
+[nodes:children]
+en
+scn

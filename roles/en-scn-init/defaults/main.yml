@@ -1,0 +1,53 @@
+klaytn_node_type:
+klaytn_network_id:
+klaytn_conf_default:
+  NETWORK:
+  NETWORK_ID: "{{ klaytn_network_id }}"
+  PORT: 32323
+  SERVER_TYPE: fasthttp
+  SYNCMODE: full
+  VERBOSITY: 3
+  MAXCONNECTIONS: 100
+  TXPOOL_EXEC_SLOTS_ALL: 16384
+  TXPOOL_NONEXEC_SLOTS_ALL: 16384
+  TXPOOL_EXEC_SLOTS_ACCOUNT: 16384
+  TXPOOL_NONEXEC_SLOTS_ACCOUNT: 16384
+  TXPOOL_LIFE_TIME: 5m
+  RPC_ENABLE: 0
+  RPC_API: klay
+  RPC_PORT: 8551
+  RPC_ADDR: 0.0.0.0
+  RPC_CORSDOMAIN: "*"
+  RPC_VHOSTS: "*"
+  WS_ENABLE: 0
+  WS_API: klay
+  WS_ADDR: 0.0.0.0
+  WS_PORT: 8552
+  WS_ORIGINS: "*"
+  AUTO_RESTART: 1
+  METRICS: 1
+  PROMETHEUS: 1
+  DB_NO_PARALLEL_WRITE: 0
+  MULTICHANNEL: 1
+  SUBPORT: $((PORT + 1))
+  NO_DISCOVER: 0
+  BOOTNODES:
+  AUTO_RESTART_NODE: 1
+  AUTO_RESTART_INTERVAL: 0.1
+  ADDITIONAL:
+  REWARDBASE: "{{ klaytn_rewardbase }}"
+  DATA_DIR: "/var/{{ klaytn_daemon_name }}/data"
+  LOG_DIR: "/var/log/{{ klaytn_daemon_name }}"
+klaytn_conf_override:
+
+klaytn_chaindata_timestamp: 20221114011111
+
+klaytn_bridge_enabled: 1
+klaytn_bridge_node_type:
+klaytn_bridge_node_num:
+
+klaytn_port: 32323
+
+homi_output_dir: /opt/homi
+homi_default_options: ""
+homi_test_account_num: 2

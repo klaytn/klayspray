@@ -1,0 +1,24 @@
+---
+- hosts: en, &bridge
+  gather_facts: True
+  roles:
+  - { role: klayspray-defaults }
+  - { role: en-scn-init }
+
+- hosts: scn, &bridge
+  gather_facts: True
+  pre_tasks:
+    - set_fact:
+        mainbridge_kni: "{{ hostvars.en1.mainbridge_kni }}"
+  roles:
+  - { role: klayspray-defaults }
+  - { role: en-scn-init }
+
+- hosts: scn, !bridge
+  gather_facts: True
+  pre_tasks:
+    - set_fact:
+        mainbridge_kni: "{{ hostvars.en1.mainbridge_kni }}"
+  roles:
+  - { role: klayspray-defaults }
+  - { role: en-scn-init }
