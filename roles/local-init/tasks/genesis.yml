@@ -8,7 +8,7 @@
 
 - name: "Generate {{ ctx.type }} data & genesis.json by Homi"
   shell: |
-    {{ homi_bin }} setup local {{ homi_default_options }} --test-num {{ homi_test_account_num }} --cn-num {{ node.num }} --chainID {{ klaytn_network_id }} --network-id {{ klaytn_network_id }} -o {{ homi_output_dir }}/{{ node.type }}
+    {{ homi_bin }} setup local {{ homi_default_options }} --test-num {{ homi_test_account_num }} --cn-num {{ ctx.num }} --chainID {{ klaytn_network_id }} --network-id {{ klaytn_network_id }} -o {{ homi_output_dir }}/{{ ctx.type }}
   tags:
   - localhost
   when:
