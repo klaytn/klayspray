@@ -1,6 +1,6 @@
 ---
-- name: Install klaytn packages
-  include_tasks: install_package.yml
+- name: Install klaytn binary
+  include_tasks: install.yml
 
 - name: Copy required files
   include_tasks: copy_files.yml

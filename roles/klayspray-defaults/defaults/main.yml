@@ -1,8 +1,20 @@
 cache_dir: "{{ playbook_dir }}/cache"
 bin_dir: "{{ cache_dir }}/bin"
 homi_output_dir: "{{ cache_dir }}/homi-output"
+klaytn_build_dir: "{{ cache_dir }}/klaytn-build"
+
+klaytn_install_mode: package # package, build
 
 klaytn_version: v1.9.1
+
+# =======================
+# for development or test
+# =======================
+klaytn_build_docker_base_image: "klaytn/build_base:latest"
+klaytn_build_docker_builder_image: "klaytn_builder"
+klaytn_build_local_git_dir:
+klaytn_build_remote_git_url: "git@github.com:klaytn/klaytn.git"
+klaytn_build_remote_git_branch: "dev"
 
 klaytn_num_cn: 4
 klaytn_num_pn: 4
@@ -22,3 +34,5 @@ klaytn_custom_topology:
 klaytn_bridge_enabled: 0
 
 klaytn_port: 32323
+klaytn_main_bridge_port: 50505
+klaytn_sub_bridge_port: 50506
