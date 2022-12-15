@@ -1,0 +1,36 @@
+---
+- name: "Installation - Copy klaytn binary"
+  become: yes
+  copy:
+    src: "{{ bin_dir }}/{{ klaytn_binary_name }}"
+    dest: "/bin/{{ klaytn_binary_name }}"
+    mode: preserve
+
+- name: "Installation - Copy klaytn init.d script"
+  become: yes
+  copy:
+    src: "{{ bin_dir }}/{{ klaytn_daemon_name }}"
+    dest: "/etc/rc.d/init.d/{{ klaytn_daemon_name }}"
+    mode: preserve
+
+- name: "Configuration - Make configuration directory"
+  become: yes
+  file:
+    path: "/etc/{{ klaytn_daemon_name }}/conf"
+    state: "directory"
+
+- name: "Configuration - Template klaytn configuration"
+  become: yes
+  template:
+    src: "klaytn.conf.j2"
+    dest: "/etc/{{ klaytn_daemon_name }}/conf/{{ klaytn_daemon_name }}.conf"
+
+- name: "Initialization - Create klaytn directory"
+  become: yes
+  file:
+    state: directory
+    path: "{{ item }}"
+  with_items:
+  - "{{ klaytn_conf.DATA_DIR }}"
+  - "{{ klaytn_conf.LOG_DIR }}"
+

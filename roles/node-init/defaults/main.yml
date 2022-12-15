@@ -2,7 +2,7 @@ klaytn_node_type:
 klaytn_conf_default:
   NETWORK:
   NETWORK_ID: "{{ klaytn_network_id }}"
-  PORT: 32323
+  PORT: "{{ klaytn_port }}"
   SERVER_TYPE: fasthttp
   SYNCMODE: full
   VERBOSITY: 3
@@ -37,6 +37,8 @@ klaytn_conf_default:
   REWARDBASE: "{{ klaytn_rewardbase }}"
   DATA_DIR: "/var/{{ klaytn_daemon_name }}/data"
   LOG_DIR: "/var/{{ klaytn_daemon_name }}/log"
+  SC_MAIN_BRIDGE_PORT: "{{ klaytn_main_bridge_port }}"
+  SC_SUB_BRIDGE_PORT: "{{ klaytn_sub_bridge_port }}"
 klaytn_conf_override:
 
 klaytn_bridge_enabled: 0

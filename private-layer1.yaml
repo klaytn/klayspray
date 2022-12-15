@@ -4,6 +4,7 @@
   roles:
   - { role: klayspray-defaults }
   - { role: local-init }
+  - { role: local-build, when: klaytn_install_mode == 'build' }
   tags:
   - localhost
 
