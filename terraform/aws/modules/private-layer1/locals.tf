@@ -1,19 +1,19 @@
 locals {
   cn_options = {
     count           = lookup(var.cn_options, "count", 4)
-    instance_type   = lookup(var.cn_options, "instance_type", "m5.large")
+    instance_type   = lookup(var.cn_options, "instance_type", "m6i.large")
     ebs_volume_size = lookup(var.cn_options, "ebs_volume_size", 500)
   }
 
   pn_options = {
     count           = lookup(var.pn_options, "count", 4)
-    instance_type   = lookup(var.pn_options, "instance_type", "m5.large")
+    instance_type   = lookup(var.pn_options, "instance_type", "m6i.large")
     ebs_volume_size = lookup(var.pn_options, "ebs_volume_size", 500)
   }
 
   en_options = {
     count           = lookup(var.en_options, "count", 4)
-    instance_type   = lookup(var.en_options, "instance_type", "m5.large")
+    instance_type   = lookup(var.en_options, "instance_type", "r6i.large")
     ebs_volume_size = lookup(var.en_options, "ebs_volume_size", 500)
   }
 
