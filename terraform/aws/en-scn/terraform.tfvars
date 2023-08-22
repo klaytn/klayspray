@@ -3,7 +3,7 @@ ssh_client_ips = ["0.0.0.0/0"]
 
 en_options = {
   count           = 1
-  instance_type   = "c5.large"
+  instance_type   = "m6i.large"
   ebs_volume_size = 1000
 }
 
