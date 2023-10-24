@@ -1,0 +1,42 @@
+---
+- name: "Initialization - Check package stat.exists"
+  stat:
+    path: "{{ bin_dir }}/{{ package_name }}"
+  register: check_package_file
+
+- name: "{{ package_name }}: Download Linux Package"
+  get_url:
+    url: "https://packages.klaytn.net/klaytn/{{ klaytn_version }}/{{ package_name }}-{{ klaytn_version }}-0-linux-amd64.tar.gz"
+    dest: "{{ cache_dir }}"
+  register: download_result
+  when:
+  - ansible_system == "Linux"
+  - check_package_file.stat.exists == False
+
+- name: "{{ package_name }}: Unarchive Package"
+  unarchive:
+    src: "{{ download_result.dest }}"
+    dest: "{{ cache_dir }}"
+    list_files: yes
+    keep_newer: yes
+  register: extract_result
+  when:
+  - check_package_file.stat.exists == False
+
+- name: "{{ package_name }}: Copy binary"
+  copy:
+    src: "{{ cache_dir }}/{{ extract_result.files[-1] }}"
+    dest: "{{ bin_dir }}/{{ package_name }}"
+    mode: '0755'
+  when:
+  - check_package_file.stat.exists == False
+
+- name: "{{ package_name }}: Clean-up"
+  file:
+    path: "{{ item }}"
+    state: absent
+  loop:
+  - "{{ cache_dir }}/{{ extract_result.files[0] }}"
+  - "{{ download_result.dest }}"
+  when:
+  - check_package_file.stat.exists == False

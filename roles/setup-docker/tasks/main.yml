@@ -1,7 +1,7 @@
 ---
 - name: "Install docker"
   become: yes
-  shell: "yum update -y && amazon-linux-extras install docker -y"
+  shell: "yum update -y && yum install docker -y"
   when:
     ansible_distribution == 'Amazon'
   tags:
@@ -25,8 +25,10 @@
   - docker
 
 - name: Install pip
-  shell: "curl -fsSL https://bootstrap.pypa.io/pip/2.7/get-pip.py -o get-pip.py && python get-pip.py"
+  shell: "curl -fsSL https://bootstrap.pypa.io/pip/get-pip.py -o get-pip.py && python3 get-pip.py"
   become: yes
+  tags:
+  - docker
 
 - name: Install docker python package
   become: yes

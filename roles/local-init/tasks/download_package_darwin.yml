@@ -4,15 +4,6 @@
     path: "{{ bin_dir }}/{{ package_name }}"
   register: check_package_file
 
-- name: "{{ package_name }}: Download Linux Package"
-  get_url:
-    url: "https://packages.klaytn.net/klaytn/{{ klaytn_version }}/{{ package_name }}-{{ klaytn_version }}-0-linux-amd64.tar.gz"
-    dest: "{{ cache_dir }}"
-  register: download_result
-  when:
-  - ansible_system == "Linux"
-  - check_package_file.stat.exists == False
-
 - name: "{{ package_name }}: Download Darwin Package"
   get_url:
     url: "https://packages.klaytn.net/klaytn/{{ klaytn_version }}/{{ package_name }}-{{ klaytn_version }}-0-darwin-10.10-amd64.tar.gz"
