@@ -79,7 +79,7 @@ module "firewall_rules" {
   for_each = { for v in local.firewall_rules : v.name => v }
 
   source       = "terraform-google-modules/network/google//modules/firewall-rules"
-  project_id   = "platform-dev-363802"
+  project_id   = var.project_id
   network_name = var.network
 
   rules = [{

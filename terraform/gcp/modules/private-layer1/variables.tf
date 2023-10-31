@@ -62,3 +62,7 @@ variable "metadata" {
   type        = map(any)
   description = "Metadata array"
 }
+
+variable "project_id" {
+  type = string
+}

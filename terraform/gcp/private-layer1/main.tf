@@ -5,6 +5,7 @@ module "layer1" {
   zone_list  = data.google_compute_zones.this.names
   network    = module.vpc.network_self_link
   subnetwork = one([for item in module.vpc.subnets_self_links : item if can(regex("public", item))])
+  project_id = var.project_id
 
   boot_image_id  = data.google_compute_image.this.self_link
   ssh_client_ips = var.ssh_client_ips
