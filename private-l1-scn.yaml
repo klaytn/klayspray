@@ -2,9 +2,9 @@
 - hosts: localhost
   gather_facts: True
   vars:
-    klaytn_bridge_enabled: 1
+    klaytn_bridge_enabled: 0
     klaytn_bridge_node_type: en
-    klaytn_bridge_node_num: 1
+    klaytn_bridge_node_num: 0
   roles:
   - { role: klayspray-defaults }
   - { role: local-init }
@@ -49,7 +49,7 @@
   gather_facts: True
   vars:
     klaytn_node_type: en
-    klaytn_bridge_enabled: 1
+    klaytn_bridge_enabled: 0
   roles:
   - { role: klayspray-defaults }
   - { role: node-init }
@@ -58,7 +58,7 @@
   gather_facts: True
   vars:
     klaytn_node_type: scn
-    klaytn_bridge_enabled: 1
+    klaytn_bridge_enabled: 0
     klaytn_conf_override:
       NETWORK_ID: "{{ klaytn_service_network_id }}"
   roles:
