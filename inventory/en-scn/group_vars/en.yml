@@ -1,7 +1,7 @@
 klaytn_node_type: en
 
 # chaindata timestamp, ref: https://packages.klaytn.net/baobab/chaindata/
-klaytn_chaindata_timestamp: 20221114011111
+klaytn_chaindata_timestamp: 20231107011112
 klaytn_bridge_enabled: 1
 klaytn_conf_override:
   NETWORK: baobab
