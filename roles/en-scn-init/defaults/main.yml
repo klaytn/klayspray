@@ -40,7 +40,7 @@ klaytn_conf_default:
   LOG_DIR: "/var/log/{{ klaytn_daemon_name }}"
 klaytn_conf_override:
 
-klaytn_chaindata_timestamp: 20221114011111
+klaytn_chaindata_timestamp: 20231107011112
 
 klaytn_bridge_enabled: 1
 klaytn_bridge_node_type:

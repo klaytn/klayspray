@@ -12,8 +12,8 @@
   tags:
   - localhost
 
-- name: Start to download a package
-  include_tasks: download_package.yml
+- name: Start to download a package Linux
+  include_tasks: download_package_linux.yml
   loop:
   - kgen
   - homi
@@ -21,6 +21,21 @@
     loop_var: package_name
   tags:
   - localhost
+  when:
+  - ansible_system == "Linux"
+
+- name: Start to download a package Darwin
+  include_tasks: download_package_darwin.yml
+  loop:
+  - kgen
+  - homi
+  loop_control:
+    loop_var: package_name
+  tags:
+  - localhost
+  when:
+  - ansible_system == "Darwin"
+
 
 - name: Generate genesis.json & nodekey & validator
   include_tasks: genesis.yml

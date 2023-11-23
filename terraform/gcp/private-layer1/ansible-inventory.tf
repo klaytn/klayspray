@@ -12,5 +12,5 @@ locals {
 }
 resource "local_file" "this" {
   content  = local.ansible_inventory
-  filename = format("%s/../../../%s_inventory.ini", path.module, basename(abspath(path.module)))
+  filename = format("%s/../../../inventory/%s/inventory.ini", path.module, basename(abspath(path.module)))
 }

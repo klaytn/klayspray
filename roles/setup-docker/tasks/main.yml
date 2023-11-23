@@ -1,7 +1,7 @@
 ---
 - name: "Install docker"
   become: yes
-  shell: "yum update -y && amazon-linux-extras install docker -y"
+  shell: "yum update -y && yum install docker -y"
   when:
     ansible_distribution == 'Amazon'
   tags:
@@ -10,6 +10,16 @@
 - name: "Install docker"
   become: yes
   shell: "curl -fsSL https://get.docker.com -o get-docker.sh && sh get-docker.sh"
+  when:
+    ansible_distribution != 'Amazon'
+  tags:
+  - docker
+
+- name: "Install python3"
+  become: yes
+  yum: 
+    name: python3
+    state: present
   when:
     ansible_distribution != 'Amazon'
   tags:
@@ -24,9 +34,22 @@
   tags:
   - docker
 
-- name: Install pip
-  shell: "curl -fsSL https://bootstrap.pypa.io/pip/2.7/get-pip.py -o get-pip.py && python get-pip.py"
+- name: Install pip 
+  shell: "curl -fsSL https://bootstrap.pypa.io/pip/3.6/get-pip.py -o get-pip.py && python3 get-pip.py"
   become: yes
+  when:
+    ansible_distribution != 'Amazon'
+  tags:
+  - docker
+
+- name: Install pip
+  shell: "curl -fsSL https://bootstrap.pypa.io/pip/get-pip.py -o get-pip.py && python3 get-pip.py"
+  become: yes
+  when:
+    ansible_distribution == 'Amazon'
+  tags:
+  - docker
+
 
 - name: Install docker python package
   become: yes

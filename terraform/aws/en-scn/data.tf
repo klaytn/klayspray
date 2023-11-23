@@ -19,6 +19,6 @@ data "aws_ami" "this" {
 
   filter {
     name   = "name"
-    values = ["amzn2-ami-kernel-*"]
+    values = ["al2023-ami-2023*"]
   }
 }
