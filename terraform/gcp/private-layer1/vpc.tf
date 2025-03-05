@@ -1,4 +1,6 @@
 module "vpc" {
+  count = var.network == "" ? 1 : 0 # create vpc only if network is not provided
+
   source = "terraform-google-modules/network/google"
 
   project_id   = var.project_id
@@ -27,4 +29,10 @@ module "vpc" {
       next_hop_internet = "true"
     },
   ]
+}
+
+# reference the VPC and Subnet
+locals {
+  network_self_link    = var.network != "" ? var.network : length(module.vpc) > 0 ? module.vpc[0].network_self_link : ""
+  subnetwork_self_link = var.subnetwork != "" ? var.subnetwork : length(module.vpc) > 0 ? [for item in module.vpc[0].subnets_self_links : item if can(regex("public", item))][0] : ""
 }

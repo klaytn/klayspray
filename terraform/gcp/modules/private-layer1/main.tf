@@ -9,6 +9,8 @@ module "cn" {
   subnetwork    = var.subnetwork
   zone          = var.zone_list[count.index % length(var.zone_list)]
   use_public_ip = true
+  region        = var.gcp_region
+  network_tier  = var.network_tier
 
   boot_disk = {
     image_id       = var.boot_image_id
@@ -22,7 +24,7 @@ module "cn" {
   #   size = 100
   # }
 
-  tags = ["klayspray", "cn"]
+  tags = length(var.network_tags) > 0 ? concat(var.network_tags, ["klayspray", "cn"]) : ["klayspray", "cn"]
 
   metadata = merge(var.metadata, {
     Name = format("%s-cn-%d", var.name, count.index + 1)
@@ -40,6 +42,8 @@ module "pn" {
   subnetwork    = var.subnetwork
   zone          = var.zone_list[count.index % length(var.zone_list)]
   use_public_ip = true
+  region        = var.gcp_region
+  network_tier  = var.network_tier
 
   boot_disk = {
     image_id       = var.boot_image_id
@@ -53,7 +57,7 @@ module "pn" {
   #   size = 100
   # }
 
-  tags = ["klayspray", "pn"]
+  tags = length(var.network_tags) > 0 ? concat(var.network_tags, ["klayspray", "pn"]) : ["klayspray", "pn"]
 
   metadata = merge(var.metadata, {
     Name = format("%s-pn-%d", var.name, count.index + 1)
@@ -71,6 +75,8 @@ module "en" {
   subnetwork    = var.subnetwork
   zone          = var.zone_list[count.index % length(var.zone_list)]
   use_public_ip = true
+  region        = var.gcp_region
+  network_tier  = var.network_tier
 
   boot_disk = {
     image_id       = var.boot_image_id
@@ -84,7 +90,7 @@ module "en" {
   #   size = 100
   # }
 
-  tags = ["klayspray", "en"]
+  tags = length(var.network_tags) > 0 ? concat(var.network_tags, ["klayspray", "en"]) : ["klayspray", "en"]
 
   metadata = merge(var.metadata, {
     Name = format("%s-en-%d", var.name, count.index + 1)
@@ -100,6 +106,8 @@ module "monitor" {
   subnetwork    = var.subnetwork
   zone          = var.zone_list[0]
   use_public_ip = true
+  region        = var.gcp_region
+  network_tier  = var.network_tier
 
   boot_disk = {
     image_id       = var.boot_image_id
@@ -113,7 +121,7 @@ module "monitor" {
   #   size = 100
   # }
 
-  tags = ["klayspray", "monitor"]
+  tags = length(var.network_tags) > 0 ? var.network_tags : ["klayspray", "monitor"]
 
   metadata = merge(var.metadata, {
     Name = format("%s-monitor", var.name)

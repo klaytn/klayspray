@@ -47,7 +47,7 @@ variable "ssh_client_ips" {
 
 variable "create_gcp_key_pair" {
   type        = bool
-  description = "Controls if GCP key pair should be created"
+  description = "Flag to determine whether to create a GCP SSH key pair."
   default     = true
 }
 
@@ -64,9 +64,8 @@ variable "ssh_existing_public_key_path" {
 }
 
 variable "project" {
+  description = "The name of the project to create or use"
   type        = string
-  description = "GCP project name"
-  default     = null
 }
 
 variable "project_id" {
@@ -75,8 +74,36 @@ variable "project_id" {
   default     = null
 }
 
+variable "org_id" {
+  description = "The organization ID for the GCP project"
+  type        = string
+}
+
+variable "billing_account" {
+  description = "The billing account ID for the GCP project"
+  type        = string
+}
+
 variable "gcp_region" {
   type        = string
   description = "GCP region where all resources will be created"
   default     = "asia-northeast3"
+}
+
+variable "network" {
+  type        = string
+  description = "Network Name to be used"
+  default     = ""
+}
+
+variable "subnetwork" {
+  type        = string
+  description = "Subnet Name to be used"
+  default     = ""
+}
+
+variable "network_tags" {
+  description = "List of network tags to apply to the VPC."
+  type        = list(string)
+  default     = []
 }

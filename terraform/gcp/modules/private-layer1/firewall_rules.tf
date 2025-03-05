@@ -76,26 +76,26 @@ locals {
 }
 
 module "firewall_rules" {
-  for_each = { for v in local.firewall_rules : v.name => v }
+  count = length(var.network_tags) > 0 ? 0 : length(local.firewall_rules)
 
   source       = "terraform-google-modules/network/google//modules/firewall-rules"
   project_id   = var.project_id
   network_name = var.network
 
   rules = [{
-    name                    = try(each.value.name, "rule")
-    description             = try(each.value.description, null)
-    direction               = try(each.value.direction, "INGRESS") # INGRESS OR EGRESS
-    priority                = try(each.value.priority, null)
-    ranges                  = try(each.value.ranges, null) # []
-    source_tags             = try(each.value.source_tags, null)
-    source_service_accounts = try(each.value.source_service_accounts, null)
-    target_tags             = try(each.value.target_tags, null)
-    target_service_accounts = try(each.value.target_service_accounts, null)
+    name                    = try(local.firewall_rules[count.index].name, "rule")
+    description             = try(local.firewall_rules[count.index].description, null)
+    direction               = try(local.firewall_rules[count.index].direction, "INGRESS") # INGRESS OR EGRESS
+    priority                = try(local.firewall_rules[count.index].priority, null)
+    ranges                  = try(local.firewall_rules[count.index].ranges, null) # []
+    source_tags             = try(local.firewall_rules[count.index].source_tags, null)
+    source_service_accounts = try(local.firewall_rules[count.index].source_service_accounts, null)
+    target_tags             = try(local.firewall_rules[count.index].target_tags, null)
+    target_service_accounts = try(local.firewall_rules[count.index].target_service_accounts, null)
 
     allow = [{
-      protocol = try(each.value.allow.protocol, "tcp")
-      ports    = try(each.value.allow.ports, null) # []
+      protocol = try(local.firewall_rules[count.index].allow.protocol, "tcp")
+      ports    = try(local.firewall_rules[count.index].allow.ports, null) # []
     }]
 
     deny = []

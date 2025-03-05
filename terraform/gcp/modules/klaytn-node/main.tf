@@ -25,7 +25,8 @@ resource "google_compute_instance" "this" {
       for_each = var.use_public_ip == true ? [1] : []
 
       content {
-        nat_ip = google_compute_address.this[0].address
+        nat_ip       = google_compute_address.this[0].address
+        network_tier = var.network_tier
       }
     }
   }
@@ -48,5 +49,7 @@ resource "google_compute_disk" "this" {
 resource "google_compute_address" "this" {
   count = var.use_public_ip ? 1 : 0
 
-  name = format("%s-ip", var.name)
+  name         = format("%s-ip", var.name)
+  region       = var.region != null ? var.region : "asia-southeast1"
+  network_tier = var.network_tier
 }
