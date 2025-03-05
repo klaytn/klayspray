@@ -5,7 +5,7 @@ resource "google_compute_instance" "this" {
 
   boot_disk {
     initialize_params {
-      image = lookup(var.boot_disk, "image_id", "centos-7")
+      image = lookup(var.boot_disk, "image_id", data.google_compute_image.this.family)
       size  = lookup(var.boot_disk, "boot_disk_size", 20)
     }
   }
@@ -50,4 +50,3 @@ resource "google_compute_address" "this" {
 
   name = format("%s-ip", var.name)
 }
-

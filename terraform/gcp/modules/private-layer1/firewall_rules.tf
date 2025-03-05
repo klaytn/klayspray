@@ -1,7 +1,7 @@
 locals {
   firewall_rules = [
     {
-      name        = "ssh"
+      name        = "kaiaspray-ssh"
       direction   = "INGRESS"
       ranges      = var.ssh_client_ips
       target_tags = ["klayspray"]
@@ -11,7 +11,7 @@ locals {
       }
     },
     {
-      name        = "rpc-tcp"
+      name        = "kaiaspray-rpc-tcp"
       direction   = "INGRESS"
       ranges      = ["0.0.0.0/0"]
       source_tags = ["cn", "pn", "en"]
@@ -22,7 +22,7 @@ locals {
       }
     },
     {
-      name        = "rpc-udp"
+      name        = "kaiaspray-rpc-udp"
       direction   = "INGRESS"
       ranges      = ["0.0.0.0/0"]
       source_tags = ["cn", "pn", "en"]
@@ -33,7 +33,7 @@ locals {
       }
     },
     {
-      name        = "monitor-internal"
+      name        = "kaiaspray-monitor-internal"
       direction   = "INGRESS"
       source_tags = ["monitor"]
       target_tags = ["cn", "pn", "en"]
@@ -43,7 +43,7 @@ locals {
       }
     },
     {
-      name        = "monitor-external"
+      name        = "kaiaspray-monitor-external"
       direction   = "INGRESS"
       ranges      = ["0.0.0.0/0"]
       target_tags = ["monitor"]
@@ -53,7 +53,7 @@ locals {
       }
     },
     {
-      name        = "egress-tcp"
+      name        = "kaiaspray-egress-tcp"
       direction   = "EGRESS"
       ranges      = ["0.0.0.0/0"]
       target_tags = ["klayspray"]
@@ -63,7 +63,7 @@ locals {
       }
     },
     {
-      name        = "egress-udp"
+      name        = "kaiaspray-egress-udp"
       direction   = "EGRESS"
       ranges      = ["0.0.0.0/0"]
       target_tags = ["klayspray"]
