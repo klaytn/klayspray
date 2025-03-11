@@ -4,5 +4,7 @@ cache
 terraform.tfstate*
 .terraform*
 *.pem
+.idea
 .DS_Store
 roles/klaytn_node/*
+inventory/private-layer1/inventory.ini

@@ -66,3 +66,27 @@ variable "metadata" {
 variable "project_id" {
   type = string
 }
+
+variable "create_gcp_firewall_rules" {
+  description = "Flag to determine whether to create a GCP firewall rules."
+  type        = bool
+  default     = false  # Default to false; set to true to create the firewall rules
+}
+
+variable "network_tags" {
+  type        = list(string)
+  description = "List of network tags"
+  default     = []
+}
+
+variable "gcp_region" {
+  type        = string
+  description = "GCP region where all resources will be created"
+  default     = "asia-southeast1"
+}
+
+variable "network_tier" {
+  type        = string
+  description = "Network tier for external IP addresses (PREMIUM or STANDARD)"
+  default     = "PREMIUM"
+}

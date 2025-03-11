@@ -48,6 +48,18 @@ variable "project" {
   default     = null
 }
 
+variable "region" {
+  type        = string
+  description = "GCP region for resources"
+  default     = null
+}
+
+variable "network_tier" {
+  type        = string
+  description = "Network tier for external IP addresses (PREMIUM or STANDARD)"
+  default     = "STANDARD"
+}
+
 variable "tags" {
   type        = list(any)
   description = "Tag list"
