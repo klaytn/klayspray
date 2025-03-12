@@ -74,16 +74,6 @@ variable "project_id" {
   default     = null
 }
 
-variable "org_id" {
-  description = "The organization ID for the GCP project"
-  type        = string
-}
-
-variable "billing_account" {
-  description = "The billing account ID for the GCP project"
-  type        = string
-}
-
 variable "gcp_region" {
   type        = string
   description = "GCP region where all resources will be created"
