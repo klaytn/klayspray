@@ -103,3 +103,9 @@ variable "create_gcp_firewall_rules" {
   type        = bool
   default     = true # Enabled by default; set to false to use existing firewall rules
 }
+
+variable "user_name" {
+  description = "User name to be used for SSH login"
+  type        = string
+  default     = "kaia"
+}

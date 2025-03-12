@@ -27,6 +27,6 @@ data "local_file" "existing_public_key" {
 
 locals {
   # Use the appropriate key and public key based on configuration
-  private_key_path = var.create_gcp_key_pair ? var.ssh_private_key_path : var.ssh_existing_private_key_path
+  private_key_path = var.create_gcp_key_pair ? basename(var.ssh_private_key_path) : var.ssh_existing_private_key_path
   public_key = var.create_gcp_key_pair ? data.tls_public_key.this[0].public_key_openssh : data.local_file.existing_public_key[0].content
 }
