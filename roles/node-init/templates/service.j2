@@ -1,0 +1,11 @@
+[Unit]
+Description={{ klaytn_daemon_name }} Service
+After=network.target
+
+[Service]
+Type=forking
+ExecStart=/etc/init.d/{{ klaytn_daemon_name }} start
+ExecStop=/etc/init.d/{{ klaytn_daemon_name }} stop
+
+[Install]
+WantedBy=multi-user.target 

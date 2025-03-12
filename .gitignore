@@ -7,4 +7,4 @@ terraform.tfstate*
 .idea
 .DS_Store
 roles/klaytn_node/*
-inventory/private-layer1/inventory.ini
+inventory/*/inventory.ini

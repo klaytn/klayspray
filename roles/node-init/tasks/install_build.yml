@@ -34,3 +34,26 @@
   - "{{ klaytn_conf.DATA_DIR }}"
   - "{{ klaytn_conf.LOG_DIR }}"
 
+- name: Check if {{ klaytn_daemon_name }} service exists
+  stat:
+    path: /etc/systemd/system/{{ klaytn_daemon_name }}.service
+  register: kaia_service
+  when: inventory_hostname in groups[klaytn_node_type]
+
+- name: Create systemd service file for {{ klaytn_daemon_name }}
+  become: yes
+  template:
+    src: "service.j2"
+    dest: "/etc/systemd/system/{{ klaytn_daemon_name }}.service"
+    mode: '0644'
+  when: 
+    - inventory_hostname in groups[klaytn_node_type]
+    - not kaia_service.stat.exists
+
+- name: Reload systemd daemon
+  become: yes
+  systemd:
+    daemon_reload: yes
+  when: 
+    - inventory_hostname in groups[klaytn_node_type]
+    - not kaia_service.stat.exists

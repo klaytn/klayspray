@@ -1,29 +1,45 @@
 ---
-- name: "Install docker"
+- name: "Install docker (Amazon Linux)"
   become: yes
   shell: "yum update -y && yum install docker -y"
-  when:
-    ansible_distribution == 'Amazon'
+  when: ansible_distribution == 'Amazon'
   tags:
-  - docker
+    - docker
 
-- name: "Install docker"
+- name: Add Docker repo (RHEL compatible)
   become: yes
-  shell: "curl -fsSL https://get.docker.com -o get-docker.sh && sh get-docker.sh"
-  when:
-    ansible_distribution != 'Amazon'
+  yum_repository:
+    name: docker-ce
+    description: Docker CE Repository
+    baseurl: https://download.docker.com/linux/rhel/$releasever/$basearch/stable
+    gpgkey: https://download.docker.com/linux/rhel/gpg
+    gpgcheck: yes
+  when: ansible_distribution in ['Rocky', 'CentOS']
   tags:
-  - docker
+    - docker
+
+- name: Install docker packages (RHEL compatible)
+  become: yes
+  dnf:
+    name:
+      - docker-ce 
+      - docker-ce-cli
+      - containerd.io
+      - docker-buildx-plugin
+      - docker-compose-plugin
+    state: present
+  when: ansible_distribution in ['Rocky', 'CentOS']
+  tags:
+    - docker
 
 - name: "Install python3"
   become: yes
-  yum: 
+  package: 
     name: python3
     state: present
-  when:
-    ansible_distribution != 'Amazon'
+  when: ansible_distribution != 'Amazon'
   tags:
-  - docker
+    - docker
 
 - name: "Start docker daemon"
   become: yes
@@ -32,24 +48,21 @@
     state: started
     enabled: yes
   tags:
-  - docker
+    - docker
 
-- name: Install pip 
+- name: Install pip (non-Amazon Linux)
   shell: "curl -fsSL https://bootstrap.pypa.io/pip/3.6/get-pip.py -o get-pip.py && python3 get-pip.py"
   become: yes
-  when:
-    ansible_distribution != 'Amazon'
+  when: ansible_distribution != 'Amazon'
   tags:
-  - docker
+    - docker
 
-- name: Install pip
+- name: Install pip (Amazon Linux)
   shell: "curl -fsSL https://bootstrap.pypa.io/pip/get-pip.py -o get-pip.py && python3 get-pip.py"
   become: yes
-  when:
-    ansible_distribution == 'Amazon'
+  when: ansible_distribution == 'Amazon'
   tags:
-  - docker
-
+    - docker
 
 - name: Install docker python package
   become: yes
@@ -57,4 +70,13 @@
     name: docker
     extra_args: "--ignore-installed"
   tags:
-  - docker
+    - docker
+
+- name: Add user to docker group
+  become: yes
+  user:
+    name: "{{ ansible_user }}"
+    groups: docker
+    append: yes
+  tags:
+    - docker
