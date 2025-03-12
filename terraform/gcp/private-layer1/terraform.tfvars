@@ -3,6 +3,7 @@ project_id = "klayspray-123456"
 gcp_region = "asia-northeast3"
 
 name           = "klayspray"
+username       = "kaia"
 ssh_client_ips = ["0.0.0.0/0"]
 
 cn_options = {
