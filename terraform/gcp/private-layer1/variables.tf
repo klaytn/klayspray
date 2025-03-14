@@ -24,7 +24,13 @@ variable "pn_options" {
 
 variable "en_options" {
   type        = any
-  description = "The options to deploy PN nodes"
+  description = "The options to deploy EN nodes"
+  default     = {}
+}
+
+variable "deploy_options" {
+  type        = any
+  description = "The options to deploy kaia nodes"
   default     = {}
 }
 
