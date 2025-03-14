@@ -14,28 +14,28 @@ deploy_options = {
 }
 
 cn_options = {
-  count          = 4
-  machine_type   = "e2-medium"
+  count          = 1
+  machine_type   = "n2-standard-2"
   boot_disk_size = 30
   # compute_disk_size = 100
 }
 
 pn_options = {
-  count          = 4
-  machine_type   = "e2-medium"
+  count          = 1
+  machine_type   = "n2-standard-2"
   boot_disk_size = 30
   # compute_disk_size = 100
 }
 
 en_options = {
   count          = 1
-  machine_type   = "e2-medium"
+  machine_type   = "n2-standard-2"
   boot_disk_size = 30
   # compute_disk_size = 100
 }
 
 monitor_options = {
-  machine_type   = "e2-medium"
+  machine_type   = "n2-standard-2"
   boot_disk_size = 30
   # compute_disk_size = 100
 }
