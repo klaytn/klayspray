@@ -74,16 +74,6 @@ variable "project_id" {
   default     = null
 }
 
-variable "org_id" {
-  description = "The organization ID for the GCP project"
-  type        = string
-}
-
-variable "billing_account" {
-  description = "The billing account ID for the GCP project"
-  type        = string
-}
-
 variable "gcp_region" {
   type        = string
   description = "GCP region where all resources will be created"
@@ -106,4 +96,10 @@ variable "network_tags" {
   description = "List of network tags to apply to the VPC."
   type        = list(string)
   default     = []
+}
+
+variable "create_gcp_firewall_rules" {
+  description = "Flag to determine whether to create a GCP firewall rules."
+  type        = bool
+  default     = true # Enabled by default; set to false to use existing firewall rules
 }
