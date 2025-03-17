@@ -13,7 +13,7 @@ locals {
   ansible_vars = templatefile(
     "${path.module}/templates/groupvarsall.tftpl",
     {
-      kaia_install_mode = "package"
+      kaia_install_mode = var.deploy_options.kaia_install_mode
       kaia_num_cn       = var.cn_options.count
       kaia_num_pn       = var.pn_options.count
       kaia_num_en       = var.en_options.count

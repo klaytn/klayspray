@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Installation mode: 'build' or 'package'
 # - build: Build from source code
 # - package: Install from package repository
@@ -9,13 +10,13 @@ klaytn_version: v1.0.3
 klaytn_build_docker_base_image: "kaiachain/build_base:latest"
 
 # Node counts
-kaia_num_cn: 1
-kaia_num_pn: 1
-kaia_num_en: 1
+klaytn_num_cn: 1
+klaytn_num_pn: 1
+klaytn_num_en: 1
 
 # Network configuration
-kaia_network_id: 9999
-kaia_chain_id: 9999
+klaytn_network_id: 9999
+klaytn_chain_id: 9999
 
 # Reward base address
-kaia_rewardbase: "0x46879cdc21832d6bd6b49081513fa3d965443075"
+klaytn_rewardbase: "0x46879cdc21832d6bd6b49081513fa3d965443075"
