@@ -3,10 +3,6 @@ bin_dir: "{{ cache_dir }}/bin"
 homi_output_dir: "{{ cache_dir }}/homi-output"
 klaytn_build_dir: "{{ cache_dir }}/klaytn-build"
 
-klaytn_install_mode: package # package, build
-
-klaytn_version: v1.0.3
-
 # =======================
 # for development or test
 # =======================
