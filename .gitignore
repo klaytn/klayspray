@@ -4,6 +4,7 @@ cache
 terraform.tfstate*
 .terraform*
 *.pem
+*.sh
 .idea
 .DS_Store
 roles/klaytn_node/*

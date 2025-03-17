@@ -8,7 +8,9 @@ ssh_client_ips = ["0.0.0.0/0"]
 
 
 deploy_options = {
-  kaia_install_mode = "build"
+  kaia_install_mode = "package"
+  kaia_version = "v1.0.3"
+  kaia_build_docker_base_image = "kaiachain/build_base:latest"
   kaia_network_id = 9999
   kaia_chain_id   = 9999
   kaia_rewardbase = "0x46879cdc21832d6bd6b49081513fa3d965443075"

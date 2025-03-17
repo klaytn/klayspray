@@ -1,13 +1,13 @@
-<<<<<<< HEAD
 # Installation mode: 'build' or 'package'
 # - build: Build from source code
 # - package: Install from package repository
-klaytn_install_mode: package
+# Kaia installation mode
+klaytn_install_mode: "build"
 
 klaytn_version: v1.0.3
 
 # Docker build settings
-klaytn_build_docker_base_image: "kaiachain/build_base:latest"
+klaytn_build_docker_base_image: kaiachain/build_base:latest
 
 # Node counts
 klaytn_num_cn: 1
