@@ -70,7 +70,7 @@ variable "project_id" {
 variable "create_gcp_firewall_rules" {
   description = "Flag to determine whether to create a GCP firewall rules."
   type        = bool
-  default     = false  # Default to false; set to true to create the firewall rules
+  default     = true # Enabled by default; set to false to use existing firewall rules
 }
 
 variable "network_tags" {

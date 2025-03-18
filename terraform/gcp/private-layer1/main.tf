@@ -9,6 +9,7 @@ module "layer1" {
   network_tags = var.network_tags
   gcp_region = var.gcp_region
   network_tier = "STANDARD"  # Use STANDARD tier instead of PREMIUM
+  create_gcp_firewall_rules = var.create_gcp_firewall_rules
 
   boot_image_id  = data.google_compute_image.this.self_link
   ssh_client_ips = var.ssh_client_ips

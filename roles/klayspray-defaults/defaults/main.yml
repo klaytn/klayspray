@@ -3,17 +3,13 @@ bin_dir: "{{ cache_dir }}/bin"
 homi_output_dir: "{{ cache_dir }}/homi-output"
 klaytn_build_dir: "{{ cache_dir }}/klaytn-build"
 
-klaytn_install_mode: package # package, build
-
-klaytn_version: v1.9.1
-
 # =======================
 # for development or test
 # =======================
-klaytn_build_docker_base_image: "klaytn/build_base:latest"
-klaytn_build_docker_builder_image: "klaytn_builder"
+klaytn_build_docker_base_image: "kaiachain/build_base:latest"
+klaytn_build_docker_builder_image: "kaia_builder"
 klaytn_build_local_git_dir:
-klaytn_build_remote_git_url: "git@github.com:klaytn/klaytn.git"
+klaytn_build_remote_git_url: "git@github.com:kaiachain/kaia.git"
 klaytn_build_remote_git_branch: "dev"
 
 klaytn_num_cn: 4

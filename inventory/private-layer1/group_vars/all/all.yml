@@ -1,4 +1,12 @@
+# Installation mode: 'build' or 'package'
+# - build: Build from source code
+# - package: Install from package repository
 klaytn_install_mode: package
+
+klaytn_version: v1.0.3
+
+# Docker build settings
+klaytn_build_docker_base_image: "kaiachain/build_base:latest"
 
 klaytn_num_cn: 4
 klaytn_num_pn: 4
