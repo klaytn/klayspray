@@ -1,7 +1,26 @@
 ---
-- name: "Set fact"
+- name: "Set node index"
   set_fact:
     node_index: "{{ groups[klaytn_node_type].index(inventory_hostname) + 1 }}"
+
+- name: "Read validator address for CN nodes"
+  when: "'cn' in klaytn_node_type"
+  block:
+    - name: "Read validator file"
+      slurp:
+        src: "{{ homi_output_dir }}/{{ klaytn_node_type }}/keys/validator{{ node_index }}"
+      register: validator_content
+      delegate_to: localhost
+
+    - name: "Set rewardbase from validator address"
+      set_fact:
+        klaytn_conf_override: "{{ klaytn_conf_override | default({}) | combine({'REWARDBASE': (validator_content.content | b64decode | from_json).Address}) }}"
+
+- name: "Configuration - Template klaytn configuration"
+  become: yes
+  template:
+    src: "klaytn.conf.j2"
+    dest: "/etc/{{ klaytn_daemon_name }}/conf/{{ klaytn_daemon_name }}.conf"
 
 - name: "Initialization - Copy static-nodes file"
   become: yes

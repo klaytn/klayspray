@@ -9,3 +9,4 @@ terraform.tfstate*
 .DS_Store
 roles/klaytn_node/*
 inventory/*/inventory.ini
+inventory/*/group_vars/all/all.yml

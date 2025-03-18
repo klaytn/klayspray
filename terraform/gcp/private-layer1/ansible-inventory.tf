@@ -21,7 +21,6 @@ locals {
       kaia_num_en       = var.en_options.count
       kaia_network_id   = var.deploy_options.kaia_network_id
       kaia_chain_id     = var.deploy_options.kaia_chain_id
-      kaia_rewardbase   = var.deploy_options.kaia_rewardbase
     }
   )
 }
