@@ -5,8 +5,8 @@
 
 Execute command belows to deploy resources via Terraform.
 ```bash
-$ git clone https://github.com/klaytn/klayspray.git
-$ cd klayspray
+$ git clone https://github.com/kaiachain/kaiaspray.git
+$ cd kaiaspray
 $ export TF_OPTIONS="-chdir=terraform/aws/private-layer1"
 $ terraform $TF_OPTIONS init
 $ terraform $TF_OPTIONS apply -auto-approve
@@ -49,9 +49,9 @@ layer1 = {
 ```
 
 ### 2. Check the generated files
-You can check two files in the root path of klayspray.
+You can check two files in the root path of kaiaspray.
 1. private-ssh-key.pem: a file to use via SSH
-2. inventory/private-layer1/inventory.ini: a file storing Klaytn node connection information
+2. inventory/private-layer1/inventory.ini: a file storing Kaia node connection information
 
 
 ### 3. Execute Ansible playbook

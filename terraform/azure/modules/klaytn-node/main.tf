@@ -3,13 +3,13 @@ resource "azurerm_linux_virtual_machine" "this" {
   resource_group_name = data.azurerm_resource_group.this.name
   location            = data.azurerm_resource_group.this.location
   size                = var.instance_size
-  admin_username      = "klaytn"
+  admin_username      = "kaia"
   network_interface_ids = [
     azurerm_network_interface.this.id,
   ]
 
   admin_ssh_key {
-    username   = "klaytn"
+    username   = "kaia"
     public_key = var.public_key
   }
 

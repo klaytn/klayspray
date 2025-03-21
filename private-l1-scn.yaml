@@ -2,11 +2,11 @@
 - hosts: localhost
   gather_facts: True
   vars:
-    klaytn_bridge_enabled: 1
-    klaytn_bridge_node_type: en
-    klaytn_bridge_node_num: 1
+    kaia_bridge_enabled: 1
+    kaia_bridge_node_type: en
+    kaia_bridge_node_num: 1
   roles:
-  - { role: klayspray-defaults }
+  - { role: kaiaspray-defaults }
   - { role: local-init }
   tags:
   - localhost
@@ -14,60 +14,60 @@
 - hosts: cn, !bridge
   gather_facts: True
   vars:
-    klaytn_node_type: cn
+    kaia_node_type: cn
   roles:
-  - { role: klayspray-defaults }
+  - { role: kaiaspray-defaults }
   - { role: node-init }
 
 - hosts: pn, !bridge
   gather_facts: True
   vars:
-    klaytn_node_type: pn
+    kaia_node_type: pn
   roles:
-  - { role: klayspray-defaults }
+  - { role: kaiaspray-defaults }
   - { role: node-init }
 
 - hosts: en, !bridge
   gather_facts: True
   vars:
-    klaytn_node_type: en
+    kaia_node_type: en
   roles:
-  - { role: klayspray-defaults }
+  - { role: kaiaspray-defaults }
   - { role: node-init }
 
 - hosts: scn, !bridge
   gather_facts: True
   vars:
-    klaytn_node_type: scn
-    klaytn_conf_override:
-      NETWORK_ID: "{{ klaytn_service_network_id }}"
+    kaia_node_type: scn
+    kaia_conf_override:
+      NETWORK_ID: "{{ kaia_service_network_id }}"
   roles:
-  - { role: klayspray-defaults }
+  - { role: kaiaspray-defaults }
   - { role: node-init }
 
 - hosts: en, &bridge
   gather_facts: True
   vars:
-    klaytn_node_type: en
-    klaytn_bridge_enabled: 1
+    kaia_node_type: en
+    kaia_bridge_enabled: 1
   roles:
-  - { role: klayspray-defaults }
+  - { role: kaiaspray-defaults }
   - { role: node-init }
 
 - hosts: scn, &bridge
   gather_facts: True
   vars:
-    klaytn_node_type: scn
-    klaytn_bridge_enabled: 1
-    klaytn_conf_override:
-      NETWORK_ID: "{{ klaytn_service_network_id }}"
+    kaia_node_type: scn
+    kaia_bridge_enabled: 1
+    kaia_conf_override:
+      NETWORK_ID: "{{ kaia_service_network_id }}"
   roles:
-  - { role: klayspray-defaults }
+  - { role: kaiaspray-defaults }
   - { role: node-init }
 
 - hosts: monitor
   gather_facts: True
   roles:
-  - { role: klayspray-defaults }
+  - { role: kaiaspray-defaults }
   - { role: setup-docker }
   - { role: monitor-init }

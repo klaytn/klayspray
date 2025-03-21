@@ -22,7 +22,7 @@ module "layer1" {
 module "scn" {
   count = local.scn_options.count
 
-  source = "../modules/klaytn-node"
+  source = "../modules/kaia-node"
 
   name               = format("%s-scn-%d", local.name, count.index + 1)
   ami_id             = data.aws_ami.this.id

@@ -2,7 +2,7 @@
 - hosts: en, &bridge
   gather_facts: True
   roles:
-  - { role: klayspray-defaults }
+  - { role: kaiaspray-defaults }
   - { role: en-scn-init }
 
 - hosts: scn, &bridge
@@ -11,7 +11,7 @@
     - set_fact:
         mainbridge_kni: "{{ hostvars.en1.mainbridge_kni }}"
   roles:
-  - { role: klayspray-defaults }
+  - { role: kaiaspray-defaults }
   - { role: en-scn-init }
 
 - hosts: scn, !bridge
@@ -20,5 +20,5 @@
     - set_fact:
         mainbridge_kni: "{{ hostvars.en1.mainbridge_kni }}"
   roles:
-  - { role: klayspray-defaults }
+  - { role: kaiaspray-defaults }
   - { role: en-scn-init }

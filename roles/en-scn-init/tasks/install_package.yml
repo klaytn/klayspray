@@ -2,18 +2,18 @@
 - name: "Installation - Add yum repository"
   become: yes
   yum_repository:
-    name: klaytn
-    description: Klaytn Package Repository
-    baseurl: http://packages.klaytn.net/rhel/7/prod/
+    name: kaia
+    description: Kaia Package Repository
+    baseurl: http://packages.kaia.io/rhel/7/kaia
     gpgcheck: no
 
-- name: "Installation - Install Klaytn Package "
+- name: "Installation - Install Kaia Package "
   become: yes
   yum:
-    name: '{{ klaytn_daemon_name }}-{{ klaytn_version }}-0.el7'
+    name: '{{ kaia_daemon_name }}-{{ kaia_version }}-0.el7'
     state: latest
-  register: is_klaytn_package_installed
-  until: is_klaytn_package_installed is succeeded
+  register: is_kaia_package_installed
+  until: is_kaia_package_installed is succeeded
 
 - name: "Installation - Install Homi Package "
   become: yes
@@ -25,20 +25,20 @@
 - name: "Configuration - Make configuration directory"
   become: yes
   file:
-    path: "/etc/{{ klaytn_daemon_name }}/conf"
+    path: "/etc/{{ kaia_daemon_name }}/conf"
     state: "directory"
 
-- name: "Configuration - Template klaytn configuration"
+- name: "Configuration - Template kaia configuration"
   become: yes
   template:
-    src: "klaytn.conf.j2"
-    dest: "/etc/{{ klaytn_daemon_name }}/conf/{{ klaytn_daemon_name }}.conf"
+    src: "kaia.conf.j2"
+    dest: "/etc/{{ kaia_daemon_name }}/conf/{{ kaia_daemon_name }}.conf"
 
-- name: "Initialization - Create klaytn directory"
+- name: "Initialization - Create kaia directory"
   become: yes
   file:
     state: directory
     path: "{{ item }}"
   with_items:
-  - "{{ klaytn_conf.DATA_DIR }}"
-  - "{{ klaytn_conf.LOG_DIR }}"
+  - "{{ kaia_conf.DATA_DIR }}"
+  - "{{ kaia_conf.LOG_DIR }}"

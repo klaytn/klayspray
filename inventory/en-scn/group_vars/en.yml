@@ -1,9 +1,9 @@
-klaytn_node_type: en
+kaia_node_type: en
 
-# chaindata timestamp, ref: https://packages.klaytn.net/baobab/chaindata/
-klaytn_chaindata_timestamp: 20231107011112
-klaytn_bridge_enabled: 1
-klaytn_conf_override:
-  NETWORK: baobab
+# chaindata timestamp, ref: https://packages.kaia.io/kairos/chaindata/
+kaia_chaindata_timestamp: latest
+kaia_bridge_enabled: 1
+kaia_conf_override:
+  NETWORK: kairos
   RPC_ENABLE: 1
-  RPC_API: klay,admin,personal,eth,web3,net
+  RPC_API: kaia,admin,personal,eth,web3,net

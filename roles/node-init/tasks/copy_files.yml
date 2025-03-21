@@ -1,74 +1,74 @@
 ---
 - name: "Set node index"
   set_fact:
-    node_index: "{{ groups[klaytn_node_type].index(inventory_hostname) + 1 }}"
+    node_index: "{{ groups[kaia_node_type].index(inventory_hostname) + 1 }}"
 
 - name: "Read validator address for CN nodes"
-  when: "'cn' in klaytn_node_type"
+  when: "'cn' in kaia_node_type"
   block:
     - name: "Read validator file"
       slurp:
-        src: "{{ homi_output_dir }}/{{ klaytn_node_type }}/keys/validator{{ node_index }}"
+        src: "{{ homi_output_dir }}/{{ kaia_node_type }}/keys/validator{{ node_index }}"
       register: validator_content
       delegate_to: localhost
 
     - name: "Set rewardbase from validator address"
       set_fact:
-        klaytn_conf_override: "{{ klaytn_conf_override | default({}) | combine({'REWARDBASE': (validator_content.content | b64decode | from_json).Address}) }}"
+        kaia_conf_override: "{{ kaia_conf_override | default({}) | combine({'REWARDBASE': (validator_content.content | b64decode | from_json).Address}) }}"
 
-- name: "Configuration - Template klaytn configuration"
+- name: "Configuration - Template kaia configuration"
   become: yes
   template:
-    src: "klaytn.conf.j2"
-    dest: "/etc/{{ klaytn_daemon_name }}/conf/{{ klaytn_daemon_name }}.conf"
+    src: "kaia.conf.j2"
+    dest: "/etc/{{ kaia_daemon_name }}/conf/{{ kaia_daemon_name }}.conf"
 
 - name: "Initialization - Copy static-nodes file"
   become: yes
   copy:
-    src: "{{ homi_output_dir }}/{{ klaytn_node_type }}/scripts/static-nodes{{ node_index }}.json"
-    dest: "{{ klaytn_conf.DATA_DIR }}/static-nodes.json"
+    src: "{{ homi_output_dir }}/{{ kaia_node_type }}/scripts/static-nodes{{ node_index }}.json"
+    dest: "{{ kaia_conf.DATA_DIR }}/static-nodes.json"
 
 - name: "Initialization - Copy main-gridge.json"
   become: yes
   copy:
     src: "{{ homi_output_dir }}/bridge/main-bridges.json"
-    dest: "{{ klaytn_conf.DATA_DIR }}/main-bridges.json"
+    dest: "{{ kaia_conf.DATA_DIR }}/main-bridges.json"
   when:
   - is_service_chain
-  - klaytn_bridge_enabled
+  - kaia_bridge_enabled
 
 - name: "Initialization - Copy nodekey file"
   become: yes
   copy:
-    src: "{{ homi_output_dir }}/{{ klaytn_node_type }}/keys/nodekey{{ node_index }}"
-    dest: "{{ klaytn_conf.DATA_DIR }}/nodekey"
+    src: "{{ homi_output_dir }}/{{ kaia_node_type }}/keys/nodekey{{ node_index }}"
+    dest: "{{ kaia_conf.DATA_DIR }}/nodekey"
 
 - name: "Initialization - Check genesis initialized"
   become: yes
   stat:
-    path: "{{ klaytn_conf.DATA_DIR}}/klay"
-  register: check_klay_data_dir
+    path: "{{ kaia_conf.DATA_DIR}}/klay"
+  register: check_kaia_data_dir
 
 - name: "Initialization - Copy Genesis File"
   become: yes
   copy:
     src: "{{ homi_output_dir }}/cn/scripts/genesis.json"
-    dest: "/etc/{{ klaytn_daemon_name }}/genesis.json"
+    dest: "/etc/{{ kaia_daemon_name }}/genesis.json"
   when:
-  - check_klay_data_dir.stat.exists == False
+  - check_kaia_data_dir.stat.exists == False
   - is_service_chain == False
 
 - name: "Initialization - Copy Genesis File"
   become: yes
   copy:
     src: "{{ homi_output_dir }}/scn/scripts/genesis.json"
-    dest: "/etc/{{ klaytn_daemon_name }}/genesis.json"
+    dest: "/etc/{{ kaia_daemon_name }}/genesis.json"
   when:
-  - check_klay_data_dir.stat.exists == False
+  - check_kaia_data_dir.stat.exists == False
   - is_service_chain
 
 - name: "Initialization - Genensis"
   become: yes
   shell:
-    cmd: "k{{ klaytn_node_type }} init --datadir {{ klaytn_conf.DATA_DIR }} /etc/{{ klaytn_daemon_name }}/genesis.json"
-  when: check_klay_data_dir.stat.exists == False
+    cmd: "k{{ kaia_node_type }} init --datadir {{ kaia_conf.DATA_DIR }} /etc/{{ kaia_daemon_name }}/genesis.json"
+  when: check_kaia_data_dir.stat.exists == False

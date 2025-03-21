@@ -31,8 +31,7 @@
     {
       "collapsed": false,
       "datasource": {
-        "type": "prometheus",
-        "uid": "P45E5FA95A2F3C91C"
+        "type": "prometheus"
       },
       "gridPos": {
         "h": 1,
@@ -45,8 +44,7 @@
       "targets": [
         {
           "datasource": {
-            "type": "prometheus",
-            "uid": "P45E5FA95A2F3C91C"
+            "type": "prometheus"
           },
           "refId": "A"
         }
@@ -57,8 +55,7 @@
     {
       "collapsed": false,
       "datasource": {
-        "type": "prometheus",
-        "uid": "P45E5FA95A2F3C91C"
+        "type": "prometheus"
       },
       "gridPos": {
         "h": 1,
@@ -71,8 +68,7 @@
       "targets": [
         {
           "datasource": {
-            "type": "prometheus",
-            "uid": "P45E5FA95A2F3C91C"
+            "type": "prometheus"
           },
           "refId": "A"
         }
@@ -86,8 +82,7 @@
       "dashLength": 10,
       "dashes": false,
       "datasource": {
-        "type": "prometheus",
-        "uid": "P45E5FA95A2F3C91C"
+        "type": "prometheus"
       },
       "fill": 1,
       "fillGradient": 0,
@@ -127,8 +122,7 @@
       "targets": [
         {
           "datasource": {
-            "type": "prometheus",
-            "uid": "P45E5FA95A2F3C91C"
+            "type": "prometheus"
           },
           "editorMode": "code",
           "expr": "klaytn_p2p_CNPeerCountGauge{type=\"cn\"}",
@@ -175,8 +169,7 @@
       "dashLength": 10,
       "dashes": false,
       "datasource": {
-        "type": "prometheus",
-        "uid": "P45E5FA95A2F3C91C"
+        "type": "prometheus"
       },
       "fill": 1,
       "fillGradient": 0,
@@ -216,8 +209,7 @@
       "targets": [
         {
           "datasource": {
-            "type": "prometheus",
-            "uid": "P45E5FA95A2F3C91C"
+            "type": "prometheus"
           },
           "editorMode": "code",
           "expr": "klaytn_p2p_PNPeerCountGauge{type=\"cn\"}",
@@ -264,8 +256,7 @@
       "dashLength": 10,
       "dashes": false,
       "datasource": {
-        "type": "prometheus",
-        "uid": "P45E5FA95A2F3C91C"
+        "type": "prometheus"
       },
       "fill": 1,
       "fillGradient": 0,
@@ -305,8 +296,7 @@
       "targets": [
         {
           "datasource": {
-            "type": "prometheus",
-            "uid": "P45E5FA95A2F3C91C"
+            "type": "prometheus"
           },
           "expr": "rate(klaytn_p2p_DialTryCounter{type=\"cn\"}[30s])",
           "format": "time_series",
@@ -351,8 +341,7 @@
       "dashLength": 10,
       "dashes": false,
       "datasource": {
-        "type": "prometheus",
-        "uid": "P45E5FA95A2F3C91C"
+        "type": "prometheus"
       },
       "fill": 1,
       "fillGradient": 0,
@@ -392,8 +381,7 @@
       "targets": [
         {
           "datasource": {
-            "type": "prometheus",
-            "uid": "P45E5FA95A2F3C91C"
+            "type": "prometheus"
           },
           "expr": "rate(klaytn_p2p_DialFailCounter{type=\"cn\"}[30s])",
           "format": "time_series",
@@ -435,8 +423,7 @@
     {
       "collapsed": false,
       "datasource": {
-        "type": "prometheus",
-        "uid": "P45E5FA95A2F3C91C"
+        "type": "prometheus"
       },
       "gridPos": {
         "h": 1,
@@ -449,8 +436,7 @@
       "targets": [
         {
           "datasource": {
-            "type": "prometheus",
-            "uid": "P45E5FA95A2F3C91C"
+            "type": "prometheus"
           },
           "refId": "A"
         }
@@ -464,8 +450,7 @@
       "dashLength": 10,
       "dashes": false,
       "datasource": {
-        "type": "prometheus",
-        "uid": "P45E5FA95A2F3C91C"
+        "type": "prometheus"
       },
       "fill": 1,
       "fillGradient": 0,
@@ -505,8 +490,7 @@
       "targets": [
         {
           "datasource": {
-            "type": "prometheus",
-            "uid": "P45E5FA95A2F3C91C"
+            "type": "prometheus"
           },
           "expr": "klaytn_p2p_CNPeerCountGauge{type=\"pn\"}",
           "format": "time_series",
@@ -551,8 +535,7 @@
       "dashLength": 10,
       "dashes": false,
       "datasource": {
-        "type": "prometheus",
-        "uid": "P45E5FA95A2F3C91C"
+        "type": "prometheus"
       },
       "fill": 1,
       "fillGradient": 0,
@@ -592,8 +575,7 @@
       "targets": [
         {
           "datasource": {
-            "type": "prometheus",
-            "uid": "P45E5FA95A2F3C91C"
+            "type": "prometheus"
           },
           "expr": "klaytn_p2p_PNPeerCountGauge{type=\"pn\"}",
           "format": "time_series",
@@ -638,8 +620,7 @@
       "dashLength": 10,
       "dashes": false,
       "datasource": {
-        "type": "prometheus",
-        "uid": "P45E5FA95A2F3C91C"
+        "type": "prometheus"
       },
       "fill": 1,
       "fillGradient": 0,
@@ -679,8 +660,7 @@
       "targets": [
         {
           "datasource": {
-            "type": "prometheus",
-            "uid": "P45E5FA95A2F3C91C"
+            "type": "prometheus"
           },
           "expr": "klaytn_p2p_ENPeerCountGauge{type=\"pn\"}",
           "format": "time_series",
@@ -725,8 +705,7 @@
       "dashLength": 10,
       "dashes": false,
       "datasource": {
-        "type": "prometheus",
-        "uid": "P45E5FA95A2F3C91C"
+        "type": "prometheus"
       },
       "fill": 1,
       "fillGradient": 0,
@@ -766,8 +745,7 @@
       "targets": [
         {
           "datasource": {
-            "type": "prometheus",
-            "uid": "P45E5FA95A2F3C91C"
+            "type": "prometheus"
           },
           "expr": "rate(klaytn_p2p_DialTryCounter{type=\"pn\"}[30s])",
           "format": "time_series",
@@ -812,8 +790,7 @@
       "dashLength": 10,
       "dashes": false,
       "datasource": {
-        "type": "prometheus",
-        "uid": "P45E5FA95A2F3C91C"
+        "type": "prometheus"
       },
       "fill": 1,
       "fillGradient": 0,
@@ -853,8 +830,7 @@
       "targets": [
         {
           "datasource": {
-            "type": "prometheus",
-            "uid": "P45E5FA95A2F3C91C"
+            "type": "prometheus"
           },
           "expr": "rate(klaytn_p2p_DialFailCounter{type=\"pn\"}[30s])",
           "format": "time_series",
@@ -896,8 +872,7 @@
     {
       "collapsed": false,
       "datasource": {
-        "type": "prometheus",
-        "uid": "P45E5FA95A2F3C91C"
+        "type": "prometheus"
       },
       "gridPos": {
         "h": 1,
@@ -910,8 +885,7 @@
       "targets": [
         {
           "datasource": {
-            "type": "prometheus",
-            "uid": "P45E5FA95A2F3C91C"
+            "type": "prometheus"
           },
           "refId": "A"
         }
@@ -925,8 +899,7 @@
       "dashLength": 10,
       "dashes": false,
       "datasource": {
-        "type": "prometheus",
-        "uid": "P45E5FA95A2F3C91C"
+        "type": "prometheus"
       },
       "fill": 1,
       "fillGradient": 0,
@@ -966,8 +939,7 @@
       "targets": [
         {
           "datasource": {
-            "type": "prometheus",
-            "uid": "P45E5FA95A2F3C91C"
+            "type": "prometheus"
           },
           "expr": "klaytn_p2p_PNPeerCountGauge{type=\"en\"}",
           "format": "time_series",
@@ -1012,8 +984,7 @@
       "dashLength": 10,
       "dashes": false,
       "datasource": {
-        "type": "prometheus",
-        "uid": "P45E5FA95A2F3C91C"
+        "type": "prometheus"
       },
       "fill": 1,
       "fillGradient": 0,
@@ -1053,8 +1024,7 @@
       "targets": [
         {
           "datasource": {
-            "type": "prometheus",
-            "uid": "P45E5FA95A2F3C91C"
+            "type": "prometheus"
           },
           "expr": "klaytn_p2p_PNPeerCountGauge{type=\"en\"}",
           "format": "time_series",
@@ -1099,8 +1069,7 @@
       "dashLength": 10,
       "dashes": false,
       "datasource": {
-        "type": "prometheus",
-        "uid": "P45E5FA95A2F3C91C"
+        "type": "prometheus"
       },
       "fill": 1,
       "fillGradient": 0,
@@ -1140,8 +1109,7 @@
       "targets": [
         {
           "datasource": {
-            "type": "prometheus",
-            "uid": "P45E5FA95A2F3C91C"
+            "type": "prometheus"
           },
           "expr": "rate(klaytn_p2p_DialTryCounter{type=\"en\"}[30s])",
           "format": "time_series",
@@ -1186,8 +1154,7 @@
       "dashLength": 10,
       "dashes": false,
       "datasource": {
-        "type": "prometheus",
-        "uid": "P45E5FA95A2F3C91C"
+        "type": "prometheus"
       },
       "fill": 1,
       "fillGradient": 0,
@@ -1227,8 +1194,7 @@
       "targets": [
         {
           "datasource": {
-            "type": "prometheus",
-            "uid": "P45E5FA95A2F3C91C"
+            "type": "prometheus"
           },
           "expr": "rate(klaytn_p2p_DialFailCounter{type=\"en\"}[30s])",
           "format": "time_series",
@@ -1270,8 +1236,7 @@
     {
       "collapsed": false,
       "datasource": {
-        "type": "prometheus",
-        "uid": "P45E5FA95A2F3C91C"
+        "type": "prometheus"
       },
       "gridPos": {
         "h": 1,
@@ -1284,8 +1249,7 @@
       "targets": [
         {
           "datasource": {
-            "type": "prometheus",
-            "uid": "P45E5FA95A2F3C91C"
+            "type": "prometheus"
           },
           "refId": "A"
         }
@@ -1299,8 +1263,7 @@
       "dashLength": 10,
       "dashes": false,
       "datasource": {
-        "type": "prometheus",
-        "uid": "P45E5FA95A2F3C91C"
+        "type": "prometheus"
       },
       "fill": 1,
       "fillGradient": 0,
@@ -1340,8 +1303,7 @@
       "targets": [
         {
           "datasource": {
-            "type": "prometheus",
-            "uid": "P45E5FA95A2F3C91C"
+            "type": "prometheus"
           },
           "expr": "klaytn_klay_prop_blocks_in_packets{type=\"cn\"}",
           "format": "time_series",
@@ -1386,8 +1348,7 @@
       "dashLength": 10,
       "dashes": false,
       "datasource": {
-        "type": "prometheus",
-        "uid": "P45E5FA95A2F3C91C"
+        "type": "prometheus"
       },
       "fill": 1,
       "fillGradient": 0,
@@ -1427,8 +1388,7 @@
       "targets": [
         {
           "datasource": {
-            "type": "prometheus",
-            "uid": "P45E5FA95A2F3C91C"
+            "type": "prometheus"
           },
           "expr": "klaytn_klay_prop_blocks_in_packets{type=\"pn\"}",
           "format": "time_series",
@@ -1473,8 +1433,7 @@
       "dashLength": 10,
       "dashes": false,
       "datasource": {
-        "type": "prometheus",
-        "uid": "P45E5FA95A2F3C91C"
+        "type": "prometheus"
       },
       "fill": 1,
       "fillGradient": 0,
@@ -1514,8 +1473,7 @@
       "targets": [
         {
           "datasource": {
-            "type": "prometheus",
-            "uid": "P45E5FA95A2F3C91C"
+            "type": "prometheus"
           },
           "expr": "klaytn_klay_prop_blocks_in_packets{type=\"en\"}",
           "format": "time_series",
@@ -1560,8 +1518,7 @@
       "dashLength": 10,
       "dashes": false,
       "datasource": {
-        "type": "prometheus",
-        "uid": "P45E5FA95A2F3C91C"
+        "type": "prometheus"
       },
       "fill": 1,
       "fillGradient": 0,
@@ -1601,8 +1558,7 @@
       "targets": [
         {
           "datasource": {
-            "type": "prometheus",
-            "uid": "P45E5FA95A2F3C91C"
+            "type": "prometheus"
           },
           "expr": "klaytn_klay_prop_txns_in_packets{type=\"cn\"}",
           "format": "time_series",
@@ -1647,8 +1603,7 @@
       "dashLength": 10,
       "dashes": false,
       "datasource": {
-        "type": "prometheus",
-        "uid": "P45E5FA95A2F3C91C"
+        "type": "prometheus"
       },
       "fill": 1,
       "fillGradient": 0,
@@ -1688,8 +1643,7 @@
       "targets": [
         {
           "datasource": {
-            "type": "prometheus",
-            "uid": "P45E5FA95A2F3C91C"
+            "type": "prometheus"
           },
           "expr": "klaytn_klay_prop_txns_in_packets{type=\"pn\"}",
           "format": "time_series",
@@ -1734,8 +1688,7 @@
       "dashLength": 10,
       "dashes": false,
       "datasource": {
-        "type": "prometheus",
-        "uid": "P45E5FA95A2F3C91C"
+        "type": "prometheus"
       },
       "fill": 1,
       "fillGradient": 0,
@@ -1775,8 +1728,7 @@
       "targets": [
         {
           "datasource": {
-            "type": "prometheus",
-            "uid": "P45E5FA95A2F3C91C"
+            "type": "prometheus"
           },
           "expr": "klaytn_klay_prop_txns_in_packets{type=\"en\"}",
           "format": "time_series",
@@ -1821,8 +1773,7 @@
       "dashLength": 10,
       "dashes": false,
       "datasource": {
-        "type": "prometheus",
-        "uid": "P45E5FA95A2F3C91C"
+        "type": "prometheus"
       },
       "fill": 1,
       "fillGradient": 0,
@@ -1862,8 +1813,7 @@
       "targets": [
         {
           "datasource": {
-            "type": "prometheus",
-            "uid": "P45E5FA95A2F3C91C"
+            "type": "prometheus"
           },
           "expr": "klaytn_klay_prop_blocks_out_packets{type=\"cn\"}",
           "format": "time_series",
@@ -1908,8 +1858,7 @@
       "dashLength": 10,
       "dashes": false,
       "datasource": {
-        "type": "prometheus",
-        "uid": "P45E5FA95A2F3C91C"
+        "type": "prometheus"
       },
       "fill": 1,
       "fillGradient": 0,
@@ -1949,8 +1898,7 @@
       "targets": [
         {
           "datasource": {
-            "type": "prometheus",
-            "uid": "P45E5FA95A2F3C91C"
+            "type": "prometheus"
           },
           "expr": "klaytn_klay_prop_blocks_out_packets{type=\"pn\"}",
           "format": "time_series",
@@ -1995,8 +1943,7 @@
       "dashLength": 10,
       "dashes": false,
       "datasource": {
-        "type": "prometheus",
-        "uid": "P45E5FA95A2F3C91C"
+        "type": "prometheus"
       },
       "fill": 1,
       "fillGradient": 0,
@@ -2036,8 +1983,7 @@
       "targets": [
         {
           "datasource": {
-            "type": "prometheus",
-            "uid": "P45E5FA95A2F3C91C"
+            "type": "prometheus"
           },
           "expr": "klaytn_klay_prop_blocks_out_packets{type=\"en\"}",
           "format": "time_series",
@@ -2082,8 +2028,7 @@
       "dashLength": 10,
       "dashes": false,
       "datasource": {
-        "type": "prometheus",
-        "uid": "P45E5FA95A2F3C91C"
+        "type": "prometheus"
       },
       "fill": 1,
       "fillGradient": 0,
@@ -2123,8 +2068,7 @@
       "targets": [
         {
           "datasource": {
-            "type": "prometheus",
-            "uid": "P45E5FA95A2F3C91C"
+            "type": "prometheus"
           },
           "expr": "klaytn_klay_prop_txns_out_packets{type=\"cn\"}",
           "format": "time_series",
@@ -2169,8 +2113,7 @@
       "dashLength": 10,
       "dashes": false,
       "datasource": {
-        "type": "prometheus",
-        "uid": "P45E5FA95A2F3C91C"
+        "type": "prometheus"
       },
       "fill": 1,
       "fillGradient": 0,
@@ -2210,8 +2153,7 @@
       "targets": [
         {
           "datasource": {
-            "type": "prometheus",
-            "uid": "P45E5FA95A2F3C91C"
+            "type": "prometheus"
           },
           "expr": "klaytn_klay_prop_txns_out_packets{type=\"pn\"}",
           "format": "time_series",
@@ -2256,8 +2198,7 @@
       "dashLength": 10,
       "dashes": false,
       "datasource": {
-        "type": "prometheus",
-        "uid": "P45E5FA95A2F3C91C"
+        "type": "prometheus"
       },
       "fill": 1,
       "fillGradient": 0,
@@ -2297,8 +2238,7 @@
       "targets": [
         {
           "datasource": {
-            "type": "prometheus",
-            "uid": "P45E5FA95A2F3C91C"
+            "type": "prometheus"
           },
           "expr": "klaytn_klay_prop_txns_out_packets{type=\"en\"}",
           "format": "time_series",
@@ -2375,7 +2315,7 @@
     ]
   },
   "timezone": "",
-  "title": "Klaytn Network Overview",
+  "title": "Kaia Network Overview",
   "uid": "tDh4aHnZz",
   "version": 2,
   "weekStart": ""

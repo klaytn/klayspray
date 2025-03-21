@@ -1,8 +1,8 @@
-klaytn_build_docker_base_image: "kaiachain/build_base:latest"
-klaytn_build_docker_builder_image: "kaia_builder"
-klaytn_build_local_git_dir:
-klaytn_build_remote_git_url: "git@github.com:kaiachain/kaia.git"
-klaytn_build_remote_git_branch: "dev"
-klaytn_build_check_file_path: "{{ cache_dir }}/klaytn_build_check_file"
-klaytn_build_skip_if_exists: True
-klaytn_build_required: False
+kaia_build_docker_base_image: "kaiachain/build_base:latest"
+kaia_build_docker_builder_image: "kaia_builder"
+kaia_build_local_git_dir:
+kaia_build_remote_git_url: "git@github.com:kaiachain/kaia.git"
+kaia_build_remote_git_branch: "dev"
+kaia_build_check_file_path: "{{ cache_dir }}/kaia_build_check_file"
+kaia_build_skip_if_exists: True
+kaia_build_required: False

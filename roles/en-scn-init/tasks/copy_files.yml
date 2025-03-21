@@ -1,9 +1,9 @@
 ---
-- name: "Download genesis.json for {{ klaytn_conf.NETWORK }}"
+- name: "Download genesis.json for {{ kaia_conf.NETWORK }}"
   become: yes
   get_url:
-    url: "https://packages.klaytn.net/{{ klaytn_conf.NETWORK }}/genesis.json"
-    dest: "/etc/{{ klaytn_daemon_name }}/genesis.json"
+    url: "https://packages.kaia.io/{{ kaia_conf.NETWORK }}/genesis.json"
+    dest: "/etc/{{ kaia_daemon_name }}/genesis.json"
     mode: '0440'
   when:
   - not is_service_chain
@@ -11,15 +11,15 @@
 - name: "Check downloaded chaindata file exists"
   become: yes
   stat:
-    path: "{{ klaytn_conf.DATA_DIR }}/chaindata.tar.gz"
+    path: "{{ kaia_conf.DATA_DIR }}/chaindata.tar.gz"
     get_checksum: no
   register: check_chaindata_compress_file
 
-- name: Download the latest chaindata from packages.klaytn_net
+- name: Download the latest chaindata from packages.kaia.io
   become: yes 
-  command: "curl -o chaindata.tar.gz https://s3.ap-northeast-2.amazonaws.com/klaytn-chaindata/{{ klaytn_conf.NETWORK }}/klaytn-{{ klaytn_conf.NETWORK }}-chaindata-{{ klaytn_chaindata_timestamp }}.tar.gz"
+  command: "curl -o chaindata.tar.gz https://packages.kaia.io/{{ kaia_conf.NETWORK }}/chaindata/kaia-{{ kaia_conf.NETWORK }}-chaindata-{{ kaia_chaindata_timestamp }}.tar.gz"
   args:
-    chdir: "{{ klaytn_conf.DATA_DIR }}"
+    chdir: "{{ kaia_conf.DATA_DIR }}"
   async: 7200
   poll: 0
   register: download_job
@@ -43,7 +43,7 @@
   become: yes
   command: tar xf chaindata.tar.gz
   args:
-    chdir: "{{ klaytn_conf.DATA_DIR }}"
+    chdir: "{{ kaia_conf.DATA_DIR }}"
   async: 3600
   poll: 0
   register: unarchive_job

@@ -1,7 +1,7 @@
 module "cn" {
   count = local.cn_options.count
 
-  source = "../klaytn-node"
+  source = "../kaia-node"
 
   name                   = format("%s-cn-%d", var.name, count.index + 1)
   resource_group_name    = var.resource_group_name
@@ -23,7 +23,7 @@ module "cn" {
 module "pn" {
   count = local.pn_options.count
 
-  source = "../klaytn-node"
+  source = "../kaia-node"
 
   name                   = format("%s-pn-%d", var.name, count.index + 1)
   resource_group_name    = var.resource_group_name
@@ -45,7 +45,7 @@ module "pn" {
 module "en" {
   count = local.en_options.count
 
-  source = "../klaytn-node"
+  source = "../kaia-node"
 
   name                   = format("%s-en-%d", var.name, count.index + 1)
   resource_group_name    = var.resource_group_name
@@ -65,7 +65,7 @@ module "en" {
 }
 
 module "monitor" {
-  source = "../klaytn-node"
+  source = "../kaia-node"
 
   name                   = format("%s-monitor", var.name)
   resource_group_name    = var.resource_group_name

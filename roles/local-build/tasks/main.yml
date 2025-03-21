@@ -1,45 +1,45 @@
 ---
 - name: Build - Check compiled binary
   ansible.builtin.stat:
-    path: "{{ klaytn_build_check_file_path }}"
-  register: klaytn_build_check_file_stat
+    path: "{{ kaia_build_check_file_path }}"
+  register: kaia_build_check_file_stat
 
 - name: Build - Check skipping compile
   ansible.builtin.set_fact:
-    klaytn_build_required: True
+    kaia_build_required: True
   when:
-    - klaytn_build_check_file_stat.stat.exists == False or 
-      klaytn_build_skip_if_exists == False
+    - kaia_build_check_file_stat.stat.exists == False or 
+      kaia_build_skip_if_exists == False
 
 - name: Build - Clean the old directory
   ansible.builtin.file:
     state: absent
-    path: "{{ klaytn_build_dir }}"
+    path: "{{ kaia_build_dir }}"
   when:
-    - klaytn_build_required
+    - kaia_build_required
 
 - name: Build - Git checkout
   ansible.builtin.git:
-    repo: "{{ klaytn_build_remote_git_url }}"
-    dest: "{{ klaytn_build_dir }}"
-    version: "{{ klaytn_build_remote_git_branch }}"
+    repo: "{{ kaia_build_remote_git_url }}"
+    dest: "{{ kaia_build_dir }}"
+    version: "{{ kaia_build_remote_git_branch }}"
   when:
-    - klaytn_build_required
+    - kaia_build_required
 
-- name: Build - Compile klaytn binary
+- name: Build - Compile kaia binary
   ansible.builtin.command: |
-    docker build --build-arg KLAYTN_STATIC_LINK=1 --build-arg DOCKER_BASE_IMAGE={{ klaytn_build_docker_base_image }} -t {{ klaytn_build_docker_builder_image }} --output output .
+    docker build --build-arg KLAYTN_STATIC_LINK=1 --build-arg DOCKER_BASE_IMAGE={{ kaia_build_docker_base_image }} -t {{ kaia_build_docker_builder_image }} --output output .
   args:
-    chdir: "{{ klaytn_build_dir }}"
+    chdir: "{{ kaia_build_dir }}"
   environment:
     DOCKER_BUILDKIT: 1
   when:
-    - klaytn_build_required
+    - kaia_build_required
 
-- name: Build - Copy klaytn binary files
+- name: Build - Copy kaia binary files
   ansible.builtin.copy:
     dest: "{{ bin_dir }}"
-    src: "{{ klaytn_build_dir }}/output/klaytn-docker-pkg/bin/{{ item }}"
+    src: "{{ kaia_build_dir }}/output/klaytn-docker-pkg/bin/{{ item }}"
     mode: preserve
   loop:
     - kbn
@@ -50,12 +50,12 @@
     - kspn
     - ksen
   when:
-    - klaytn_build_required
+    - kaia_build_required
 
-- name: Build - Copy klaytn init.d script files
+- name: Build - Copy kaia init.d script files
   ansible.builtin.copy:
     dest: "{{ bin_dir }}"
-    src: "{{ klaytn_build_dir }}/build/rpm/etc/init.d/{{ item }}"
+    src: "{{ kaia_build_dir }}/build/rpm/etc/init.d/{{ item }}"
     mode: preserve
   loop:
     - kbnd
@@ -66,11 +66,11 @@
     - kspnd
     - ksend
   when:
-    - klaytn_build_required
+    - kaia_build_required
 
 - name: Build - Creating an empty file for checking
   ansible.builtin.file:
-    path: "{{ klaytn_build_check_file_path }}"
+    path: "{{ kaia_build_check_file_path }}"
     state: touch
   when:
-    - klaytn_build_required
+    - kaia_build_required

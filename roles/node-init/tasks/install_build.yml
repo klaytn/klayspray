@@ -6,49 +6,49 @@
     state: present
   when: ansible_os_family == "RedHat"
 
-- name: "Installation - Copy klaytn binary"
+- name: "Installation - Copy kaia binary"
   become: yes
   copy:
-    src: "{{ bin_dir }}/{{ klaytn_binary_name }}"
-    dest: "/bin/{{ klaytn_binary_name }}"
+    src: "{{ bin_dir }}/{{ kaia_binary_name }}"
+    dest: "/bin/{{ kaia_binary_name }}"
     mode: preserve
 
-- name: "Installation - Copy klaytn init.d script"
+- name: "Installation - Copy kaia init.d script"
   become: yes
   copy:
-    src: "{{ bin_dir }}/{{ klaytn_daemon_name }}"
-    dest: "/etc/init.d/{{ klaytn_daemon_name }}"
+    src: "{{ bin_dir }}/{{ kaia_daemon_name }}"
+    dest: "/etc/init.d/{{ kaia_daemon_name }}"
     mode: preserve
 
 - name: "Configuration - Make configuration directory"
   become: yes
   file:
-    path: "/etc/{{ klaytn_daemon_name }}/conf"
+    path: "/etc/{{ kaia_daemon_name }}/conf"
     state: "directory"
 
-- name: "Initialization - Create klaytn directory"
+- name: "Initialization - Create kaia directory"
   become: yes
   file:
     state: directory
     path: "{{ item }}"
   with_items:
-  - "{{ klaytn_conf.DATA_DIR }}"
-  - "{{ klaytn_conf.LOG_DIR }}"
+  - "{{ kaia_conf.DATA_DIR }}"
+  - "{{ kaia_conf.LOG_DIR }}"
 
-- name: Check if {{ klaytn_daemon_name }} service exists
+- name: Check if {{ kaia_daemon_name }} service exists
   stat:
-    path: /etc/systemd/system/{{ klaytn_daemon_name }}.service
+    path: /etc/systemd/system/{{ kaia_daemon_name }}.service
   register: kaia_service
-  when: inventory_hostname in groups[klaytn_node_type]
+  when: inventory_hostname in groups[kaia_node_type]
 
-- name: Create systemd service file for {{ klaytn_daemon_name }}
+- name: Create systemd service file for {{ kaia_daemon_name }}
   become: yes
   template:
     src: "service.j2"
-    dest: "/etc/systemd/system/{{ klaytn_daemon_name }}.service"
+    dest: "/etc/systemd/system/{{ kaia_daemon_name }}.service"
     mode: '0644'
   when: 
-    - inventory_hostname in groups[klaytn_node_type]
+    - inventory_hostname in groups[kaia_node_type]
     - not kaia_service.stat.exists
 
 - name: Reload systemd daemon
@@ -56,5 +56,5 @@
   systemd:
     daemon_reload: yes
   when: 
-    - inventory_hostname in groups[klaytn_node_type]
+    - inventory_hostname in groups[kaia_node_type]
     - not kaia_service.stat.exists

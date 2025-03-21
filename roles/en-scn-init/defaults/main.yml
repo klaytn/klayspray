@@ -1,8 +1,8 @@
-klaytn_node_type:
-klaytn_network_id:
-klaytn_conf_default:
+kaia_node_type:
+kaia_network_id:
+kaia_conf_default:
   NETWORK:
-  NETWORK_ID: "{{ klaytn_network_id }}"
+  NETWORK_ID: "{{ kaia_network_id }}"
   PORT: 32323
   SERVER_TYPE: fasthttp
   SYNCMODE: full
@@ -14,13 +14,13 @@ klaytn_conf_default:
   TXPOOL_NONEXEC_SLOTS_ACCOUNT: 16384
   TXPOOL_LIFE_TIME: 5m
   RPC_ENABLE: 0
-  RPC_API: klay
+  RPC_API: kaia
   RPC_PORT: 8551
   RPC_ADDR: 0.0.0.0
   RPC_CORSDOMAIN: "*"
   RPC_VHOSTS: "*"
   WS_ENABLE: 0
-  WS_API: klay
+  WS_API: kaia
   WS_ADDR: 0.0.0.0
   WS_PORT: 8552
   WS_ORIGINS: "*"
@@ -35,18 +35,18 @@ klaytn_conf_default:
   AUTO_RESTART_NODE: 1
   AUTO_RESTART_INTERVAL: 0.1
   ADDITIONAL:
-  REWARDBASE: "{{ klaytn_rewardbase }}"
-  DATA_DIR: "/var/{{ klaytn_daemon_name }}/data"
-  LOG_DIR: "/var/log/{{ klaytn_daemon_name }}"
-klaytn_conf_override:
+  REWARDBASE: "{{ kaia_rewardbase }}"
+  DATA_DIR: "/var/{{ kaia_daemon_name }}/data"
+  LOG_DIR: "/var/{{ kaia_daemon_name }}/logs"
+kaia_conf_override:
 
-klaytn_chaindata_timestamp: 20231107011112
+kaia_chaindata_timestamp: latest
 
-klaytn_bridge_enabled: 1
-klaytn_bridge_node_type:
-klaytn_bridge_node_num:
+kaia_bridge_enabled: 1
+kaia_bridge_node_type:
+kaia_bridge_node_num:
 
-klaytn_port: 32323
+kaia_port: 32323
 
 homi_output_dir: /opt/homi
 homi_default_options: ""

@@ -1,0 +1,84 @@
+# Configuration - Kaia Package service
+
+# mainnet, kairos is only available if you don't specify NETWORK_ID.
+NETWORK={{ kaia_conf.NETWORK | default('') }}
+
+# if you specify NETWORK_ID, a private network is created.
+NETWORK_ID={{ kaia_conf.NETWORK_ID | default('') }}
+
+PORT={{ kaia_conf.PORT | default('32323') }}
+
+SERVER_TYPE="{{ kaia_conf.SERVER_TYPE | default('fasthttp') }}"
+SYNCMODE="{{ kaia_conf.SYNCMODE | default('full') }}"
+VERBOSITY={{ kaia_conf.VERBOSITY | default('3') }}
+MAXCONNECTIONS={{ kaia_conf.MAXCONNECTIONS | default('100') }}
+
+{% if 'cn' in kaia_node_type %}
+REWARDBASE="{{ kaia_conf.REWARDBASE | default('') }}"
+{% endif %}
+
+# txpool options setting
+TXPOOL_EXEC_SLOTS_ALL={{ kaia_conf.TXPOOL_EXEC_SLOTS_ALL | default('') }}
+TXPOOL_NONEXEC_SLOTS_ALL={{ kaia_conf.TXPOOL_NONEXEC_SLOTS_ALL | default('') }}
+TXPOOL_EXEC_SLOTS_ACCOUNT={{ kaia_conf.TXPOOL_EXEC_SLOTS_ACCOUNT | default('') }}
+TXPOOL_NONEXEC_SLOTS_ACCOUNT={{ kaia_conf.TXPOOL_NONEXEC_SLOTS_ACCOUNT | default('') }}
+TXPOOL_LIFE_TIME="{{ kaia_conf.TXPOOL_LIFE_TIME | default('5m') }}"
+
+# rpc options setting
+RPC_ENABLE={{ kaia_conf.RPC_ENABLE | default('0') }} # if this is set, the following options will be used
+RPC_API="{{ kaia_conf.RPC_API | default('kaia') }}" # available apis: admin,debug,kaia,miner,net,personal,rpc,txpool,web3
+RPC_PORT={{ kaia_conf.RPC_PORT | default('8551') }}
+RPC_ADDR="{{ kaia_conf.RPC_ADDR | default('0.0.0.0') }}"
+RPC_CORSDOMAIN="{{ kaia_conf.RPC_CORSDOMAIN | default('*') }}"
+RPC_VHOSTS="{{ kaia_conf.RPC_VHOSTS | default('*') }}"
+
+# ws options setting
+WS_ENABLE={{ kaia_conf.WS_ENABLE | default('0') }} # if this is set, the following options will be used
+WS_API="{{ kaia_conf.WS_API | default('kaia') }}" # available apis: admin,debug,kaia,miner,net,personal,rpc,txpool,web3
+WS_ADDR="{{ kaia_conf.WS_ADDR | default('0.0.0.0') }}"
+WS_PORT={{ kaia_conf.WS_PORT | default('8552') }}
+WS_ORIGINS="{{ kaia_conf.WS_ORIGINS | default('*') }}"
+
+# Setting 1 is to enable options, otherwise disabled.
+AUTO_RESTART={{ kaia_conf.AUTO_RESTART | default('1') }}
+METRICS={{ kaia_conf.METRICS | default('1') }}
+PROMETHEUS={{ kaia_conf.PROMETHEUS | default('1') }}
+DB_NO_PARALLEL_WRITE={{ kaia_conf.DB_NO_PARALLEL_WRITE | default('0') }}
+MULTICHANNEL={{ kaia_conf.MULTICHANNEL | default('1') }}
+SUBPORT={{ kaia_conf.SUBPORT | default('') }} # used for multi channel option
+
+# discover options
+NO_DISCOVER={{ kaia_conf.NO_DISCOVER | default('') }} # setting 1 to disable discovery
+BOOTNODES="{{ kaia_conf.BOOTNODES | default('') }}"
+
+# auto restart options
+AUTO_RESTART_NODE={{ kaia_conf.AUTO_RESTART_NODE | default('1') }}
+AUTO_RESTART_INTERVAL={{ kaia_conf.AUTO_RESTART_INTERVAL | default('0.1') }}
+
+# Raw options e.g) "--txpool.nolocals"
+ADDITIONAL={{ kaia_conf.ADDITIONAL | default('') }}
+
+DATA_DIR={{ kaia_conf.DATA_DIR | default('/var/' + kaia_daemon_name + '/data') }}
+LOG_DIR={{ kaia_conf.LOG_DIR | default('/var/' + kaia_daemon_name + '/logs') }}
+
+{% if kaia_bridge_enabled %}
+# Bridge
+{% if not is_service_chain %}
+SC_MAIN_BRIDGE=1
+SC_MAIN_BRIDGE_PORT={{ kaia_conf.SC_MAIN_BRIDGE_PORT | default ('50505') }}
+SC_MAIN_BRIDGE_INDEXING={{ kaia_conf.SC_MAIN_BRIDGE_INDEXING | default ('0') }}
+{% else %}
+SC_SUB_BRIDGE=1
+SC_SUB_BRIDGE_PORT={{ kaia_conf.SC_SUB_BRIDGE_PORT | default('50506') }} # if main-bridge and sub-bridge on same instance, use different port with main-bridge.(main: 50505, sub:50506)
+SC_PARENT_CHAIN_ID={{ kaia_chain_id }}
+
+SC_ANCHORING={{ kaia_conf.SC_ANCHORING | default('0') }}
+SC_ANCHORING_PERIOD={{ kaia_conf.SC_ANCHORING_PERIOD | default('1') }}
+SC_TX_LIMIT={{ kaia_conf.SC_TX_LIMIT | default('1000') }}
+SC_PARENT_OPERATOR_GASLIMIT={{ kaia_conf.SC_PARENT_OPERATOR_GASLIMIT | default('10000000') }}
+SC_CHILD_OPERATOR_GASLIMIT={{ kaia_conf.SC_CHILD_OPERATOR_GASLIMIT | default('10000000') }}
+
+SC_VTRECOVERY={{ kaia_conf.SC_VTRECOVERY| default('1') }} # value trasnfer recovery activation
+SC_VTRECOVERY_INTERVAL={{ kaia_conf.SC_VTRECOVERY_INTERVAL | default('5') }} # recovery interval
+{% endif %}
+{% endif %}

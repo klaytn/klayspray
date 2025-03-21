@@ -6,7 +6,7 @@
 
 - name: "{{ package_name }}: Download Linux Package"
   get_url:
-    url: "https://packages.klaytn.net/klaytn/{{ klaytn_version }}/{{ package_name }}-{{ klaytn_version }}-0-linux-amd64.tar.gz"
+    url: "https://packages.kaia.io/kaia/{{ kaia_version }}/{{ package_name }}-{{ kaia_version }}-0-linux-amd64.tar.gz"
     dest: "{{ cache_dir }}"
   register: download_result
   when:
