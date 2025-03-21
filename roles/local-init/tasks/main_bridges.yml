@@ -5,18 +5,18 @@
     state: directory
     mode: "0755"
   when:
-  - klaytn_bridge_enabled
+  - kaia_bridge_enabled
   tags:
   - localhost
 
 - name: Bridge - Get KNIs data for main-bridges.json
-  klay_main_bridges:
+  kaia_main_bridges:
     homi_output_dir: "{{ homi_output_dir }}"
-    node_type: "{{ klaytn_bridge_node_type }}"
-    node_num: "{{ klaytn_bridge_node_num }}"
+    node_type: "{{ kaia_bridge_node_type }}"
+    node_num: "{{ kaia_bridge_node_num }}"
   register: main_bridges_result
   when:
-  - klaytn_bridge_enabled
+  - kaia_bridge_enabled
   tags:
   - localhost
 
@@ -26,6 +26,6 @@
     dest: "{{ homi_output_dir }}/bridge/main-bridges.json"
   with_dict: "{{ main_bridges_result['nodes'] }}"
   when:
-  - klaytn_bridge_enabled
+  - kaia_bridge_enabled
   tags:
   - localhost

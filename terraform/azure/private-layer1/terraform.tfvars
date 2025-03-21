@@ -1,5 +1,5 @@
-name                = "Klayspray"
-resource_group_name = "Klayspray"
+name                = "Kaiaspray"
+resource_group_name = "Kaiaspray"
 ssh_client_ips      = ["0.0.0.0/0"]
 
 cn_options = {

@@ -3,7 +3,8 @@ global:
   evaluation_interval: 15s
 
 scrape_configs:
-- job_name: 'klaytn'
+- job_name: 'kaia'
   file_sd_configs:
-  - files :
-    - "{{ prometheus_conf_dir }}/klaytn-nodes.yml"
+  - files:
+    - "{{ prometheus_conf_dir }}/kaia-nodes.yml"
+    

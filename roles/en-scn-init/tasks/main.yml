@@ -1,5 +1,5 @@
 ---
-- name: Install klaytn packages
+- name: Install kaia packages
   include_tasks: install_package.yml
 
 - name: Copy required files
@@ -12,10 +12,10 @@
     - is_service_chain
     - groups.scn is defined and groups.scn|length > 0
 
-- name: Start klaytn daemon
+- name: Start kaia daemon
   become: yes
   systemd:
-    name: "{{ klaytn_daemon_name }}" 
+    name: "{{ kaia_daemon_name }}"
     state: restarted
     enabled: yes
 
@@ -24,14 +24,14 @@
   block:
     - name: Wait for ready to use IPC
       stat:
-        path: "{{ klaytn_conf.DATA_DIR }}/klay.ipc"
+        path: "{{ kaia_conf.DATA_DIR }}/klay.ipc"
       async: 10
       poll: 1
       register: async_results
       until: async_results.stat.exists
 
     - name: Get Main bridge node info
-      command: ken attach --datadir {{ klaytn_conf.DATA_DIR }} --exec mainbridge.nodeInfo.kni
+      command: ken attach --datadir {{ kaia_conf.DATA_DIR }} --exec mainbridge.nodeInfo.kni
       register: mainbridge_info
 
     - name: Set mainbridge kni
@@ -39,4 +39,4 @@
         mainbridge_kni: "{{ mainbridge_info.stdout | replace('[::]', ansible_host) }}"
   when: 
     - not is_service_chain
-    - klaytn_bridge_enabled
+    - kaia_bridge_enabled

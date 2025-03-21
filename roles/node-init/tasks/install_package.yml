@@ -14,43 +14,43 @@
     baseurl: http://packages.kaia.io/rhel/7/kaia
     gpgcheck: no
 
-- name: "Installation - Install Klaytn Package "
+- name: "Installation - Install Kaia Package "
   become: yes
   yum:
-    name: '{{ klaytn_daemon_name }}-{{ klaytn_version }}-0.el7'
+    name: '{{ kaia_daemon_name }}-{{ kaia_version }}-0.el7'
     state: latest
-  register: is_klaytn_package_installed
-  until: is_klaytn_package_installed is succeeded
+  register: is_kaia_package_installed
+  until: is_kaia_package_installed is succeeded
 
 - name: "Configuration - Make configuration directory"
   become: yes
   file:
-    path: "/etc/{{ klaytn_daemon_name }}/conf"
+    path: "/etc/{{ kaia_daemon_name }}/conf"
     state: "directory"
 
-- name: "Initialization - Create klaytn directory"
+- name: "Initialization - Create kaia directory"
   become: yes
   file:
     state: directory
     path: "{{ item }}"
   with_items:
-  - "{{ klaytn_conf.DATA_DIR }}"
-  - "{{ klaytn_conf.LOG_DIR }}"
+  - "{{ kaia_conf.DATA_DIR }}"
+  - "{{ kaia_conf.LOG_DIR }}"
 
-- name: Check if {{ klaytn_daemon_name }} service exists
+- name: Check if {{ kaia_daemon_name }} service exists
   stat:
-    path: /etc/systemd/system/{{ klaytn_daemon_name }}.service
+    path: /etc/systemd/system/{{ kaia_daemon_name }}.service
   register: kaia_service
-  when: inventory_hostname in groups[klaytn_node_type]
+  when: inventory_hostname in groups[kaia_node_type]
 
-- name: Create systemd service file for {{ klaytn_daemon_name }}
+- name: Create systemd service file for {{ kaia_daemon_name }}
   become: yes
   template:
     src: "service.j2"
-    dest: "/etc/systemd/system/{{ klaytn_daemon_name }}.service"
+    dest: "/etc/systemd/system/{{ kaia_daemon_name }}.service"
     mode: '0644'
   when: 
-    - inventory_hostname in groups[klaytn_node_type]
+    - inventory_hostname in groups[kaia_node_type]
     - not kaia_service.stat.exists
 
 - name: Reload systemd daemon
@@ -58,6 +58,6 @@
   systemd:
     daemon_reload: yes
   when: 
-    - inventory_hostname in groups[klaytn_node_type]
+    - inventory_hostname in groups[kaia_node_type]
     - not kaia_service.stat.exists
 

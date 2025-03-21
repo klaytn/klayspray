@@ -31,8 +31,7 @@
   "panels": [
     {
       "datasource": {
-        "type": "prometheus",
-        "uid": "P45E5FA95A2F3C91C"
+        "type": "prometheus"
       },
       "fieldConfig": {
         "defaults": {
@@ -94,8 +93,7 @@
       "targets": [
         {
           "datasource": {
-            "type": "prometheus",
-            "uid": "P45E5FA95A2F3C91C"
+            "type": "prometheus"
           },
           "expr": "rate(klaytn_blockchain_block_tx_counter{name=\"$name\"}[5m])",
           "format": "time_series",
@@ -108,8 +106,7 @@
     },
     {
       "datasource": {
-        "type": "prometheus",
-        "uid": "P45E5FA95A2F3C91C"
+        "type": "prometheus"
       },
       "fieldConfig": {
         "defaults": {
@@ -171,8 +168,7 @@
       "targets": [
         {
           "datasource": {
-            "type": "prometheus",
-            "uid": "P45E5FA95A2F3C91C"
+            "type": "prometheus"
           },
           "expr": "klaytn_blockchain_block_tx_counter{name=\"$name\"}",
           "format": "time_series",
@@ -189,8 +185,7 @@
       "dashLength": 10,
       "dashes": false,
       "datasource": {
-        "type": "prometheus",
-        "uid": "P45E5FA95A2F3C91C"
+        "type": "prometheus"
       },
       "fill": 1,
       "fillGradient": 0,
@@ -230,8 +225,7 @@
       "targets": [
         {
           "datasource": {
-            "type": "prometheus",
-            "uid": "P45E5FA95A2F3C91C"
+            "type": "prometheus"
           },
           "expr": "klaytn_blockchain_block_tx_gauge",
           "format": "time_series",
@@ -276,8 +270,7 @@
       "dashLength": 10,
       "dashes": false,
       "datasource": {
-        "type": "prometheus",
-        "uid": "P45E5FA95A2F3C91C"
+        "type": "prometheus"
       },
       "fill": 1,
       "fillGradient": 0,
@@ -317,8 +310,7 @@
       "targets": [
         {
           "datasource": {
-            "type": "prometheus",
-            "uid": "P45E5FA95A2F3C91C"
+            "type": "prometheus"
           },
           "expr": "klaytn_blockchain_head_blocknumber",
           "format": "time_series",
@@ -363,8 +355,7 @@
       "dashLength": 10,
       "dashes": false,
       "datasource": {
-        "type": "prometheus",
-        "uid": "P45E5FA95A2F3C91C"
+        "type": "prometheus"
       },
       "fill": 1,
       "fillGradient": 0,
@@ -404,8 +395,7 @@
       "targets": [
         {
           "datasource": {
-            "type": "prometheus",
-            "uid": "P45E5FA95A2F3C91C"
+            "type": "prometheus"
           },
           "expr": "klaytn_blockchain_block_tx_counter",
           "format": "time_series",
@@ -446,8 +436,7 @@
     },
     {
       "datasource": {
-        "type": "prometheus",
-        "uid": "P45E5FA95A2F3C91C"
+        "type": "prometheus"
       },
       "fieldConfig": {
         "defaults": {
@@ -509,8 +498,7 @@
       "targets": [
         {
           "datasource": {
-            "type": "prometheus",
-            "uid": "P45E5FA95A2F3C91C"
+            "type": "prometheus"
           },
           "expr": "klaytn_blockchain_head_blocknumber{name=\"$name\"}",
           "format": "time_series",
@@ -523,8 +511,7 @@
     },
     {
       "datasource": {
-        "type": "prometheus",
-        "uid": "P45E5FA95A2F3C91C"
+        "type": "prometheus"
       },
       "fieldConfig": {
         "defaults": {
@@ -586,8 +573,7 @@
       "targets": [
         {
           "datasource": {
-            "type": "prometheus",
-            "uid": "P45E5FA95A2F3C91C"
+            "type": "prometheus"
           },
           "expr": "rate(klaytn_blockchain_head_blocknumber{name=\"$name\"}[5m])",
           "format": "time_series",
@@ -606,8 +592,7 @@
       "dashLength": 10,
       "dashes": false,
       "datasource": {
-        "type": "prometheus",
-        "uid": "P45E5FA95A2F3C91C"
+        "type": "prometheus"
       },
       "description": "Consensus Commit Sec",
       "fill": 1,
@@ -648,8 +633,7 @@
       "targets": [
         {
           "datasource": {
-            "type": "prometheus",
-            "uid": "P45E5FA95A2F3C91C"
+            "type": "prometheus"
           },
           "expr": "klaytn_consensus_istanbul_core_timer",
           "format": "time_series",
@@ -694,8 +678,7 @@
       "dashLength": 10,
       "dashes": false,
       "datasource": {
-        "type": "prometheus",
-        "uid": "P45E5FA95A2F3C91C"
+        "type": "prometheus"
       },
       "description": "Block Insert Time",
       "fill": 1,
@@ -737,8 +720,7 @@
       "targets": [
         {
           "datasource": {
-            "type": "prometheus",
-            "uid": "P45E5FA95A2F3C91C"
+            "type": "prometheus"
           },
           "expr": "klaytn_chain_inserts",
           "format": "time_series",
@@ -784,8 +766,7 @@
       "dashLength": 10,
       "dashes": false,
       "datasource": {
-        "type": "prometheus",
-        "uid": "P45E5FA95A2F3C91C"
+        "type": "prometheus"
       },
       "fill": 1,
       "fillGradient": 0,
@@ -825,8 +806,7 @@
       "targets": [
         {
           "datasource": {
-            "type": "prometheus",
-            "uid": "P45E5FA95A2F3C91C"
+            "type": "prometheus"
           },
           "expr": "1/rate(klaytn_blockchain_head_blocknumber[30s])",
           "format": "time_series",
@@ -868,8 +848,7 @@
     },
     {
       "datasource": {
-        "type": "prometheus",
-        "uid": "P45E5FA95A2F3C91C"
+        "type": "prometheus"
       },
       "fieldConfig": {
         "defaults": {
@@ -931,8 +910,7 @@
       "targets": [
         {
           "datasource": {
-            "type": "prometheus",
-            "uid": "P45E5FA95A2F3C91C"
+            "type": "prometheus"
           },
           "expr": "avg_over_time(klaytn_tx_pool_pending_gauge{name=\"$name\"}[5m])",
           "format": "time_series",
@@ -945,8 +923,7 @@
     },
     {
       "datasource": {
-        "type": "prometheus",
-        "uid": "P45E5FA95A2F3C91C"
+        "type": "prometheus"
       },
       "fieldConfig": {
         "defaults": {
@@ -1008,8 +985,7 @@
       "targets": [
         {
           "datasource": {
-            "type": "prometheus",
-            "uid": "P45E5FA95A2F3C91C"
+            "type": "prometheus"
           },
           "expr": "avg_over_time(klaytn_tx_pool_queue_gauge{name=\"$name\"}[5m])",
           "format": "time_series",
@@ -1026,8 +1002,7 @@
       "dashLength": 10,
       "dashes": false,
       "datasource": {
-        "type": "prometheus",
-        "uid": "P45E5FA95A2F3C91C"
+        "type": "prometheus"
       },
       "description": "txpool pending current size",
       "fill": 1,
@@ -1069,8 +1044,7 @@
       "targets": [
         {
           "datasource": {
-            "type": "prometheus",
-            "uid": "P45E5FA95A2F3C91C"
+            "type": "prometheus"
           },
           "expr": "klaytn_tx_pool_pending_gauge",
           "format": "time_series",
@@ -1115,8 +1089,7 @@
       "dashLength": 10,
       "dashes": false,
       "datasource": {
-        "type": "prometheus",
-        "uid": "P45E5FA95A2F3C91C"
+        "type": "prometheus"
       },
       "description": "txpool queue current size",
       "fill": 1,
@@ -1158,8 +1131,7 @@
       "targets": [
         {
           "datasource": {
-            "type": "prometheus",
-            "uid": "P45E5FA95A2F3C91C"
+            "type": "prometheus"
           },
           "expr": "klaytn_tx_pool_queue_gauge",
           "format": "time_series",
@@ -1204,8 +1176,7 @@
       "dashLength": 10,
       "dashes": false,
       "datasource": {
-        "type": "prometheus",
-        "uid": "P45E5FA95A2F3C91C"
+        "type": "prometheus"
       },
       "description": "Live Peer Connection",
       "fill": 1,
@@ -1247,8 +1218,7 @@
       "targets": [
         {
           "datasource": {
-            "type": "prometheus",
-            "uid": "P45E5FA95A2F3C91C"
+            "type": "prometheus"
           },
           "expr": "klaytn_p2p_PeerCountGauge",
           "format": "time_series",
@@ -1293,8 +1263,7 @@
       "dashLength": 10,
       "dashes": false,
       "datasource": {
-        "type": "prometheus",
-        "uid": "P45E5FA95A2F3C91C"
+        "type": "prometheus"
       },
       "description": "cpu process consume sec (rate)",
       "fill": 1,
@@ -1335,8 +1304,7 @@
       "targets": [
         {
           "datasource": {
-            "type": "prometheus",
-            "uid": "P45E5FA95A2F3C91C"
+            "type": "prometheus"
           },
           "expr": "rate(process_cpu_seconds_total[30s])",
           "format": "time_series",
@@ -1381,8 +1349,7 @@
       "dashLength": 10,
       "dashes": false,
       "datasource": {
-        "type": "prometheus",
-        "uid": "P45E5FA95A2F3C91C"
+        "type": "prometheus"
       },
       "description": "Memory Allocation (resident)",
       "fill": 1,
@@ -1423,8 +1390,7 @@
       "targets": [
         {
           "datasource": {
-            "type": "prometheus",
-            "uid": "P45E5FA95A2F3C91C"
+            "type": "prometheus"
           },
           "expr": "process_resident_memory_bytes",
           "format": "time_series",
@@ -1469,8 +1435,7 @@
       "dashLength": 10,
       "dashes": false,
       "datasource": {
-        "type": "prometheus",
-        "uid": "P45E5FA95A2F3C91C"
+        "type": "prometheus"
       },
       "description": "Memory Allocation (virtual)",
       "fill": 1,
@@ -1511,8 +1476,7 @@
       "targets": [
         {
           "datasource": {
-            "type": "prometheus",
-            "uid": "P45E5FA95A2F3C91C"
+            "type": "prometheus"
           },
           "expr": "process_virtual_memory_bytes",
           "format": "time_series",
@@ -1557,8 +1521,7 @@
       "dashLength": 10,
       "dashes": false,
       "datasource": {
-        "type": "prometheus",
-        "uid": "P45E5FA95A2F3C91C"
+        "type": "prometheus"
       },
       "description": "Memory Allocation (resident)",
       "fill": 1,
@@ -1599,8 +1562,7 @@
       "targets": [
         {
           "datasource": {
-            "type": "prometheus",
-            "uid": "P45E5FA95A2F3C91C"
+            "type": "prometheus"
           },
           "expr": "go_goroutines",
           "format": "time_series",
@@ -1645,8 +1607,7 @@
       "dashLength": 10,
       "dashes": false,
       "datasource": {
-        "type": "prometheus",
-        "uid": "P45E5FA95A2F3C91C"
+        "type": "prometheus"
       },
       "description": "Block Insert Time",
       "fill": 1,
@@ -1688,8 +1649,7 @@
       "targets": [
         {
           "datasource": {
-            "type": "prometheus",
-            "uid": "P45E5FA95A2F3C91C"
+            "type": "prometheus"
           },
           "expr": "klaytn_chain_inserts",
           "format": "time_series",
@@ -1735,8 +1695,7 @@
       "dashLength": 10,
       "dashes": false,
       "datasource": {
-        "type": "prometheus",
-        "uid": "P45E5FA95A2F3C91C"
+        "type": "prometheus"
       },
       "description": "Block Process Time",
       "fill": 1,
@@ -1778,8 +1737,7 @@
       "targets": [
         {
           "datasource": {
-            "type": "prometheus",
-            "uid": "P45E5FA95A2F3C91C"
+            "type": "prometheus"
           },
           "expr": "klaytn_chain_process",
           "format": "time_series",
@@ -1825,8 +1783,7 @@
       "dashLength": 10,
       "dashes": false,
       "datasource": {
-        "type": "prometheus",
-        "uid": "P45E5FA95A2F3C91C"
+        "type": "prometheus"
       },
       "description": "Block Validation Time",
       "fill": 1,
@@ -1868,8 +1825,7 @@
       "targets": [
         {
           "datasource": {
-            "type": "prometheus",
-            "uid": "P45E5FA95A2F3C91C"
+            "type": "prometheus"
           },
           "expr": "klaytn_chain_validate",
           "format": "time_series",
@@ -1915,8 +1871,7 @@
       "dashLength": 10,
       "dashes": false,
       "datasource": {
-        "type": "prometheus",
-        "uid": "P45E5FA95A2F3C91C"
+        "type": "prometheus"
       },
       "description": "Block Finalize Time",
       "fill": 1,
@@ -1958,8 +1913,7 @@
       "targets": [
         {
           "datasource": {
-            "type": "prometheus",
-            "uid": "P45E5FA95A2F3C91C"
+            "type": "prometheus"
           },
           "expr": "klaytn_chain_finalize",
           "format": "time_series",
@@ -2005,8 +1959,7 @@
       "dashLength": 10,
       "dashes": false,
       "datasource": {
-        "type": "prometheus",
-        "uid": "P45E5FA95A2F3C91C"
+        "type": "prometheus"
       },
       "description": "Block Insert Time",
       "fill": 1,
@@ -2043,8 +1996,7 @@
         {
           "$$hashKey": "object:324",
           "datasource": {
-            "type": "prometheus",
-            "uid": "P45E5FA95A2F3C91C"
+            "type": "prometheus"
           },
           "expr": "klaytn_chain_inserts_maxgauge",
           "format": "time_series",
@@ -2089,8 +2041,7 @@
       "dashLength": 10,
       "dashes": false,
       "datasource": {
-        "type": "prometheus",
-        "uid": "P45E5FA95A2F3C91C"
+        "type": "prometheus"
       },
       "description": "Block Process Time",
       "fill": 1,
@@ -2127,8 +2078,7 @@
         {
           "$$hashKey": "object:409",
           "datasource": {
-            "type": "prometheus",
-            "uid": "P45E5FA95A2F3C91C"
+            "type": "prometheus"
           },
           "expr": "klaytn_chain_process_maxgauge",
           "format": "time_series",
@@ -2173,8 +2123,7 @@
       "dashLength": 10,
       "dashes": false,
       "datasource": {
-        "type": "prometheus",
-        "uid": "P45E5FA95A2F3C91C"
+        "type": "prometheus"
       },
       "description": "Block Validation Time",
       "fill": 1,
@@ -2211,8 +2160,7 @@
         {
           "$$hashKey": "object:470",
           "datasource": {
-            "type": "prometheus",
-            "uid": "P45E5FA95A2F3C91C"
+            "type": "prometheus"
           },
           "expr": "klaytn_chain_validate_maxgauge",
           "format": "time_series",
@@ -2257,8 +2205,7 @@
       "dashLength": 10,
       "dashes": false,
       "datasource": {
-        "type": "prometheus",
-        "uid": "P45E5FA95A2F3C91C"
+        "type": "prometheus"
       },
       "description": "Block Finalize Time",
       "fill": 1,
@@ -2295,8 +2242,7 @@
         {
           "$$hashKey": "object:554",
           "datasource": {
-            "type": "prometheus",
-            "uid": "P45E5FA95A2F3C91C"
+            "type": "prometheus"
           },
           "expr": "klaytn_chain_finalize_maxgauge",
           "format": "time_series",
@@ -2341,8 +2287,7 @@
       "dashLength": 10,
       "dashes": false,
       "datasource": {
-        "type": "prometheus",
-        "uid": "P45E5FA95A2F3C91C"
+        "type": "prometheus"
       },
       "description": "A gauge to record hashLock status. 1 is set if hash-locked, otherwise it's 0.",
       "fill": 1,
@@ -2378,8 +2323,7 @@
         {
           "$$hashKey": "object:2591",
           "datasource": {
-            "type": "prometheus",
-            "uid": "P45E5FA95A2F3C91C"
+            "type": "prometheus"
           },
           "expr": "klaytn_consensus_istanbul_core_hashLock",
           "format": "time_series",
@@ -2423,8 +2367,7 @@
       "dashLength": 10,
       "dashes": false,
       "datasource": {
-        "type": "prometheus",
-        "uid": "P45E5FA95A2F3C91C"
+        "type": "prometheus"
       },
       "description": "When a bad block occurs, it increases by 1.",
       "fill": 1,
@@ -2460,8 +2403,7 @@
         {
           "$$hashKey": "object:2490",
           "datasource": {
-            "type": "prometheus",
-            "uid": "P45E5FA95A2F3C91C"
+            "type": "prometheus"
           },
           "expr": "klaytn_blockchain_bad_block_counter",
           "format": "time_series",
@@ -2513,8 +2455,7 @@
           "value": "cn1"
         },
         "datasource": {
-          "type": "prometheus",
-          "uid": "P45E5FA95A2F3C91C"
+          "type": "prometheus"
         },
         "definition": "label_values(name)",
         "hide": 0,
@@ -2542,8 +2483,7 @@
           "value": "cn"
         },
         "datasource": {
-          "type": "prometheus",
-          "uid": "P45E5FA95A2F3C91C"
+          "type": "prometheus"
         },
         "definition": "label_values(type)",
         "hide": 0,
@@ -2567,12 +2507,11 @@
       {
         "current": {
           "selected": false,
-          "text": "process_max_fds{instance=\"10.0.101.206:61001\",job=\"klaytn\",name=\"cn1\",type=\"cn\"} 65535 1662516055000",
-          "value": "process_max_fds{instance=\"10.0.101.206:61001\",job=\"klaytn\",name=\"cn1\",type=\"cn\"} 65535 1662516055000"
+          "text": "process_max_fds{instance=\"10.0.101.206:61001\",job=\"kaia\",name=\"cn1\",type=\"cn\"} 65535 1662516055000",
+          "value": "process_max_fds{instance=\"10.0.101.206:61001\",job=\"kaia\",name=\"cn1\",type=\"cn\"} 65535 1662516055000"
         },
         "datasource": {
-          "type": "prometheus",
-          "uid": "P45E5FA95A2F3C91C"
+          "type": "prometheus"
         },
         "definition": "query_result(process_max_fds{name=\"$name\"})",
         "hide": 2,
@@ -2625,7 +2564,7 @@
     ]
   },
   "timezone": "",
-  "title": "Klaytn Main Overview",
+  "title": "Kaia Main Overview",
   "uid": "KnJhY-iWz",
   "version": 2,
   "weekStart": ""

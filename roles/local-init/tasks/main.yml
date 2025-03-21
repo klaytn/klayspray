@@ -40,12 +40,12 @@
 - name: Generate genesis.json & nodekey & validator
   include_tasks: genesis.yml
   with_items:
-  - { type: "cn", num: "{{ klaytn_num_cn }}", network_id: "{{ klaytn_network_id }}", chain_id: "{{ klaytn_chain_id }}" }
-  - { type: "pn", num: "{{ klaytn_num_pn }}", network_id: "{{ klaytn_network_id }}", chain_id: "{{ klaytn_chain_id }}"  }
-  - { type: "en", num: "{{ klaytn_num_en }}", network_id: "{{ klaytn_network_id }}", chain_id: "{{ klaytn_chain_id }}"  }
-  - { type: "scn", num: "{{ klaytn_num_scn }}", network_id: "{{ klaytn_service_network_id }}", chain_id: "{{ klaytn_service_chain_id }}"  }
-  - { type: "spn", num: "{{ klaytn_num_spn }}", network_id: "{{ klaytn_service_network_id }}", chain_id: "{{ klaytn_service_chain_id }}"  }
-  - { type: "sen", num: "{{ klaytn_num_sen }}", network_id: "{{ klaytn_service_network_id }}", chain_id: "{{ klaytn_service_chain_id }}"  }
+  - { type: "cn", num: "{{ kaia_num_cn }}", network_id: "{{ kaia_network_id }}", chain_id: "{{ kaia_chain_id }}" }
+  - { type: "pn", num: "{{ kaia_num_pn }}", network_id: "{{ kaia_network_id }}", chain_id: "{{ kaia_chain_id }}"  }
+  - { type: "en", num: "{{ kaia_num_en }}", network_id: "{{ kaia_network_id }}", chain_id: "{{ kaia_chain_id }}"  }
+  - { type: "scn", num: "{{ kaia_num_scn }}", network_id: "{{ kaia_service_network_id }}", chain_id: "{{ kaia_service_chain_id }}"  }
+  - { type: "spn", num: "{{ kaia_num_spn }}", network_id: "{{ kaia_service_network_id }}", chain_id: "{{ kaia_service_chain_id }}"  }
+  - { type: "sen", num: "{{ kaia_num_sen }}", network_id: "{{ kaia_service_network_id }}", chain_id: "{{ kaia_service_chain_id }}"  }
   loop_control:
     loop_var: ctx
   tags:
@@ -54,8 +54,8 @@
 - name: Generate static-nodes.json
   include_tasks: static_nodes.yml
   with_items:
-  - { is_service_chain: False, num_cn: "{{ klaytn_num_cn }}", num_pn: "{{ klaytn_num_pn }}", num_en: "{{ klaytn_num_en }}" }
-  - { is_service_chain: True, num_cn: "{{ klaytn_num_scn }}", num_pn: "{{ klaytn_num_spn }}", num_en: "{{ klaytn_num_sen }}" }
+  - { is_service_chain: False, num_cn: "{{ kaia_num_cn }}", num_pn: "{{ kaia_num_pn }}", num_en: "{{ kaia_num_en }}" }
+  - { is_service_chain: True, num_cn: "{{ kaia_num_scn }}", num_pn: "{{ kaia_num_spn }}", num_en: "{{ kaia_num_sen }}" }
   loop_control:
     loop_var: ctx
   tags:

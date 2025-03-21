@@ -1,3 +1,3 @@
-klaytn_conf: "{{ klaytn_conf_default | combine(klaytn_conf_override) }}"
-klaytn_daemon_name: "k{{ klaytn_node_type }}d"
-is_service_chain: "{{ klaytn_node_type.startswith('s') }}"
+kaia_conf: "{{ kaia_conf_default | combine(kaia_conf_override) }}"
+kaia_daemon_name: "k{{ kaia_node_type }}d"
+is_service_chain: "{{ kaia_node_type.startswith('s') }}"

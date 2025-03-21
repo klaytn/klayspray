@@ -1,14 +1,14 @@
 ---
-- name: Install klaytn binary
+- name: Install kaia binary
   include_tasks: install.yml
 
 - name: Copy required files
   include_tasks: copy_files.yml
 
-- name: Start klaytn daemon
+- name: Start kaia daemon
   become: yes
   systemd:
-    name: "{{ klaytn_daemon_name }}" 
+    name: "{{ kaia_daemon_name }}"
     state: restarted
     enabled: yes
     

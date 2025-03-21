@@ -5,7 +5,7 @@ __metaclass__ = type
 
 DOCUMENTATION = r'''
 ---
-module: klay_validator
+module: kaia_validator
 short_description: This module generates validator files
 version_added: "1.0.0"
 '''

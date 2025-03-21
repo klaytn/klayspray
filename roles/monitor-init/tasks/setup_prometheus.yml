@@ -19,8 +19,8 @@
 - name: "Template Prometheus file_sd configuration"
   become: yes
   template:
-    src: "templates/prometheus/klaytn-nodes.yml.j2"
-    dest: "{{ prometheus_conf_dir }}/klaytn-nodes.yml"
+    src: "templates/prometheus/kaia-nodes.yml.j2"
+    dest: "{{ prometheus_conf_dir }}/kaia-nodes.yml"
     force: yes
   vars:
     nodes: |-

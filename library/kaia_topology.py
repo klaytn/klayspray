@@ -5,8 +5,8 @@ __metaclass__ = type
 
 DOCUMENTATION = r'''
 ---
-module: klay_topology
-short_description: This module generates Klaytn network topology
+module: kaia_topology
+short_description: This module generates Kaia network topology
 '''
 
 import json

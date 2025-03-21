@@ -5,7 +5,7 @@ __metaclass__ = type
 
 DOCUMENTATION = r'''
 ---
-module: klay_static_nodes
+module: kaia_static_nodes
 short_description: This module generates static-nodes knis following to network topology
 version_added: "1.0.0"
 '''

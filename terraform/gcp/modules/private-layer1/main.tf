@@ -1,7 +1,7 @@
 module "cn" {
   count = local.cn_options.count
 
-  source = "../klaytn-node"
+  source = "../kaia-node"
 
   name         = format("%s-cn-%d", var.name, count.index + 1)
   machine_type = local.cn_options.machine_type
@@ -24,7 +24,7 @@ module "cn" {
   #   size = 100
   # }
 
-  tags = length(var.network_tags) > 0 ? concat(var.network_tags) : ["klayspray", "cn"]
+  tags = length(var.network_tags) > 0 ? concat(var.network_tags) : ["kaiaspray", "cn"]
 
   metadata = merge(var.metadata, {
     Name = format("%s-cn-%d", var.name, count.index + 1)
@@ -34,7 +34,7 @@ module "cn" {
 module "pn" {
   count = local.pn_options.count
 
-  source = "../klaytn-node"
+  source = "../kaia-node"
 
   name         = format("%s-pn-%d", var.name, count.index + 1)
   machine_type = local.pn_options.machine_type
@@ -57,7 +57,7 @@ module "pn" {
   #   size = 100
   # }
 
-  tags = length(var.network_tags) > 0 ? concat(var.network_tags) : ["klayspray", "pn"]
+  tags = length(var.network_tags) > 0 ? concat(var.network_tags) : ["kaiaspray", "pn"]
 
   metadata = merge(var.metadata, {
     Name = format("%s-pn-%d", var.name, count.index + 1)
@@ -67,7 +67,7 @@ module "pn" {
 module "en" {
   count = local.en_options.count
 
-  source = "../klaytn-node"
+  source = "../kaia-node"
 
   name         = format("%s-en-%d", var.name, count.index + 1)
   machine_type = local.en_options.machine_type
@@ -90,7 +90,7 @@ module "en" {
   #   size = 100
   # }
 
-  tags = length(var.network_tags) > 0 ? concat(var.network_tags) : ["klayspray", "en"]
+  tags = length(var.network_tags) > 0 ? concat(var.network_tags) : ["kaiaspray", "en"]
 
   metadata = merge(var.metadata, {
     Name = format("%s-en-%d", var.name, count.index + 1)
@@ -98,7 +98,7 @@ module "en" {
 }
 
 module "monitor" {
-  source = "../klaytn-node"
+  source = "../kaia-node"
 
   name         = format("%s-monitor", var.name)
   machine_type = local.monitor_options.machine_type
@@ -121,7 +121,7 @@ module "monitor" {
   #   size = 100
   # }
 
-  tags = length(var.network_tags) > 0 ? var.network_tags : ["klayspray", "monitor"]
+  tags = length(var.network_tags) > 0 ? var.network_tags : ["kaiaspray", "monitor"]
 
   metadata = merge(var.metadata, {
     Name = format("%s-monitor", var.name)

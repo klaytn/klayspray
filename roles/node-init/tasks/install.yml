@@ -2,9 +2,9 @@
 - name: "Install binary using package"
   include_tasks: install_package.yml
   when:
-   - klaytn_install_mode == 'package'
+  - kaia_install_mode == 'package'
 
 - name: "Install binary using build"
   include_tasks: install_build.yml
   when:
-   - klaytn_install_mode == 'build'
+  - kaia_install_mode == 'build'

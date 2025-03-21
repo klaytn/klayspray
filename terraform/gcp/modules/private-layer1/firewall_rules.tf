@@ -4,7 +4,7 @@ locals {
       name        = "kaiaspray-ssh"
       direction   = "INGRESS"
       ranges      = var.ssh_client_ips
-      target_tags = ["klayspray"]
+      target_tags = ["kaiaspray"]
       allow = {
         protocol = "tcp"
         ports    = ["22"]
@@ -56,7 +56,7 @@ locals {
       name        = "kaiaspray-egress-tcp"
       direction   = "EGRESS"
       ranges      = ["0.0.0.0/0"]
-      target_tags = ["klayspray"]
+      target_tags = ["kaiaspray"]
       allow = {
         protocol = "tcp"
         ports    = ["0-65535"]
@@ -66,7 +66,7 @@ locals {
       name        = "kaiaspray-egress-udp"
       direction   = "EGRESS"
       ranges      = ["0.0.0.0/0"]
-      target_tags = ["klayspray"]
+      target_tags = ["kaiaspray"]
       allow = {
         protocol = "udp"
         ports    = ["0-65535"]

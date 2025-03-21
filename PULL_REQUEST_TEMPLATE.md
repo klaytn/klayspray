@@ -20,7 +20,7 @@ Please describe the tests that you ran to verify your changes. Provide instructi
 **Test Configuration**:
 * Public Cloud:
 * OS verson:
-* Klaytn version:
+* Kaia version:
 * Ansible version:
 * Terraform version:
 

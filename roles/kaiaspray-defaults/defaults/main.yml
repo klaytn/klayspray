@@ -1,0 +1,34 @@
+cache_dir: "{{ playbook_dir }}/cache"
+bin_dir: "{{ cache_dir }}/bin"
+homi_output_dir: "{{ cache_dir }}/homi-output"
+kaia_build_dir: "{{ cache_dir }}/kaia-build"
+
+# =======================
+# for development or test
+# =======================
+kaia_build_docker_base_image: "kaiachain/build_base:latest"
+kaia_build_docker_builder_image: "kaia_builder"
+kaia_build_local_git_dir:
+kaia_build_remote_git_url: "git@github.com:kaiachain/kaia.git"
+kaia_build_remote_git_branch: "dev"
+
+kaia_num_cn: 4
+kaia_num_pn: 4
+kaia_num_en: 1
+kaia_num_scn: 0
+kaia_num_spn: 0
+kaia_num_sen: 0
+
+kaia_network_name:
+kaia_network_id:
+kaia_chain_id:
+kaia_service_network_id:
+kaia_service_chain_id:
+
+kaia_custom_topology:
+
+kaia_bridge_enabled: 0
+
+kaia_port: 32323
+kaia_main_bridge_port: 50505
+kaia_sub_bridge_port: 50506

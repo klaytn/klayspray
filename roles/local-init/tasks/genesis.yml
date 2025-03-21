@@ -8,7 +8,7 @@
 
 - name: "Generate {{ ctx.type }} data & genesis.json by Homi"
   shell: |
-    {{ homi_bin }} setup {{ homi_default_options }} --test-num {{ homi_test_account_num }} --cn-num {{ ctx.num }} --chainID {{ klaytn_network_id }} --network-id {{ klaytn_network_id }} -o {{ homi_output_dir }}/{{ ctx.type }} local
+    {{ homi_bin }} setup {{ homi_default_options }} --test-num {{ homi_test_account_num }} --cn-num {{ ctx.num }} --chainID {{ kaia_network_id }} --network-id {{ kaia_network_id }} -o {{ homi_output_dir }}/{{ ctx.type }} local
   tags:
   - localhost
   when:
@@ -16,11 +16,11 @@
   - check_nodekey_file.stat.exists == False
 
 - name: Convert and get validator data
-  klay_validator:
+  kaia_validator:
     homi_output_dir: "{{ homi_output_dir }}"
     node_type: "{{ ctx.type }}"
     node_index: "{{ node_index | int }}"
-    port: "{{ klaytn_port }}"
+    port: "{{ kaia_port }}"
     public_ip: "{{ hostvars[item]['ansible_host'] }}"
     private_ip: "{{ hostvars[item]['ansible_private_host'] }}"
   register: validator_result

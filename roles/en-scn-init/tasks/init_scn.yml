@@ -1,13 +1,13 @@
 ---
 - name: Pick up host index
   set_fact:
-    homi_results_dir: "{{ homi_output_dir }}/{{ klaytn_node_type }}"
+    homi_results_dir: "{{ homi_output_dir }}/{{ kaia_node_type }}"
     node_num: "{{ inventory_hostname | regex_search('^scn([0-9]+)$', '\\1') | first | int }}"
 
 - name: "Initialization - Copy main-bridge.json"
   become: yes
   copy:
-    dest: "{{ klaytn_conf.DATA_DIR }}/main-bridges.json"
+    dest: "{{ kaia_conf.DATA_DIR }}/main-bridges.json"
     content: |
       [{{ mainbridge_kni }}]
 
@@ -29,7 +29,7 @@
 
 - name: "Generate SCN data & genesis.json by Homi"
   become: yes
-  command: homi setup --gen-type local {{ homi_default_options }} --test-num {{ homi_test_account_num }} --cn-num {{ groups.scn|length }} --chainID {{ klaytn_service_chain_id }} --network-id {{ klaytn_service_network_id }} --p2p-port {{ klaytn_conf.PORT }} -o {{ homi_results_dir }}
+  command: homi setup --gen-type local {{ homi_default_options }} --test-num {{ homi_test_account_num }} --cn-num {{ groups.scn|length }} --chainID {{ kaia_service_chain_id }} --network-id {{ kaia_service_network_id }} --p2p-port {{ kaia_conf.PORT }} -o {{ homi_results_dir }}
   when: 
     - not check_nodekey_file.stat.exists
     - '"bridge" in group_names'
@@ -37,8 +37,8 @@
 - name: Initialization - Check genesis initialized
   become: yes
   stat:
-    path: "{{ klaytn_conf.DATA_DIR}}/klay"
-  register: check_klay_data_dir
+    path: "{{ kaia_conf.DATA_DIR}}/klay"
+  register: check_kaia_data_dir
 
 ## scn1 only
 - name: Update static-nodes.json
@@ -46,13 +46,13 @@
     - name: Copy static-nodes file
       become: yes
       copy:
-        dest: "{{ klaytn_conf.DATA_DIR }}/static-nodes.json"
+        dest: "{{ kaia_conf.DATA_DIR }}/static-nodes.json"
         src: "{{ '/'.join((homi_results_dir, 'scripts', 'static-nodes.json')) }}"
         remote_src: yes
 
     - name: Replace default IP with node IP
       become: yes
-      command: "sed -i '0,/0.0.0.0/{s//{{ hostvars[item].ansible_host }}/}' {{ klaytn_conf.DATA_DIR }}/static-nodes.json"
+      command: "sed -i '0,/0.0.0.0/{s//{{ hostvars[item].ansible_host }}/}' {{ kaia_conf.DATA_DIR }}/static-nodes.json"
       with_items: "{{ groups.scn }}"
       loop_control:
         index_var: index
@@ -63,27 +63,27 @@
   become: yes
   copy:
     src: "{{ homi_results_dir }}/keys/nodekey{{ node_num }}"
-    dest: "{{ klaytn_conf.DATA_DIR }}/nodekey"
+    dest: "{{ kaia_conf.DATA_DIR }}/nodekey"
     remote_src: yes
   when: 
-    - not check_klay_data_dir.stat.exists
+    - not check_kaia_data_dir.stat.exists
     - '"bridge" in group_names'
 
 - name: Initialization - Copy Genesis File
   become: yes
   copy:
     src: "{{ homi_results_dir }}/scripts/genesis.json"
-    dest: "/etc/{{ klaytn_daemon_name }}/genesis.json"
+    dest: "/etc/{{ kaia_daemon_name }}/genesis.json"
     remote_src: yes
   when: 
-    - not check_klay_data_dir.stat.exists
+    - not check_kaia_data_dir.stat.exists
     - '"bridge" in group_names'
 
 ## NOT scn1
 - name: Copy static-nodes file
   become: yes
   copy:
-    dest: "{{ klaytn_conf.DATA_DIR }}/static-nodes.json"
+    dest: "{{ kaia_conf.DATA_DIR }}/static-nodes.json"
     content: "{{ hostvars.scn1.static_nodes }}"
   when: 
     - '"bridge" not in group_names'
@@ -91,7 +91,7 @@
 - name: Copy nodekey file
   become: yes
   copy:
-    dest: "{{ klaytn_conf.DATA_DIR }}/nodekey"
+    dest: "{{ kaia_conf.DATA_DIR }}/nodekey"
     content: "{{ hostvars.scn1['nodekey' + node_num] }}"
   when: 
     - '"bridge" not in group_names'
@@ -99,7 +99,7 @@
 - name: Copy genesis file
   become: yes
   copy:
-    dest: "/etc/{{ klaytn_daemon_name }}/genesis.json"
+    dest: "/etc/{{ kaia_daemon_name }}/genesis.json"
     content: "{{ hostvars.scn1.genesis }}"
   when: 
     - '"bridge" not in group_names'
@@ -108,10 +108,10 @@
 
 - name: Convert and get validator data
   become: yes
-  klay_update_validator:
+  kaia_update_validator:
     path: "{{ homi_results_dir }}/keys/validator{{ index+1 }}"
-    node_type: "{{ klaytn_node_type }}"
-    port: "{{ klaytn_port }}"
+    node_type: "{{ kaia_node_type }}"
+    port: "{{ kaia_port }}"
     public_ip: "{{ hostvars[item].ansible_host }}"
     private_ip: "{{ hostvars[item].ansible_private_host }}"
   register: validator_result
@@ -124,7 +124,7 @@
 - name: Generate validator file
   become: yes
   copy:
-    dest: "{{ klaytn_conf.DATA_DIR }}/validator{{ index+1 }}"
+    dest: "{{ kaia_conf.DATA_DIR }}/validator{{ index+1 }}"
     content: "{{ item.validator }}"
   with_items: "{{ validator_result.results }}"
   loop_control:
@@ -134,8 +134,8 @@
 
 - name: Initialization - Genensis
   become: yes
-  command: "k{{ klaytn_node_type }} init --datadir {{ klaytn_conf.DATA_DIR }} /etc/{{ klaytn_daemon_name }}/genesis.json"
-  when: not check_klay_data_dir.stat.exists
+  command: "k{{ kaia_node_type }} init --datadir {{ kaia_conf.DATA_DIR }} /etc/{{ kaia_daemon_name }}/genesis.json"
+  when: not check_kaia_data_dir.stat.exists
 
 - name: Set homi output as variabes
   become: yes
@@ -147,7 +147,7 @@
 
     - name: Read static-nodes file
       ansible.builtin.slurp:
-        src: "{{ '/'.join((klaytn_conf.DATA_DIR, 'static-nodes.json')) }}"
+        src: "{{ '/'.join((kaia_conf.DATA_DIR, 'static-nodes.json')) }}"
       register: staticnodes_slurpfile
 
     - name: Read nodekey file
@@ -158,7 +158,7 @@
 
     - name: Read validator file
       ansible.builtin.slurp:
-        src: "{{ '/'.join((klaytn_conf.DATA_DIR, 'validator' + item)) }}"
+        src: "{{ '/'.join((kaia_conf.DATA_DIR, 'validator' + item)) }}"
       register: validator_slurpfile
       with_sequence: start=1 end={{ groups.scn|length }}
 

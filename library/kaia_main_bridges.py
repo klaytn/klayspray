@@ -5,7 +5,7 @@ __metaclass__ = type
 
 DOCUMENTATION = r'''
 ---
-module: klay_main_bridges
+module: kaia_main_bridges
 short_description: This module generates main-bridges.json file
 version_added: "1.0.0"
 '''

@@ -15,8 +15,8 @@ export GOOGLE_APPLICATION_CREDENTIALS="<path-to-credential-json>"
 ### 1. Deploy GCP resources
 Execute command belows to deploy resources via Terraform.
 ```bash
-$ git clone https://github.com/klaytn/klayspray.git
-$ cd klayspray
+$ git clone https://github.com/kaiachain/kaiaspray.git
+$ cd kaiaspray
 $ export TF_OPTIONS="-chdir=terraform/gcp/private-layer1"
 $ terraform $TF_OPTIONS init
 $ terraform $TF_OPTIONS plan
@@ -60,9 +60,9 @@ layer1 = {
 ```
 
 ### 2. Check the generated files
-You can check two files in the root path of klayspray.
+You can check two files in the root path of kaiaspray.
 1. gcp-private-ssh-key.pem: a file to use via SSH (if you )
-2. inventory/private-layer1/inventory.ini: a file storing Klaytn node connection information
+2. inventory/private-layer1/inventory.ini: a file storing Kaia node connection information
 3. inventory/private-layer1/group_vars/all.yml: a file storing deploy options information
 
 ### 3. Execute Ansible playbook
@@ -122,7 +122,7 @@ ssh_existing_public_key_path = "/path/to/public-key.pub"
 
 #### Option2. deploy_options
 
-The `deploy_options` block configures deployment settings for your Klaytn nodes:
+The `deploy_options` block configures deployment settings for your Kaia nodes:
 
 1. **Installation Mode**:
    - Set `kaia_install_mode` to specify how nodes are installed

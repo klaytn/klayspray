@@ -32,8 +32,7 @@
     {
       "collapsed": false,
       "datasource": {
-        "type": "prometheus",
-        "uid": "P45E5FA95A2F3C91C"
+        "type": "prometheus"
       },
       "gridPos": {
         "h": 1,
@@ -46,8 +45,7 @@
       "targets": [
         {
           "datasource": {
-            "type": "prometheus",
-            "uid": "P45E5FA95A2F3C91C"
+            "type": "prometheus"
           },
           "refId": "A"
         }
@@ -61,8 +59,7 @@
       "dashLength": 10,
       "dashes": false,
       "datasource": {
-        "type": "prometheus",
-        "uid": "P45E5FA95A2F3C91C"
+        "type": "prometheus"
       },
       "description": "LevelDB (Write)",
       "fill": 1,
@@ -103,8 +100,7 @@
       "targets": [
         {
           "datasource": {
-            "type": "prometheus",
-            "uid": "P45E5FA95A2F3C91C"
+            "type": "prometheus"
           },
           "editorMode": "code",
           "expr": "klaytn_system_disk_writedata{}",
@@ -151,8 +147,7 @@
       "dashLength": 10,
       "dashes": false,
       "datasource": {
-        "type": "prometheus",
-        "uid": "P45E5FA95A2F3C91C"
+        "type": "prometheus"
       },
       "description": "LevelDB (read)",
       "fill": 1,
@@ -193,8 +188,7 @@
       "targets": [
         {
           "datasource": {
-            "type": "prometheus",
-            "uid": "P45E5FA95A2F3C91C"
+            "type": "prometheus"
           },
           "editorMode": "code",
           "expr": "klaytn_system_disk_readdata{}",
@@ -241,8 +235,7 @@
       "dashLength": 10,
       "dashes": false,
       "datasource": {
-        "type": "prometheus",
-        "uid": "P45E5FA95A2F3C91C"
+        "type": "prometheus"
       },
       "description": "Memory Allocation (resident)",
       "fill": 1,
@@ -283,8 +276,7 @@
       "targets": [
         {
           "datasource": {
-            "type": "prometheus",
-            "uid": "P45E5FA95A2F3C91C"
+            "type": "prometheus"
           },
           "editorMode": "code",
           "expr": "process_resident_memory_bytes{}",
@@ -331,8 +323,7 @@
       "dashLength": 10,
       "dashes": false,
       "datasource": {
-        "type": "prometheus",
-        "uid": "P45E5FA95A2F3C91C"
+        "type": "prometheus"
       },
       "description": "Memory Allocation (virtual)",
       "fill": 1,
@@ -373,8 +364,7 @@
       "targets": [
         {
           "datasource": {
-            "type": "prometheus",
-            "uid": "P45E5FA95A2F3C91C"
+            "type": "prometheus"
           },
           "editorMode": "code",
           "expr": "process_virtual_memory_bytes{}",
@@ -421,8 +411,7 @@
       "dashLength": 10,
       "dashes": false,
       "datasource": {
-        "type": "prometheus",
-        "uid": "P45E5FA95A2F3C91C"
+        "type": "prometheus"
       },
       "description": "cpu process consume sec (rate)",
       "fill": 1,
@@ -463,8 +452,7 @@
       "targets": [
         {
           "datasource": {
-            "type": "prometheus",
-            "uid": "P45E5FA95A2F3C91C"
+            "type": "prometheus"
           },
           "editorMode": "code",
           "expr": "rate(process_cpu_seconds_total{}[30s])",
@@ -511,8 +499,7 @@
       "dashLength": 10,
       "dashes": false,
       "datasource": {
-        "type": "prometheus",
-        "uid": "P45E5FA95A2F3C91C"
+        "type": "prometheus"
       },
       "description": "State Trie Partition 0 DB Read Mean",
       "fill": 1,
@@ -553,8 +540,7 @@
       "targets": [
         {
           "datasource": {
-            "type": "prometheus",
-            "uid": "P45E5FA95A2F3C91C"
+            "type": "prometheus"
           },
           "editorMode": "code",
           "expr": "klaytn_klay_db_chaindata_statetrie_0get_time{}",
@@ -601,8 +587,7 @@
       "dashLength": 10,
       "dashes": false,
       "datasource": {
-        "type": "prometheus",
-        "uid": "P45E5FA95A2F3C91C"
+        "type": "prometheus"
       },
       "description": "State Trie Partition 0 DB Read - Max",
       "fill": 1,
@@ -644,8 +629,7 @@
         {
           "$$hashKey": "object:1156",
           "datasource": {
-            "type": "prometheus",
-            "uid": "P45E5FA95A2F3C91C"
+            "type": "prometheus"
           },
           "editorMode": "code",
           "expr": "klaytn_klay_db_chaindata_statetrie_0get_time_maxgauge{}",
@@ -692,8 +676,7 @@
       "dashLength": 10,
       "dashes": false,
       "datasource": {
-        "type": "prometheus",
-        "uid": "P45E5FA95A2F3C91C"
+        "type": "prometheus"
       },
       "description": "State Trie Partition 0 DB Batch Write Mean",
       "fill": 1,
@@ -734,8 +717,7 @@
       "targets": [
         {
           "datasource": {
-            "type": "prometheus",
-            "uid": "P45E5FA95A2F3C91C"
+            "type": "prometheus"
           },
           "editorMode": "code",
           "expr": "klaytn_klay_db_chaindata_statetrie_0batchwrite_time{}",
@@ -782,8 +764,7 @@
       "dashLength": 10,
       "dashes": false,
       "datasource": {
-        "type": "prometheus",
-        "uid": "P45E5FA95A2F3C91C"
+        "type": "prometheus"
       },
       "description": "State Trie Partition 0 DB Batch Write - Max",
       "fill": 1,
@@ -825,8 +806,7 @@
         {
           "$$hashKey": "object:1210",
           "datasource": {
-            "type": "prometheus",
-            "uid": "P45E5FA95A2F3C91C"
+            "type": "prometheus"
           },
           "editorMode": "code",
           "expr": "klaytn_klay_db_chaindata_statetrie_0batchwrite_time_maxgauge{}",
@@ -870,8 +850,7 @@
     {
       "collapsed": false,
       "datasource": {
-        "type": "prometheus",
-        "uid": "P45E5FA95A2F3C91C"
+        "type": "prometheus"
       },
       "gridPos": {
         "h": 1,
@@ -884,8 +863,7 @@
       "targets": [
         {
           "datasource": {
-            "type": "prometheus",
-            "uid": "P45E5FA95A2F3C91C"
+            "type": "prometheus"
           },
           "refId": "A"
         }
@@ -899,8 +877,7 @@
       "dashLength": 10,
       "dashes": false,
       "datasource": {
-        "type": "prometheus",
-        "uid": "P45E5FA95A2F3C91C"
+        "type": "prometheus"
       },
       "fill": 1,
       "fillGradient": 0,
@@ -940,8 +917,7 @@
       "targets": [
         {
           "datasource": {
-            "type": "prometheus",
-            "uid": "P45E5FA95A2F3C91C"
+            "type": "prometheus"
           },
           "editorMode": "code",
           "expr": "klaytn_trie_memcache_nodes{}",
@@ -954,7 +930,7 @@
       ],
       "thresholds": [],
       "timeRegions": [],
-      "title": "klaytn_trie_memcache_nodes",
+      "title": "kaia_trie_memcache_nodes",
       "tooltip": {
         "shared": true,
         "sort": 0,
@@ -988,8 +964,7 @@
       "dashLength": 10,
       "dashes": false,
       "datasource": {
-        "type": "prometheus",
-        "uid": "P45E5FA95A2F3C91C"
+        "type": "prometheus"
       },
       "fill": 1,
       "fillGradient": 0,
@@ -1029,8 +1004,7 @@
       "targets": [
         {
           "datasource": {
-            "type": "prometheus",
-            "uid": "P45E5FA95A2F3C91C"
+            "type": "prometheus"
           },
           "editorMode": "code",
           "expr": "klaytn_trie_memcache_commit_nodes{}",
@@ -1043,7 +1017,7 @@
       ],
       "thresholds": [],
       "timeRegions": [],
-      "title": "klaytn_trie_memcache_commit_nodes",
+      "title": "kaia_trie_memcache_commit_nodes",
       "tooltip": {
         "shared": true,
         "sort": 0,
@@ -1077,8 +1051,7 @@
       "dashLength": 10,
       "dashes": false,
       "datasource": {
-        "type": "prometheus",
-        "uid": "P45E5FA95A2F3C91C"
+        "type": "prometheus"
       },
       "fill": 1,
       "fillGradient": 0,
@@ -1118,8 +1091,7 @@
       "targets": [
         {
           "datasource": {
-            "type": "prometheus",
-            "uid": "P45E5FA95A2F3C91C"
+            "type": "prometheus"
           },
           "editorMode": "code",
           "expr": "klaytn_trie_memcache_gc_nodes{}",
@@ -1132,7 +1104,7 @@
       ],
       "thresholds": [],
       "timeRegions": [],
-      "title": "klaytn_trie_memcache_gc_nodes",
+      "title": "kaia_trie_memcache_gc_nodes",
       "tooltip": {
         "shared": true,
         "sort": 0,
@@ -1166,8 +1138,7 @@
       "dashLength": 10,
       "dashes": false,
       "datasource": {
-        "type": "prometheus",
-        "uid": "P45E5FA95A2F3C91C"
+        "type": "prometheus"
       },
       "fill": 1,
       "fillGradient": 0,
@@ -1207,8 +1178,7 @@
       "targets": [
         {
           "datasource": {
-            "type": "prometheus",
-            "uid": "P45E5FA95A2F3C91C"
+            "type": "prometheus"
           },
           "editorMode": "code",
           "expr": "klaytn_trie_memcache_flush_nodes{}",
@@ -1221,7 +1191,7 @@
       ],
       "thresholds": [],
       "timeRegions": [],
-      "title": "klaytn_trie_memcache_flush_nodes",
+      "title": "kaia_trie_memcache_flush_nodes",
       "tooltip": {
         "shared": true,
         "sort": 0,
@@ -1255,8 +1225,7 @@
       "dashLength": 10,
       "dashes": false,
       "datasource": {
-        "type": "prometheus",
-        "uid": "P45E5FA95A2F3C91C"
+        "type": "prometheus"
       },
       "fill": 1,
       "fillGradient": 0,
@@ -1296,8 +1265,7 @@
       "targets": [
         {
           "datasource": {
-            "type": "prometheus",
-            "uid": "P45E5FA95A2F3C91C"
+            "type": "prometheus"
           },
           "editorMode": "code",
           "expr": "klaytn_trie_memcache_clean_write{}",
@@ -1309,8 +1277,7 @@
         },
         {
           "datasource": {
-            "type": "prometheus",
-            "uid": "P45E5FA95A2F3C91C"
+            "type": "prometheus"
           },
           "expr": "",
           "format": "time_series",
@@ -1354,8 +1321,7 @@
       "dashLength": 10,
       "dashes": false,
       "datasource": {
-        "type": "prometheus",
-        "uid": "P45E5FA95A2F3C91C"
+        "type": "prometheus"
       },
       "fill": 1,
       "fillGradient": 0,
@@ -1395,8 +1361,7 @@
       "targets": [
         {
           "datasource": {
-            "type": "prometheus",
-            "uid": "P45E5FA95A2F3C91C"
+            "type": "prometheus"
           },
           "editorMode": "code",
           "expr": "klaytn_trie_memcache_clean_read{}",
@@ -1443,8 +1408,7 @@
       "dashLength": 10,
       "dashes": false,
       "datasource": {
-        "type": "prometheus",
-        "uid": "P45E5FA95A2F3C91C"
+        "type": "prometheus"
       },
       "fill": 1,
       "fillGradient": 0,
@@ -1484,8 +1448,7 @@
       "targets": [
         {
           "datasource": {
-            "type": "prometheus",
-            "uid": "P45E5FA95A2F3C91C"
+            "type": "prometheus"
           },
           "editorMode": "code",
           "expr": "klaytn_trie_memcache_clean_hit{}",
@@ -1532,8 +1495,7 @@
       "dashLength": 10,
       "dashes": false,
       "datasource": {
-        "type": "prometheus",
-        "uid": "P45E5FA95A2F3C91C"
+        "type": "prometheus"
       },
       "fill": 1,
       "fillGradient": 0,
@@ -1573,8 +1535,7 @@
       "targets": [
         {
           "datasource": {
-            "type": "prometheus",
-            "uid": "P45E5FA95A2F3C91C"
+            "type": "prometheus"
           },
           "editorMode": "code",
           "expr": "klaytn_trie_memcache_clean_miss{}",
@@ -1621,8 +1582,7 @@
       "dashLength": 10,
       "dashes": false,
       "datasource": {
-        "type": "prometheus",
-        "uid": "P45E5FA95A2F3C91C"
+        "type": "prometheus"
       },
       "fill": 1,
       "fillGradient": 0,
@@ -1662,8 +1622,7 @@
       "targets": [
         {
           "datasource": {
-            "type": "prometheus",
-            "uid": "P45E5FA95A2F3C91C"
+            "type": "prometheus"
           },
           "editorMode": "code",
           "expr": "klaytn_state_account_reads{}",
@@ -1675,8 +1634,7 @@
         },
         {
           "datasource": {
-            "type": "prometheus",
-            "uid": "P45E5FA95A2F3C91C"
+            "type": "prometheus"
           },
           "expr": "",
           "format": "time_series",
@@ -1720,8 +1678,7 @@
       "dashLength": 10,
       "dashes": false,
       "datasource": {
-        "type": "prometheus",
-        "uid": "P45E5FA95A2F3C91C"
+        "type": "prometheus"
       },
       "fill": 1,
       "fillGradient": 0,
@@ -1761,8 +1718,7 @@
       "targets": [
         {
           "datasource": {
-            "type": "prometheus",
-            "uid": "P45E5FA95A2F3C91C"
+            "type": "prometheus"
           },
           "editorMode": "code",
           "expr": "klaytn_state_account_updates{}",
@@ -1774,8 +1730,7 @@
         },
         {
           "datasource": {
-            "type": "prometheus",
-            "uid": "P45E5FA95A2F3C91C"
+            "type": "prometheus"
           },
           "expr": "",
           "format": "time_series",
@@ -1819,8 +1774,7 @@
       "dashLength": 10,
       "dashes": false,
       "datasource": {
-        "type": "prometheus",
-        "uid": "P45E5FA95A2F3C91C"
+        "type": "prometheus"
       },
       "fill": 1,
       "fillGradient": 0,
@@ -1860,8 +1814,7 @@
       "targets": [
         {
           "datasource": {
-            "type": "prometheus",
-            "uid": "P45E5FA95A2F3C91C"
+            "type": "prometheus"
           },
           "editorMode": "code",
           "expr": "klaytn_state_account_commits{}",
@@ -1873,8 +1826,7 @@
         },
         {
           "datasource": {
-            "type": "prometheus",
-            "uid": "P45E5FA95A2F3C91C"
+            "type": "prometheus"
           },
           "expr": "",
           "format": "time_series",
@@ -1918,8 +1870,7 @@
       "dashLength": 10,
       "dashes": false,
       "datasource": {
-        "type": "prometheus",
-        "uid": "P45E5FA95A2F3C91C"
+        "type": "prometheus"
       },
       "fill": 1,
       "fillGradient": 0,
@@ -1959,8 +1910,7 @@
       "targets": [
         {
           "datasource": {
-            "type": "prometheus",
-            "uid": "P45E5FA95A2F3C91C"
+            "type": "prometheus"
           },
           "editorMode": "code",
           "expr": "klaytn_state_account_hashes{}",
@@ -1972,8 +1922,7 @@
         },
         {
           "datasource": {
-            "type": "prometheus",
-            "uid": "P45E5FA95A2F3C91C"
+            "type": "prometheus"
           },
           "expr": "",
           "format": "time_series",
@@ -2017,8 +1966,7 @@
       "dashLength": 10,
       "dashes": false,
       "datasource": {
-        "type": "prometheus",
-        "uid": "P45E5FA95A2F3C91C"
+        "type": "prometheus"
       },
       "fill": 1,
       "fillGradient": 0,
@@ -2058,8 +2006,7 @@
       "targets": [
         {
           "datasource": {
-            "type": "prometheus",
-            "uid": "P45E5FA95A2F3C91C"
+            "type": "prometheus"
           },
           "editorMode": "code",
           "expr": "klaytn_state_storage_reads{}",
@@ -2071,8 +2018,7 @@
         },
         {
           "datasource": {
-            "type": "prometheus",
-            "uid": "P45E5FA95A2F3C91C"
+            "type": "prometheus"
           },
           "expr": "",
           "format": "time_series",
@@ -2116,8 +2062,7 @@
       "dashLength": 10,
       "dashes": false,
       "datasource": {
-        "type": "prometheus",
-        "uid": "P45E5FA95A2F3C91C"
+        "type": "prometheus"
       },
       "fill": 1,
       "fillGradient": 0,
@@ -2157,8 +2102,7 @@
       "targets": [
         {
           "datasource": {
-            "type": "prometheus",
-            "uid": "P45E5FA95A2F3C91C"
+            "type": "prometheus"
           },
           "editorMode": "code",
           "expr": "klaytn_state_storage_updates{}",
@@ -2170,8 +2114,7 @@
         },
         {
           "datasource": {
-            "type": "prometheus",
-            "uid": "P45E5FA95A2F3C91C"
+            "type": "prometheus"
           },
           "expr": "",
           "format": "time_series",
@@ -2215,8 +2158,7 @@
       "dashLength": 10,
       "dashes": false,
       "datasource": {
-        "type": "prometheus",
-        "uid": "P45E5FA95A2F3C91C"
+        "type": "prometheus"
       },
       "fill": 1,
       "fillGradient": 0,
@@ -2256,8 +2198,7 @@
       "targets": [
         {
           "datasource": {
-            "type": "prometheus",
-            "uid": "P45E5FA95A2F3C91C"
+            "type": "prometheus"
           },
           "editorMode": "code",
           "expr": "klaytn_state_storage_commits{}",
@@ -2269,8 +2210,7 @@
         },
         {
           "datasource": {
-            "type": "prometheus",
-            "uid": "P45E5FA95A2F3C91C"
+            "type": "prometheus"
           },
           "expr": "",
           "format": "time_series",
@@ -2314,8 +2254,7 @@
       "dashLength": 10,
       "dashes": false,
       "datasource": {
-        "type": "prometheus",
-        "uid": "P45E5FA95A2F3C91C"
+        "type": "prometheus"
       },
       "fill": 1,
       "fillGradient": 0,
@@ -2355,8 +2294,7 @@
       "targets": [
         {
           "datasource": {
-            "type": "prometheus",
-            "uid": "P45E5FA95A2F3C91C"
+            "type": "prometheus"
           },
           "editorMode": "code",
           "expr": "klaytn_state_storage_hashes{}",
@@ -2368,8 +2306,7 @@
         },
         {
           "datasource": {
-            "type": "prometheus",
-            "uid": "P45E5FA95A2F3C91C"
+            "type": "prometheus"
           },
           "expr": "",
           "format": "time_series",
@@ -2410,8 +2347,7 @@
     {
       "collapsed": false,
       "datasource": {
-        "type": "prometheus",
-        "uid": "P45E5FA95A2F3C91C"
+        "type": "prometheus"
       },
       "gridPos": {
         "h": 1,
@@ -2424,8 +2360,7 @@
       "targets": [
         {
           "datasource": {
-            "type": "prometheus",
-            "uid": "P45E5FA95A2F3C91C"
+            "type": "prometheus"
           },
           "refId": "A"
         }
@@ -2439,8 +2374,7 @@
       "dashLength": 10,
       "dashes": false,
       "datasource": {
-        "type": "prometheus",
-        "uid": "P45E5FA95A2F3C91C"
+        "type": "prometheus"
       },
       "fill": 1,
       "fillGradient": 0,
@@ -2480,8 +2414,7 @@
       "targets": [
         {
           "datasource": {
-            "type": "prometheus",
-            "uid": "P45E5FA95A2F3C91C"
+            "type": "prometheus"
           },
           "editorMode": "code",
           "expr": "rate(klaytn_blockchain_block_tx_counter{}[30s])",
@@ -2528,8 +2461,7 @@
       "dashLength": 10,
       "dashes": false,
       "datasource": {
-        "type": "prometheus",
-        "uid": "P45E5FA95A2F3C91C"
+        "type": "prometheus"
       },
       "description": "txpool pending current size",
       "fill": 1,
@@ -2571,8 +2503,7 @@
       "targets": [
         {
           "datasource": {
-            "type": "prometheus",
-            "uid": "P45E5FA95A2F3C91C"
+            "type": "prometheus"
           },
           "editorMode": "code",
           "expr": "klaytn_tx_pool_pending_gauge{}",
@@ -2619,8 +2550,7 @@
       "dashLength": 10,
       "dashes": false,
       "datasource": {
-        "type": "prometheus",
-        "uid": "P45E5FA95A2F3C91C"
+        "type": "prometheus"
       },
       "fill": 1,
       "fillGradient": 0,
@@ -2660,8 +2590,7 @@
       "targets": [
         {
           "datasource": {
-            "type": "prometheus",
-            "uid": "P45E5FA95A2F3C91C"
+            "type": "prometheus"
           },
           "editorMode": "code",
           "expr": "klaytn_blockchain_head_blocknumber{}",
@@ -2708,8 +2637,7 @@
       "dashLength": 10,
       "dashes": false,
       "datasource": {
-        "type": "prometheus",
-        "uid": "P45E5FA95A2F3C91C"
+        "type": "prometheus"
       },
       "fill": 1,
       "fillGradient": 0,
@@ -2749,8 +2677,7 @@
       "targets": [
         {
           "datasource": {
-            "type": "prometheus",
-            "uid": "P45E5FA95A2F3C91C"
+            "type": "prometheus"
           },
           "editorMode": "code",
           "expr": "go_goroutines{}",
@@ -2805,8 +2732,7 @@
           "value": "cn1"
         },
         "datasource": {
-          "type": "prometheus",
-          "uid": "P45E5FA95A2F3C91C"
+          "type": "prometheus"
         },
         "definition": "label_values(name)",
         "hide": 0,
@@ -2834,8 +2760,7 @@
           "value": "cn"
         },
         "datasource": {
-          "type": "prometheus",
-          "uid": "P45E5FA95A2F3C91C"
+          "type": "prometheus"
         },
         "definition": "label_values(type)",
         "hide": 0,
@@ -2859,12 +2784,11 @@
       {
         "current": {
           "selected": false,
-          "text": "process_max_fds{instance=\"10.0.101.206:61001\",job=\"klaytn\",name=\"cn1\",type=\"cn\"} 65535 1662514621000",
-          "value": "process_max_fds{instance=\"10.0.101.206:61001\",job=\"klaytn\",name=\"cn1\",type=\"cn\"} 65535 1662514621000"
+          "text": "process_max_fds{instance=\"10.0.101.206:61001\",job=\"kaia\",name=\"cn1\",type=\"cn\"} 65535 1662514621000",
+          "value": "process_max_fds{instance=\"10.0.101.206:61001\",job=\"kaia\",name=\"cn1\",type=\"cn\"} 65535 1662514621000"
         },
         "datasource": {
-          "type": "prometheus",
-          "uid": "P45E5FA95A2F3C91C"
+          "type": "prometheus"
         },
         "definition": "query_result(process_max_fds{name=\"$name\"})",
         "hide": 2,
@@ -2914,7 +2838,7 @@
     ]
   },
   "timezone": "",
-  "title": "Klaytn Data Overview",
+  "title": "Kaia Data Overview",
   "uid": "BjUoOqkWZ",
   "version": 4,
   "weekStart": ""
