@@ -24,7 +24,13 @@ variable "pn_options" {
 
 variable "en_options" {
   type        = any
-  description = "The options to deploy PN nodes"
+  description = "The options to deploy EN nodes"
+  default     = {}
+}
+
+variable "deploy_options" {
+  type        = any
+  description = "The options to deploy kaia nodes"
   default     = {}
 }
 
@@ -102,4 +108,10 @@ variable "create_gcp_firewall_rules" {
   description = "Flag to determine whether to create a GCP firewall rules."
   type        = bool
   default     = true # Enabled by default; set to false to use existing firewall rules
+}
+
+variable "user_name" {
+  description = "User name to be used for SSH login"
+  type        = string
+  default     = "kaia"
 }

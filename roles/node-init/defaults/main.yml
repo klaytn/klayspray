@@ -34,7 +34,6 @@ klaytn_conf_default:
   AUTO_RESTART_NODE: 1
   AUTO_RESTART_INTERVAL: 0.1
   ADDITIONAL:
-  REWARDBASE: "{{ klaytn_rewardbase }}"
   DATA_DIR: "/var/{{ klaytn_daemon_name }}/data"
   LOG_DIR: "/var/{{ klaytn_daemon_name }}/log"
   SC_MAIN_BRIDGE_PORT: "{{ klaytn_main_bridge_port }}"

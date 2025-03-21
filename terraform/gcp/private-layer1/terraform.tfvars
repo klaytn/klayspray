@@ -3,31 +3,41 @@ project_id = "klayspray-123456"
 gcp_region = "asia-northeast3"
 
 name           = "klayspray"
+username       = "kaia"
 ssh_client_ips = ["0.0.0.0/0"]
 
+
+deploy_options = {
+  kaia_install_mode = "package"
+  kaia_version = "v1.0.3"
+  kaia_build_docker_base_image = "kaiachain/build_base:latest"
+  kaia_network_id = 9999
+  kaia_chain_id   = 9999
+}
+
 cn_options = {
-  count          = 4
-  machine_type   = "e2-medium"
+  count          = 1
+  machine_type   = "n2-standard-2"
   boot_disk_size = 30
   # compute_disk_size = 100
 }
 
 pn_options = {
-  count          = 4
-  machine_type   = "e2-medium"
+  count          = 1
+  machine_type   = "n2-standard-2"
   boot_disk_size = 30
   # compute_disk_size = 100
 }
 
 en_options = {
   count          = 1
-  machine_type   = "e2-medium"
+  machine_type   = "n2-standard-2"
   boot_disk_size = 30
   # compute_disk_size = 100
 }
 
 monitor_options = {
-  machine_type   = "e2-medium"
+  machine_type   = "n2-standard-2"
   boot_disk_size = 30
   # compute_disk_size = 100
 }

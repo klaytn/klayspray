@@ -26,12 +26,6 @@
     path: "/etc/{{ klaytn_daemon_name }}/conf"
     state: "directory"
 
-- name: "Configuration - Template klaytn configuration"
-  become: yes
-  template:
-    src: "klaytn.conf.j2"
-    dest: "/etc/{{ klaytn_daemon_name }}/conf/{{ klaytn_daemon_name }}.conf"
-
 - name: "Initialization - Create klaytn directory"
   become: yes
   file:

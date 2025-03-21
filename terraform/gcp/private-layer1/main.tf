@@ -22,6 +22,6 @@ module "layer1" {
   metadata = merge(
     var.metadata,
     local.default_metadata,
-    var.create_gcp_key_pair ? { ssh-keys = format("klay:%s klay", trimspace(module.keypair.ssh_public_key)) } : {}
+    { ssh-keys = format("%s:%s %s", var.user_name, trimspace(module.keypair.ssh_public_key), var.user_name) }
   )
 }

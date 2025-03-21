@@ -24,7 +24,7 @@ module "cn" {
   #   size = 100
   # }
 
-  tags = length(var.network_tags) > 0 ? concat(var.network_tags, ["klayspray", "cn"]) : ["klayspray", "cn"]
+  tags = length(var.network_tags) > 0 ? concat(var.network_tags) : ["klayspray", "cn"]
 
   metadata = merge(var.metadata, {
     Name = format("%s-cn-%d", var.name, count.index + 1)
@@ -57,7 +57,7 @@ module "pn" {
   #   size = 100
   # }
 
-  tags = length(var.network_tags) > 0 ? concat(var.network_tags, ["klayspray", "pn"]) : ["klayspray", "pn"]
+  tags = length(var.network_tags) > 0 ? concat(var.network_tags) : ["klayspray", "pn"]
 
   metadata = merge(var.metadata, {
     Name = format("%s-pn-%d", var.name, count.index + 1)
@@ -90,7 +90,7 @@ module "en" {
   #   size = 100
   # }
 
-  tags = length(var.network_tags) > 0 ? concat(var.network_tags, ["klayspray", "en"]) : ["klayspray", "en"]
+  tags = length(var.network_tags) > 0 ? concat(var.network_tags) : ["klayspray", "en"]
 
   metadata = merge(var.metadata, {
     Name = format("%s-en-%d", var.name, count.index + 1)
